@@ -48,14 +48,22 @@ describe('recommend', () => {
     expect(recommend(chart, { ...P, body: { chest: 108 } }).comparedAgainst).toBe('vs your body (chest 108)');
     expect(recommend(chart, { ...P, garments: { top: hoodie } }).comparedAgainst).toBe('vs your hoodie (chest 120, length 71)');
   });
-  it('detail lines only on the recommended size', () => {
+  it('detail lines for the recommended size', () => {
     const r = recommend(chart, profile('slightly_relaxed'));
-    expect(r.sizes[0]!.detail).toEqual([]);
     expect(r.sizes[1]!.detail).toEqual([
       'chest 2 cm roomier than your hoodie (relaxed)',
       'length same as your hoodie',
       'sleeves same as your hoodie (which you find slightly long)',
     ]);
+  });
+  it('neighbouring sizes get detail lines too', () => {
+    const r = recommend(chart, profile('slightly_relaxed'));
+    expect(r.sizes[0]!.detail).toContain('chest 4 cm tighter than your hoodie (relaxed → just right)');
+    expect(r.sizes[2]!.detail.find(l => l.startsWith('chest'))).toContain('roomier');
+  });
+  it('relaxed → oversized branch', () => {
+    const r = recommend(chart, profile('slightly_relaxed'));
+    expect(r.sizes[2]!.detail).toContain('chest 8 cm roomier than your hoodie (relaxed → oversized)');
   });
   it('body-only detail', () => {
     const r = recommend(chart, { ...P, body: { chest: 108 }, prefs: { ...P.prefs, top: 'slightly_relaxed' } });

@@ -61,7 +61,7 @@ export function recommend(chart: SizeChart, profile: Profile): FitResult {
     if (s !== null && s <= bestScore) { best = i; bestScore = s; } // ties go to the later (larger) row
   });
 
-  const sizes: SizeFit[] = chart.rows.map((row: ChartRow, i) => {
+  const sizes: SizeFit[] = chart.rows.map((row: ChartRow) => {
     const deltas: Measures = {};
     for (const k of KEY_ORDER) {
       if (row.measures[k] !== undefined && t[k] !== undefined) deltas[k] = row.measures[k]! - t[k]!;
@@ -70,7 +70,7 @@ export function recommend(chart: SizeChart, profile: Profile): FitResult {
       .filter(k => row.measures[k] !== undefined && (k === pk || isLengthKey(k)))
       .map(k => noteFor(k, row.measures[k]!, t[k], k === pk && isWidthKey(k) ? { body, garment: gPrimary } : {}))
       .filter(Boolean);
-    const detail = i === best ? detailFor(row.measures, t, { body: profile.body, garment }) : [];
+    const detail = detailFor(row.measures, t, { body: profile.body, garment });
     return { label: row.label, measures: row.measures, deltas, note: parts.length ? parts.join(', ') : '—', detail };
   });
 
