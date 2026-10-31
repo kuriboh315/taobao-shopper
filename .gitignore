@@ -1,0 +1,7 @@
+node_modules/
+dist/
+*.har
+.env*
+.superpowers/
+.claude-flow/
+tests/fixtures/raw/
