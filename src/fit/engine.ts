@@ -1,4 +1,5 @@
 import { garmentFor, targets } from './ease';
+import { recommendShoe } from './fallbacks';
 import { KEY_ORDER, detailFor, isLengthKey, isWidthKey, noteFor } from './notes';
 import type { Body, ChartRow, FitResult, MeasureKey, Profile, SizeChart, SizeFit } from '../shared/types';
 
@@ -21,7 +22,7 @@ export function scoreRow(measures: Measures, t: Measures): number | null {
   return overlap ? score : null;
 }
 
-/** Shoe and 'other' charts. Task 5 replaces this body with recommendShoe (src/fit/fallbacks.ts). */
+/** 'other' charts: no recommendation. (Shoes go through recommendShoe in fallbacks.ts.) */
 function recommendUnsupported(chart: SizeChart): FitResult {
   return {
     basis: 'none', recommended: null, comparedAgainst: '',
@@ -45,6 +46,7 @@ function describeAgainst(profile: Profile, cat: SizeChart['category']): string {
 
 export function recommend(chart: SizeChart, profile: Profile): FitResult {
   const cat = chart.category;
+  if (cat === 'shoe') return recommendShoe(chart, profile);
   if (cat !== 'top' && cat !== 'outerwear' && cat !== 'bottom') return recommendUnsupported(chart);
 
   const { basis, t } = targets(profile, cat);
