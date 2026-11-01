@@ -28,5 +28,13 @@ describe('ProfileSchema', () => {
 
 describe('SettingsSchema', () => {
   it('defaults model', () => expect(SettingsSchema.parse({ apiKey: 'sk-ant-x' }).model).toBe('claude-sonnet-5-5'));
+  it('accepts an optional fallbackCnyToCad in range', () => {
+    expect(SettingsSchema.parse({ apiKey: 'k' }).fallbackCnyToCad).toBeUndefined();
+    expect(SettingsSchema.parse({ apiKey: 'k', fallbackCnyToCad: 0.19 }).fallbackCnyToCad).toBe(0.19);
+  });
+  it('rejects fallbackCnyToCad out of range', () => {
+    expect(() => SettingsSchema.parse({ apiKey: 'k', fallbackCnyToCad: 2 })).toThrow();
+    expect(() => SettingsSchema.parse({ apiKey: 'k', fallbackCnyToCad: 0.01 })).toThrow();
+  });
   it('exports the default model constant', () => expect(DEFAULT_MODEL).toBe('claude-sonnet-5-5'));
 });

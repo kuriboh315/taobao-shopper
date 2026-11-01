@@ -73,6 +73,7 @@ export const ProfileSchema = z.object({
 export const SettingsSchema = z.object({
   apiKey: z.string(),
   model: z.string().min(1).default(DEFAULT_MODEL),
+  fallbackCnyToCad: z.number().min(0.05).max(1).optional(),
 });
 
 export const DEFAULT_PROFILE: Profile = {

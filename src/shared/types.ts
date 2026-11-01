@@ -14,13 +14,16 @@ export interface RefGarment { label: string; note?: string; measures: Partial<Re
 export interface ShoeRef { label: string; sizeEU?: number; sizeCN?: number; insoleCm?: number }
 export interface Profile { body: Body; garments: { top?: RefGarment; outerwear?: RefGarment; bottom?: RefGarment };
   shoe?: ShoeRef; prefs: Record<'top' | 'outerwear' | 'bottom' | 'shoe', FitPref> }
-export interface Settings { apiKey: string; model: string }
+export interface Settings { apiKey: string; model: string; fallbackCnyToCad?: number }
+export interface FxRate { cnyToCad: number; date: string /* YYYY-MM-DD */; source: 'ecb' | 'manual' }
 
 export interface ChartRow { label: string; measures: Partial<Record<MeasureKey, number>> } // cm, full circumference
 export interface HwRow { label: string; heightMin?: number; heightMax?: number; weightMinKg?: number; weightMaxKg?: number }
 export interface SizeChart { found: boolean; category: Category; rows: ChartRow[]; hwTable: HwRow[] }
 
-export interface ProductData { itemId: string; title: string; priceText?: string; skuSizes: string[];
+export interface ProductData { itemId: string; title: string; priceText?: string;
+  price?: { min: number; max: number; coupon?: number }; // CNY; min = max for a single price; coupon = 券后 price
+  skuSizes: string[];
   salesText?: string; salesCount?: number;
   shop: { name?: string; dsr?: { description?: number; service?: number; shipping?: number }; ageYears?: number; extra: string[] };
   sizeGuideText?: string; images: { main: string[]; sku: string[]; detail: string[] } }
