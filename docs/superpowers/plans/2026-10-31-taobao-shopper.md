@@ -16,7 +16,7 @@
 
 ## Global Constraints
 
-- Chinese Taobao only. Content scripts match `https://item.taobao.com/item.htm*`. Host permissions are `https://item.taobao.com/*`, `https://*.alicdn.com/*`, `https://api.anthropic.com/*` and `https://api.frankfurter.app/*` (exchange rate, Task 5b).
+- Chinese Taobao **and Tmall** (amended 2026-11-01). Content scripts match `https://item.taobao.com/item.htm*` and `https://detail.tmall.com/item.htm*`. Host permissions are `https://item.taobao.com/*`, `https://detail.tmall.com/*`, `https://*.alicdn.com/*`, `https://api.anthropic.com/*` and `https://api.frankfurter.app/*` (exchange rate, Task 5b).
 - Prices are shown in CNY and CAD (item price only, no shipping or agent fees). The rate is the ECB daily rate, cached for 24 h, with a user-set backup rate.
 - Each item starts at the user's usual fit for its category. The per-item fit selector only changes that item and is remembered for it.
 - Analysis runs **only when the user clicks**. There are no background or automatic API calls.
@@ -200,6 +200,26 @@ The page-reading code is test-first against real data, so this task comes before
 
   Record the confirmed API names in a comment at the top of `src/collect/endpoints.ts` (create the file with the patterns only). Before committing, grep the fixtures for the user's Taobao nickname and replace it with `USER`.
 - [ ] **Step 6: Commit** with message `test: add sanitized Taobao page fixtures and HAR extractor`. Do not commit `raw/`.
+
+**Amendment (2026-11-01), supersedes Step 5 above.** The user captured the pages with Option B. Files are in `tests/fixtures/raw/` (gitignored): `{tee,pants,shoes,other,tmall}.har` and `.html`.
+- **Items:**
+  - tee 939581302106 (KITH tee, no structured sizes, so its chart is in the images)
+  - pants 845432953096 (jeans, has `sizeDescList`)
+  - shoes 859369109395
+  - other 718612011162 (incense holder)
+  - tmall 693545186411 (Tmall folding chair, not clothing)
+- **What the files contain:**
+  - The HARs hold only review calls (`mtop.taobao.rate.detaillist.get`, JSONP, on `h5api.m.taobao.com` or `h5api.m.tmall.com`).
+  - Product data is server-rendered into the page as `window.__ICE_APP_CONTEXT__` (`loaderData.home.data.res`) and is saved in the `.html`.
+- **Extend `scripts/extract-fixtures.ts`:**
+  - `extractSsrFromHtml(html: string): unknown` finds the `__ICE_APP_CONTEXT__` JSON and returns `loaderData.home.data.res`, or throws a clear error.
+  - `sanitizeReviews(body)` deletes these keys from each `rateList[]` entry: `userNick, reduceUserNick, userId, headPicUrl, headFrameUrl, homepageUrl, userIndexURL, userMark, userStar, userStarPic, userTagList`. It also deletes any key whose value is a URL containing `userId=`.
+  - Test both functions with small hand-made inputs, including one asserting that no `userNick` survives.
+- **For each name, write:**
+  - `tests/fixtures/<name>/ssr.json`: the `res` object, after deleting any buyer-specific keys found under keys matching `/user(Info|Nick|Id)|buyer|address|login/i` outside `seller`.
+  - `tests/fixtures/<name>/reviews.json`: the sanitized review bodies, in request order.
+  - `tests/fixtures/<name>/expected.json`, taken from the visible values in the SSR data: `itemId`, `title`, `skuSizes` (size labels exactly as listed), `priceMin`/`priceMax`, the `sales` text, seller DSR values if present, the first 3 review `feedback` texts, and, for pants, the per-size `sizeDescList` values. The controller asks the user to confirm a printed summary.
+- **Before committing:** grep the fixtures for `userNick`, `@`, `token`, `cookie` and `_m_h5_tk`. None may appear. Commit only `tests/fixtures/<name>/`, never `raw/`.
 
 ---
 
@@ -518,6 +538,26 @@ Measuring hints, fixed copy:
 - [ ] **Step 4: Run the tests to confirm they pass.** Expected: PASS.
 - [ ] **Step 5: Commit** with message `feat(collect): intercept and parse product and review data`.
 
+**Amendment (2026-11-01), supersedes conflicting text above.** These come from real pages (ledger F1-F8). Tmall is now in scope.
+- **Sites:** `item.taobao.com/item.htm*` and `detail.tmall.com/item.htm*`. Both use the same `__ICE_APP_CONTEXT__` SSR data and the same review API. Update the manifest `content_scripts.matches` and `host_permissions` to match.
+- **Product data:** there is no `pcdetail.data.get` call.
+  - `hook.ts` (MAIN world) reads `window.__ICE_APP_CONTEXT__.loaderData.home.data.res` once the page is ready and posts `{ source:'tbs-hook', kind:'product', body: res }`.
+  - `parseProduct` takes that `res`. Take the paths from `tests/fixtures/*/ssr.json`: `item.title`, `item.itemId`, `item.vagueSellCount`, `item.images`, `seller.*` (shopName, and `evaluates` for DSR), `skuBase.props` (size and colour values) and `skuCore` (prices).
+  - Fields that can't be found stay undefined, and DOM fallbacks fill them.
+- **Structured sizes (new):** `ProductData` gains `sizeChart?: SizeChart`.
+  - `parseProduct` builds it from `skuBase.props[].values[].sizeDescList` when present, with `found:true` and the category taken from the title or props, else `'other'`.
+  - Key mapping: 胸围→chest, 衣长/裤长/裤侧长/后中长→length, 肩宽→shoulder, 袖长→sleeve, 腰围/适合腰围→waist, 臀围→hips, 大腿围/腿围→thigh, 脚口/裤脚→legOpening, 内长/内裆→inseam, 脚长→footLength.
+  - Parse values like `"68.0cm"` to numbers. Drop unknown keys.
+  - Size labels that carry body guidance (e.g. `M（108-116斤）`, `XL 120-140斤（约60-70kg）`, `175/88A`) also feed `hwTable`, converting 斤 by ÷2. Pass the size label itself through `normalizeSizeLabel`.
+  - Test against `pants` (expect waist 68/72/76…, hips 110/112/116… and length 102/103/104…, per its expected.json) and against `tee` (no `sizeChart`).
+- **Reviews:** the API is `mtop.taobao.rate.detaillist.get`, loaded by **JSONP** `<script>` with `callback=mtopjsonpN`.
+  - `hook.ts` watches for script insertion with a MutationObserver on `document` from `document_start`, and wraps `window[callback]` before it runs. Keep the fetch/XHR wrappers too.
+  - `parseReviews` reads `data.rateList[]`: `id`→id, `feedback`→text, `skuValueStr`→sku, `feedbackDate`→date. Drop empty or default texts.
+  - Test against every fixture's `reviews.json`.
+- **Detail images:** take them from `mtop.taobao.detail.getdesc` (JSONP, same hook) when seen, else from the DOM.
+- **Bundling:** `hook.js` and `content.js` must be self-contained classic scripts with no ES imports (minor carried from Task 1). Build them as IIFE bundles. Verify with a test or build check that `dist/hook.js` and `dist/content.js` contain no `import ` statements.
+- **Panel orchestration:** modify `src/panel/panel.ts` so that when `product.sizeChart?.found`, that chart is used and `readSizeChart` is **not** called, so there's no vision cost. Otherwise call `readSizeChart` as now. Add a test in `tests/panel/panel.test.ts`.
+
 ---
 
 ### Task 8: Careful review driver and content script
@@ -570,6 +610,16 @@ Measuring hints, fixed copy:
 - [ ] **Step 4: Run the tests to confirm they pass.** Expected: PASS.
 - [ ] **Step 5: Manual check on the user's browser.** Loading a real item and sending `collect` from a temporary panel button should show the progress count rising at a visibly human pace, and `done` should arrive with 40–80 reviews.
 - [ ] **Step 6: Commit** with message `feat(collect): careful review driver with captcha pause`.
+
+**Amendment (2026-11-01), supersedes conflicting text above:**
+- **No reload, ever.**
+  - Open the reviews view at most once per run, and don't toggle it if it's already open.
+  - Load more by scrolling the drawer's own scroll container (the element holding the review list, with `overflow-y: auto|scroll`), not the window.
+  - Why: a real automated session tripped Taobao's "anomaly" page after a reload and repeated drawer toggling (ledger F7).
+- **Port handling** (carried from the Task 13 review): the content script **stops collecting as soon as the panel's port disconnects**, and it handles `resume`/`finish`. Test both.
+- **Shared code:** import the message types from `src/shared/messages.ts` (Task 13). The content script must stay a self-contained bundle (see the Task 7 amendment).
+- **Extra captcha signal:** the anomaly notice (text matching `/检测到.*异常|detected an anomaly/i`) counts as a captcha. Stop and show the captcha-paused state.
+- **Sites:** it must work on both `item.taobao.com` and `detail.tmall.com`.
 
 ---
 
@@ -829,7 +879,7 @@ interface Report {
 - `error`: the message + **Retry**.
 
 **Orchestration (`panel.ts`):**
-1. On load and on `chrome.tabs.onActivated`/`onUpdated`: read the active tab URL. If it isn't `item.taobao.com/item.htm`, show `not_taobao`. Get `itemId` from the `id` query param.
+1. On load and on `chrome.tabs.onActivated`/`onUpdated`: read the active tab URL. If it isn't `item.taobao.com/item.htm` or `detail.tmall.com/item.htm`, show `not_taobao` (copy: "Open a Taobao or Tmall product page to analyse it."). Get `itemId` from the `id` query param.
 2. If there are no settings, show `no_settings`. If the cache has the item, render `buildReport(cached, await loadProfile())` immediately; otherwise show `idle`.
 3. On Analyse or Re-analyse:
    - connect the port to the tab's content script and send `collect`

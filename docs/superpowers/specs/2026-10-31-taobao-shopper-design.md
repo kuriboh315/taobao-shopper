@@ -35,7 +35,7 @@ A **Chrome extension** (Manifest V3) with a **side panel**. The user browses Chi
 
 - Listing tricks: misleading "from" prices that only cover one variant, stolen model photos, a chart that contradicts photos. The user explicitly did not choose this group.
 - Multiple user profiles.
-- Tmall, Tmall HK, overseas/English Taobao, and other platforms (e.g. 1688, Pinduoduo, JD).
+- Tmall HK, overseas/English-only Taobao, and other platforms (e.g. 1688, Pinduoduo, JD). Tmall (`detail.tmall.com`) was added to scope on 2026-11-01.
 - Buying, adding to cart, price tracking, price comparison across shops.
 - Working without the user being logged into Taobao in that browser.
 - Mobile.
@@ -109,14 +109,14 @@ Approved layout ("B revised"; mockup at `.superpowers/brainstorm/473-1793472530/
    - Product title, price, SKU options (sizes/colours), sales count, shop name + DSR scores + shop age, shop's own size guidance text if any.
    - Image URLs: main gallery, SKU images, and the long detail images (详情), which load lazily. The size chart is usually in the detail images.
    - Reviews: open the reviews view and scroll/paginate to collect **about 40–80** review texts, including the SKU purchased (size/colour) and any body stats mentioned. Prefer reviews that mention sizing (尺码, 偏大, 偏小, 身高, 体重…). **Collection is careful (decided with the user):** human-paced scrolling with randomised delays, no rapid pagination. If Taobao shows a slider captcha or verification, stop immediately and show the "captcha paused" state. Never try to solve or bypass it.
-2. **Read the size chart** with Claude vision: find the chart among the images and extract a structured table (size → measurement name → cm), plus any height/weight recommendation table. Return "not found" when appropriate, never guesses.
+2. **Read the size chart.** First use the structured per-size measurements many listings embed in their data, which costs nothing (added 2026-11-01). Only when those are absent, read the chart with Claude vision: find the chart among the images and extract a structured table (size → measurement name → cm), plus any height/weight recommendation table. Return "not found" when appropriate, never guesses.
 3. **Compute fit** in plain code (deterministic, not by the model), using the calibration method in §6: per-measurement target from body + calibrated ease + fit preference; score each size by distance from the targets; pick the best; produce per-measurement deltas and the "Fit for you" note phrased against the reference garment. The height/weight fallback is also code: a lookup against the shop's height/weight table. The model only *extracts* reviewers' stats and sizing claims; it never picks the size.
 4. **Analyse reviews** with Claude: sentiment, likes/dislikes, sizing consensus ("runs small" count), red flags with counts, and verbatim Chinese quotes with translations.
 5. **Render** the report in the side panel.
 
 ## 9. Constraints
 
-- **Chinese Taobao only** (`item.taobao.com`, Chinese interface, CNY). Tmall, Tmall HK, and the overseas/English Taobao are out of scope for now.
+- **Taobao and Tmall** (`item.taobao.com` and `detail.tmall.com`, prices in CNY). Tmall was added on 2026-11-01. The user's site may display in English: the browser translates the page, but the underlying data stays Chinese, so the tool reads the data rather than the displayed text.
 - **Account safety comes before completeness.** Fewer reviews is acceptable; tripping Taobao's anti-bot measures is not.
 - **Logged-in browser only.** Taobao hides reviews and much detail when logged out and blocks scrapers. Collection happens in the user's real tab; no headless scraping or external servers.
 - **Taobao's page structure changes often.** DOM selectors should be isolated in one module so they're easy to fix, and the collector should degrade gracefully when a field is missing (report "not found" rather than fail entirely).
