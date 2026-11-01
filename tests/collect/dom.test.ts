@@ -1,6 +1,6 @@
 // @vitest-environment jsdom
-import { describe, it, expect } from 'vitest';
-import { fillFromDom, productFromDom } from '../../src/collect/dom';
+import { describe, it, expect, vi } from 'vitest';
+import { fillFromDom, findReviewScroller, openReviewsView, productFromDom } from '../../src/collect/dom';
 import type { ProductData } from '../../src/shared/types';
 
 const HTML = `
@@ -66,5 +66,83 @@ describe('fillFromDom', () => {
   it('keeps existing detail images', () => {
     const p = { ...base, images: { ...base.images, detail: ['https://img.alicdn.com/x.jpg'] } };
     expect(fillFromDom(p, productFromDom(doc(HTML))).images.detail).toEqual(['https://img.alicdn.com/x.jpg']);
+  });
+});
+
+// ---- review view (uses the live jsdom document: getComputedStyle needs a window) ----
+
+/** jsdom has no layout: give scrollable-looking elements a height. */
+function showing(el: Element | null): HTMLElement {
+  Object.defineProperty(el!, 'clientHeight', { configurable: true, get: () => 500 });
+  return el as HTMLElement;
+}
+
+const PREVIEW_IN_SCROLLING_LAYOUT = `
+  <div class="layout--main" style="overflow-y: auto">
+    <div class="Comments--eCO">
+      <div class="comments--Chx" style="overflow-y: hidden"><div class="Comment--H5Q">好</div></div>
+      <div class="footer--g"><div class="ShowButton--f">View all reviews</div></div>
+    </div>
+  </div>`;
+
+const waiter = { sleep: async () => {}, stopped: () => false };
+
+describe('findReviewScroller', () => {
+  it('never picks a scrollable layout wrapper around the inline preview', () => {
+    document.body.innerHTML = PREVIEW_IN_SCROLLING_LAYOUT;
+    showing(document.querySelector('.layout--main'));
+    showing(document.querySelector('.comments--Chx'));
+    expect(findReviewScroller(document)).toBeNull();
+  });
+
+  it("picks the drawer's review list when the drawer is open", () => {
+    document.body.innerHTML = `${PREVIEW_IN_SCROLLING_LAYOUT}
+      <div class="Drawer--nzZ"><div class="content--nux" style="overflow-y: auto">
+        <div class="Comments--eCO"><div class="comments--Chx list" style="overflow-y: scroll">
+          <div class="Comment--H5Q">a</div><div class="Comment--H5Q">b</div>
+        </div></div>
+      </div></div>`;
+    showing(document.querySelector('.layout--main'));
+    showing(document.querySelector('.content--nux'));
+    const list = showing(document.querySelector('.comments--Chx.list'));
+    expect(findReviewScroller(document)).toBe(list);
+  });
+});
+
+describe('openReviewsView', () => {
+  it('clicks the control when only the inline preview is in a scrollable layout', async () => {
+    document.body.innerHTML = PREVIEW_IN_SCROLLING_LAYOUT;
+    showing(document.querySelector('.layout--main'));
+    const click = vi.fn();
+    document.querySelector('.ShowButton--f')!.addEventListener('click', click);
+    await openReviewsView(document, waiter);
+    expect(click).toHaveBeenCalledTimes(1);
+  });
+
+  it('never clicks a link that could navigate', async () => {
+    document.body.innerHTML = '<a href="https://rate.taobao.com/list?id=1">View all reviews</a>';
+    const click = vi.fn((e: Event) => e.preventDefault());
+    document.addEventListener('click', click);
+    try {
+      expect(await openReviewsView(document, waiter)).toBe(false);
+      expect(click).not.toHaveBeenCalled();
+    } finally {
+      document.removeEventListener('click', click);
+    }
+  });
+
+  it('skips a navigating link for the next candidate; script-only links are fine', async () => {
+    document.body.innerHTML = `
+      <a href="//rate.tmall.com/list"><span>查看全部评价</span></a>
+      <a href="javascript:;" class="tab">User Reviews</a>`;
+    const click = vi.fn((e: Event) => e.preventDefault());
+    document.addEventListener('click', click);
+    try {
+      await openReviewsView(document, waiter);
+      expect(click).toHaveBeenCalledTimes(1);
+      expect((click.mock.calls[0]![0] as Event).target).toBe(document.querySelector('.tab'));
+    } finally {
+      document.removeEventListener('click', click);
+    }
   });
 });

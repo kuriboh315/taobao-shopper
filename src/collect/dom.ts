@@ -114,24 +114,40 @@ export interface Waiter {
   stopped(): boolean;
 }
 
+/** The "all reviews" drawer or modal, e.g. `Drawer--nzZd5HyY` in the Taobao and Tmall snapshots. */
+const REVIEW_DRAWER = '[class*="Drawer--"], [class*="drawer"], [role="dialog"], dialog';
+/** The review list inside it, e.g. `comments--ChxC7GEN`. */
+const REVIEW_LIST_CLASS = /comments--/i;
+
 /**
- * The element that scrolls the review list: the closest ancestor of a review with `overflow-y: auto|scroll` that is
- * showing. The inline preview (`overflow-y: hidden`) never qualifies, and neither does the page itself.
+ * The element that scrolls the review list: inside the reviews drawer/modal only, the closest ancestor of a review
+ * whose class looks like the review list (`comments--`), with `overflow-y: auto|scroll`, that is showing. Reviews in
+ * the inline page preview never qualify, so a scrollable page layout wrapper is never chosen.
  */
 export function findReviewScroller(doc: Document): HTMLElement | null {
   const view = doc.defaultView;
   if (!view) return null;
-  const top = new Set<Element | null>([doc.documentElement, doc.body, doc.scrollingElement]);
   const checked = new Set<Element>();
   for (const item of doc.querySelectorAll(REVIEW_ITEM)) {
-    for (let el = item.parentElement; el && !top.has(el); el = el.parentElement) {
+    const drawer = item.closest(REVIEW_DRAWER);
+    if (!drawer) continue;
+    for (let el = item.parentElement; el && el !== drawer; el = el.parentElement) {
       if (checked.has(el)) break;
       checked.add(el);
+      if (!REVIEW_LIST_CLASS.test(el.getAttribute('class') ?? '')) continue;
       const overflow = view.getComputedStyle(el).overflowY;
-      if ((overflow === 'auto' || overflow === 'scroll') && el.clientHeight > 0) return el;
+      if ((overflow === 'auto' || overflow === 'scroll') && el.clientHeight > 0) return el as HTMLElement;
     }
   }
   return null;
+}
+
+/** True when clicking `el` could follow a link: it is, or is inside, an `<a>` with a real href. */
+function couldNavigate(el: Element): boolean {
+  const a = el.closest('a[href]');
+  if (!a) return false;
+  const href = (a.getAttribute('href') ?? '').trim();
+  return href !== '' && href !== '#' && !/^javascript:/i.test(href);
 }
 
 function normText(el: Element): string {
@@ -154,7 +170,10 @@ function* textNodes(doc: Document): Generator<Text> {
   }
 }
 
-/** The innermost element whose text is the label, i.e. what a user would click. */
+/**
+ * The innermost element whose text is the label, i.e. what a user would click. Controls that could navigate
+ * (links with a real href) are never returned.
+ */
 function findOpenControl(doc: Document): HTMLElement | null {
   const holders: HTMLElement[] = [];
   for (const n of textNodes(doc)) {
@@ -163,7 +182,7 @@ function findOpenControl(doc: Document): HTMLElement | null {
     if (p && 'click' in p && v.length <= MAX_LABEL_LENGTH && /\S/.test(v)) holders.push(p as HTMLElement);
   }
   for (const label of OPEN_REVIEW_LABELS) {
-    const hit = holders.find((el) => labelMatches(el, label));
+    const hit = holders.find((el) => labelMatches(el, label) && !couldNavigate(el));
     if (hit) return hit;
   }
   return null;
