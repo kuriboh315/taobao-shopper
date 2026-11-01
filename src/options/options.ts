@@ -1,5 +1,5 @@
 import { ZodError } from 'zod';
-import { DEFAULT_MODEL, SettingsSchema } from '../shared/schemas';
+import { DEFAULT_MODEL, ProfileSchema, SettingsSchema } from '../shared/schemas';
 import { loadProfile, loadSettings, saveProfile, saveSettings } from '../profile/storage';
 import type { Body, FitPref, LengthTag, MeasureKey, Profile, RefGarment, RefMeasure, Settings, ShoeRef, WidthTag } from '../shared/types';
 
@@ -31,10 +31,16 @@ const SLEEVE: MeasureDef = { key: 'sleeve', label: 'Sleeve', kind: 'length', hin
 const WAIST: MeasureDef = { key: 'waist', label: 'Waist', kind: 'width', hint: 'Lay flat, measure across the waistband, then double it.' };
 const INSEAM: MeasureDef = { key: 'inseam', label: 'Inseam', kind: 'length', hint: 'From the crotch seam to the hem.' };
 
+const SHOULDER: MeasureDef = { key: 'shoulder', label: 'Shoulder', kind: 'width', hint: 'Lay flat, measure seam to seam across the back.' };
+const HIPS: MeasureDef = { key: 'hips', label: 'Hips', kind: 'width', hint: 'Lay flat, measure across the widest part of the seat, then double it.' };
+const BOTTOM_LENGTH: MeasureDef = { key: 'length', label: 'Length', kind: 'length', hint: 'From the top of the waistband to the hem.' };
+const THIGH: MeasureDef = { key: 'thigh', label: 'Thigh', kind: 'width', hint: 'Lay flat, measure across the leg just below the crotch, then double it.' };
+const LEG_OPENING: MeasureDef = { key: 'legOpening', label: 'Leg opening', kind: 'width', hint: 'Lay flat, measure across the hem, then double it.' };
+
 const GARMENTS: { cat: GarmentCat; title: string; hint?: string; measures: MeasureDef[] }[] = [
-  { cat: 'top', title: 'Top you know fits', measures: [CHEST, LENGTH, SLEEVE] },
-  { cat: 'outerwear', title: 'Outerwear you know fits (optional)', hint: 'Leave blank if you have none; uses Top if empty.', measures: [CHEST, LENGTH, SLEEVE] },
-  { cat: 'bottom', title: 'Bottom you know fits', measures: [WAIST, INSEAM] },
+  { cat: 'top', title: 'Top you know fits', measures: [CHEST, LENGTH, SHOULDER, SLEEVE] },
+  { cat: 'outerwear', title: 'Outerwear you know fits (optional)', hint: 'Leave blank if you have none; uses Top if empty.', measures: [CHEST, LENGTH, SHOULDER, SLEEVE] },
+  { cat: 'bottom', title: 'Bottom you know fits', measures: [WAIST, HIPS, BOTTOM_LENGTH, INSEAM, THIGH, LEG_OPENING] },
 ];
 
 const SHOE_FIELDS: { key: 'sizeEU' | 'sizeCN' | 'insoleCm'; label: string; unit?: string }[] = [
@@ -259,22 +265,23 @@ async function save(root: HTMLElement): Promise<void> {
   status.textContent = '';
   if (missingTags(root) > 0) { status.textContent = 'Fix the highlighted fields.'; return; }
 
+  // Validate both first; save neither unless both are valid.
+  const profile = readForm(root);
   const settings = readSettings(root);
+  const profileCheck = ProfileSchema.safeParse(profile);
   const settingsCheck = SettingsSchema.safeParse(settings);
-  let failed = false;
-  if (!settingsCheck.success) {
-    showZodErrors(root, settingsCheck.error, ['settings']);
-    failed = true;
-  }
+  if (!profileCheck.success) showZodErrors(root, profileCheck.error);
+  if (!settingsCheck.success) showZodErrors(root, settingsCheck.error, ['settings']);
+  if (!profileCheck.success || !settingsCheck.success) { status.textContent = 'Fix the highlighted fields.'; return; }
   try {
-    await saveProfile(readForm(root));
+    await saveProfile(profile);
+    await saveSettings(settings);
   } catch (e) {
     if (!(e instanceof ZodError)) throw e;
     showZodErrors(root, e);
-    failed = true;
+    status.textContent = 'Fix the highlighted fields.';
+    return;
   }
-  if (failed) { status.textContent = 'Fix the highlighted fields.'; return; }
-  await saveSettings(settings);
   status.textContent = 'Saved.';
 }
 

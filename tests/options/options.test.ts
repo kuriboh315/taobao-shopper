@@ -13,7 +13,6 @@ vi.mock('../../src/profile/storage', () => ({
 
 import * as storage from '../../src/profile/storage';
 import { mountOptions, readForm, fillForm } from '../../src/options/options';
-import { ProfileSchema } from '../../src/shared/schemas';
 import type { Profile } from '../../src/shared/types';
 
 let root: HTMLElement;
@@ -102,15 +101,34 @@ describe('options page', () => {
     await flush();
     expect(root.querySelector('[data-row="settings.fallbackCnyToCad"] .error')!.textContent).not.toBe('');
     expect(storage.saveSettings).not.toHaveBeenCalled();
+    expect(storage.saveProfile).not.toHaveBeenCalled();
   });
 
-  it('shows a schema error next to the offending field', async () => {
+  it('shows a schema error next to the offending field and saves neither', async () => {
     set('body.chest', '9999');
-    const bad = ProfileSchema.safeParse({ ...readForm(root) });
-    if (bad.success) throw new Error('expected invalid profile');
-    vi.mocked(storage.saveProfile).mockRejectedValueOnce(bad.error);
     save();
     await flush();
     expect(root.querySelector('[data-row="body.chest"] .error')!.textContent).not.toBe('');
+    expect(storage.saveProfile).not.toHaveBeenCalled();
+    expect(storage.saveSettings).not.toHaveBeenCalled();
+  });
+
+  it('reads the full set of garment measures', () => {
+    set('garment.top.shoulder.value', '46');
+    set('garment.top.shoulder.tag', 'relaxed');
+    set('garment.bottom.hips.value', '100');
+    set('garment.bottom.hips.tag', 'just_right');
+    set('garment.bottom.thigh.value', '60');
+    set('garment.bottom.thigh.tag', 'fitted');
+    set('garment.bottom.legOpening.value', '40');
+    set('garment.bottom.legOpening.tag', 'relaxed');
+    set('garment.bottom.length.value', '100');
+    set('garment.bottom.length.tag', 'slightly_long');
+    const g = readForm(root).garments;
+    expect(g.top?.measures.shoulder).toEqual({ value: 46, tag: 'relaxed' });
+    expect(g.bottom?.measures).toEqual({
+      hips: { value: 100, tag: 'just_right' }, thigh: { value: 60, tag: 'fitted' },
+      legOpening: { value: 40, tag: 'relaxed' }, length: { value: 100, tag: 'slightly_long' },
+    });
   });
 });
