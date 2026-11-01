@@ -1,4 +1,5 @@
 import type { ProductData } from '../shared/types';
+import { CAPTCHA_SELECTORS, CAPTCHA_URL } from './endpoints';
 import { normalizeImageUrl, parseSalesCount } from './parse';
 
 // ---- selectors and patterns ----------------------------------------------------
@@ -85,4 +86,147 @@ export function fillFromDom(product: ProductData, dom: Partial<ProductData>): Pr
     if (out.images[k].length === 0 && dom.images?.[k].length) out.images[k] = dom.images[k];
   }
   return out;
+}
+
+// ---- review view (Taobao and Tmall share the same review components) -------------
+
+/** One review in the inline preview or the "all reviews" drawer, e.g. `Comment--H5QmJwe9`. */
+export const REVIEW_ITEM = '[class*="Comment--"]';
+/**
+ * Labels of the control that opens all reviews, most specific first. Matched against the whole (short) text of an
+ * element, so a review that mentions 宝贝评价 never matches. The user's page may be machine-translated to English.
+ */
+const OPEN_REVIEW_LABELS = [/^(?:查看)?全部评价/, /^View all reviews/i, /^宝贝评价/, /^User Reviews/i];
+const MAX_LABEL_LENGTH = 30;
+const ANOMALY_TEXT = /检测到.*异常|detected an anomaly/i;
+const NON_TEXT_TAGS = new Set(['SCRIPT', 'STYLE', 'NOSCRIPT', 'TEMPLATE']);
+/** Scroll step, as a share of the review list's visible height. */
+const SCROLL_STEP = 0.8;
+const POLL_MS = 250;
+/** How long to wait for the drawer to appear after the click. */
+const OPEN_WAIT_MS = 5000;
+/** How long to wait for new reviews at the bottom of the list. */
+const LOAD_WAIT_MS = 4000;
+
+/** Waiting primitives; `stopped` ends a wait early (port disconnected or run finished). */
+export interface Waiter {
+  sleep(ms: number): Promise<void>;
+  stopped(): boolean;
+}
+
+/**
+ * The element that scrolls the review list: the closest ancestor of a review with `overflow-y: auto|scroll` that is
+ * showing. The inline preview (`overflow-y: hidden`) never qualifies, and neither does the page itself.
+ */
+export function findReviewScroller(doc: Document): HTMLElement | null {
+  const view = doc.defaultView;
+  if (!view) return null;
+  const top = new Set<Element | null>([doc.documentElement, doc.body, doc.scrollingElement]);
+  const checked = new Set<Element>();
+  for (const item of doc.querySelectorAll(REVIEW_ITEM)) {
+    for (let el = item.parentElement; el && !top.has(el); el = el.parentElement) {
+      if (checked.has(el)) break;
+      checked.add(el);
+      const overflow = view.getComputedStyle(el).overflowY;
+      if ((overflow === 'auto' || overflow === 'scroll') && el.clientHeight > 0) return el;
+    }
+  }
+  return null;
+}
+
+function normText(el: Element): string {
+  return el.textContent?.replace(/\s+/g, ' ').trim() ?? '';
+}
+
+function labelMatches(el: Element, label: RegExp): boolean {
+  const t = normText(el);
+  return t.length <= MAX_LABEL_LENGTH && label.test(t) && !el.closest(REVIEW_ITEM);
+}
+
+/** Text nodes of the page body outside scripts and styles. */
+function* textNodes(doc: Document): Generator<Text> {
+  if (!doc.body) return;
+  const SHOW_TEXT = 4;
+  const walker = doc.createTreeWalker(doc.body, SHOW_TEXT);
+  for (let n = walker.nextNode(); n; n = walker.nextNode()) {
+    const parent = n.parentElement;
+    if (parent && !NON_TEXT_TAGS.has(parent.tagName)) yield n as Text;
+  }
+}
+
+/** The innermost element whose text is the label, i.e. what a user would click. */
+function findOpenControl(doc: Document): HTMLElement | null {
+  const holders: HTMLElement[] = [];
+  for (const n of textNodes(doc)) {
+    const v = n.nodeValue ?? '';
+    const p = n.parentElement;
+    if (p && 'click' in p && v.length <= MAX_LABEL_LENGTH && /\S/.test(v)) holders.push(p as HTMLElement);
+  }
+  for (const label of OPEN_REVIEW_LABELS) {
+    const hit = holders.find((el) => labelMatches(el, label));
+    if (hit) return hit;
+  }
+  return null;
+}
+
+/**
+ * Shows all reviews with at most one click: does nothing if a scrollable review list is already showing, else
+ * clicks the "all reviews" control once and waits for the list. True when a scrollable list is showing.
+ */
+export async function openReviewsView(doc: Document, wait: Waiter): Promise<boolean> {
+  if (findReviewScroller(doc)) return true;
+  const control = findOpenControl(doc);
+  if (!control) return false;
+  control.click();
+  for (let waited = 0; waited < OPEN_WAIT_MS; waited += POLL_MS) {
+    if (findReviewScroller(doc)) return true;
+    await wait.sleep(POLL_MS);
+    if (wait.stopped()) return false;
+  }
+  return findReviewScroller(doc) !== null;
+}
+
+/**
+ * Scrolls the review list (never the window) by 0.8x its visible height. True when it moved further down without
+ * reaching the bottom, or when new reviews arrived within ~4 s; false at the bottom with nothing new.
+ */
+export async function scrollReviewsOnce(doc: Document, wait: Waiter & { count(): number }): Promise<boolean> {
+  const el = findReviewScroller(doc);
+  if (!el) return false;
+  const reviewsBefore = wait.count();
+  const itemsBefore = el.querySelectorAll(REVIEW_ITEM).length;
+  const heightBefore = el.scrollHeight;
+  const topBefore = el.scrollTop;
+  el.scrollTop = topBefore + Math.max(1, Math.round(el.clientHeight * SCROLL_STEP));
+  const moved = el.scrollTop > topBefore;
+  const atBottom = el.scrollTop + el.clientHeight >= el.scrollHeight - 2;
+  if (moved && !atBottom) return true;
+  const grew = () => wait.count() > reviewsBefore
+    || el.querySelectorAll(REVIEW_ITEM).length > itemsBefore
+    || el.scrollHeight > heightBefore;
+  for (let waited = 0; waited < LOAD_WAIT_MS; waited += POLL_MS) {
+    await wait.sleep(POLL_MS);
+    if (wait.stopped()) return false;
+    if (grew()) return true;
+  }
+  return false;
+}
+
+/**
+ * Page text outside scripts and reviews, for the anomaly notice. One line per text node, so `.*` in the pattern
+ * can't join words from unrelated parts of the page.
+ */
+function noticeText(doc: Document): string {
+  const lines: string[] = [];
+  for (const n of textNodes(doc)) {
+    if (!n.parentElement?.closest(REVIEW_ITEM)) lines.push((n.nodeValue ?? '').replace(/\s+/g, ' '));
+  }
+  return lines.join('\n');
+}
+
+/** True when the page shows a captcha, a verification page or Taobao's "anomaly detected" notice. */
+export function captchaVisible(doc: Document, href = doc.location?.href ?? ''): boolean {
+  if (CAPTCHA_URL.test(href)) return true;
+  if (doc.querySelector(CAPTCHA_SELECTORS.join(','))) return true;
+  return ANOMALY_TEXT.test(noticeText(doc));
 }
