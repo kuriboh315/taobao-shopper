@@ -177,8 +177,8 @@ export function normalizeChart(raw: unknown, skuSizes: string[], category: Categ
     .sort((a, b) => rank(a.r) - rank(b.r) || a.i - b.i)
     .map((x) => x.r);
 
-  // An hw-only table is still usable by the fit engine, so it keeps `found` true.
-  return { found: rows.length > 0 || hwTable.length > 0, category, rows, hwTable };
+  // `found` reflects size rows only; hwTable is still returned for the no-chart path.
+  return { found: rows.length > 0, category, rows, hwTable };
 }
 
 // ---- two-pass reading ------------------------------------------------------

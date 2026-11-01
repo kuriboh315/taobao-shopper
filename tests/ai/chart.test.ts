@@ -35,6 +35,16 @@ describe('normalizeChart', () => {
     ]);
   });
 
+  it('is not found for an hw-only chart but still returns the hwTable in kg', () => {
+    const c = normalizeChart(
+      { found: true, unit: 'cm', rows: [], hw: [{ label: 'M', heightMin: 165, heightMax: 170, weightMin: 130, weightMax: 150, weightUnit: 'jin' }] },
+      [],
+    );
+    expect(c.found).toBe(false);
+    expect(c.rows).toEqual([]);
+    expect(c.hwTable).toEqual([{ label: 'M', heightMin: 165, heightMax: 170, weightMinKg: 65, weightMaxKg: 75 }]);
+  });
+
   it('drops a negative measure but keeps the rest of the row', () => {
     const c = normalizeChart({ ...base, rows: [row('M', [m('chest', -3), m('length', 70)])] }, []);
     expect(c.rows[0]!.measures).toEqual({ length: 70 });
