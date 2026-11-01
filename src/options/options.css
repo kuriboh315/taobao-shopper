@@ -1,0 +1,18 @@
+body { font: 14px/1.4 system-ui, sans-serif; color: #1b1b1f; background: #f6f6f8; margin: 0; }
+main { max-width: 640px; margin: 0 auto; padding: 24px 16px 48px; }
+h1 { font-size: 20px; margin: 0 0 8px; }
+fieldset { background: #fff; border: 1px solid #dcdce2; border-radius: 8px; margin: 16px 0; padding: 8px 16px 12px; }
+legend { font-weight: 600; padding: 0 6px; }
+.row { display: grid; grid-template-columns: 200px 1fr auto; gap: 2px 8px; align-items: center; padding: 6px 0; }
+.row label { grid-column: 1; }
+.row .controls { grid-column: 2; display: flex; gap: 6px; }
+.row .unit { grid-column: 3; color: #666; }
+.row .hint, .row .error { grid-column: 2 / 4; margin: 0; }
+.hint { color: #666; font-size: 12px; }
+.error { color: #b3261e; font-size: 12px; }
+.error:empty { display: none; }
+input, select { font: inherit; padding: 4px 6px; border: 1px solid #b9b9c3; border-radius: 4px; min-width: 0; }
+input[type="number"] { width: 90px; }
+input[type="text"], input[type="password"] { width: 100%; }
+button { font: inherit; padding: 8px 20px; border: 0; border-radius: 6px; background: #1a56db; color: #fff; cursor: pointer; }
+#status { margin-left: 12px; color: #1a7f37; }
