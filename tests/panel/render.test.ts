@@ -220,7 +220,7 @@ describe('renderState', () => {
   const show = (s: PanelState, handlers = {}) => { renderState(root, s, handlers); return root.textContent!; };
 
   it('not_taobao', () => {
-    expect(show({ kind: 'not_taobao' })).toContain('Open a Taobao product page (item.taobao.com) to analyse it.');
+    expect(show({ kind: 'not_taobao' })).toContain('Open a Taobao or Tmall product page to analyse it.');
   });
   it('no_settings with a button to open options', () => {
     const onSettings = vi.fn();

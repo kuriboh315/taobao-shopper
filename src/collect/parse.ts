@@ -139,7 +139,9 @@ export function parseProduct(res: unknown, itemId: string): ProductData {
   if (discounted.length === 0) discounted = numbers(comp?.priceVO?.extraPrice?.priceText).slice(0, 1);
   if (list.length > 0) {
     product.price = { min: Math.min(...list), max: Math.max(...list) };
-    if (discounted.length > 0) product.price.coupon = Math.min(...discounted);
+    // Only a real discount: a "discounted" price equal to the list price would show "¥138 (was ¥138)".
+    const coupon = discounted.length > 0 ? Math.min(...discounted) : undefined;
+    if (coupon !== undefined && coupon < product.price.min) product.price.coupon = coupon;
   }
 
   // Sales.

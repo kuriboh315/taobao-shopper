@@ -128,7 +128,7 @@ export function renderState(root: HTMLElement, s: PanelState, h: StateHandlers =
   let body: HTMLElement;
   switch (s.kind) {
     case 'not_taobao':
-      body = card('Open a Taobao product page (item.taobao.com) to analyse it.');
+      body = card('Open a Taobao or Tmall product page to analyse it.');
       break;
     case 'no_settings':
       body = card('Add your Anthropic API key in Settings first.', button('Open Settings', h.onSettings));

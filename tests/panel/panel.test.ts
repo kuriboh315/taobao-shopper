@@ -99,7 +99,7 @@ describe('panel states on load', () => {
   it('shows not_taobao for other sites', async () => {
     const t = setup({ getActiveTab: vi.fn(async () => ({ id: 1, url: 'https://www.baidu.com' })) });
     await t.start();
-    await waitFor(t.root, 'Open a Taobao product page (item.taobao.com) to analyse it.');
+    await waitFor(t.root, 'Open a Taobao or Tmall product page to analyse it.');
   });
 
   it('shows no_settings and opens the options page', async () => {
@@ -132,7 +132,7 @@ describe('panel states on load', () => {
     await waitFor(t.root, 'Chart says XL');
     (t.deps.getActiveTab as ReturnType<typeof vi.fn>).mockResolvedValue({ id: 2, url: 'https://www.baidu.com' });
     t.changeTab();
-    await waitFor(t.root, 'Open a Taobao product page');
+    await waitFor(t.root, 'Open a Taobao or Tmall product page');
   });
 });
 

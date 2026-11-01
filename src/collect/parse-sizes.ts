@@ -40,6 +40,8 @@ const LABEL_NOISE = new RegExp(`【[^】]*】|\\[[^\\]]*\\]|\\([^)]*\\)|（[^）
 const GB_SIZE = /^(1[4-9]\d)\/\d{2,3}[A-Z]?$/i;
 const GB_HALF_STEP = 2;
 const CELL_EMPTY = /^[-—–]?$/;
+/** Unlabelled height/weight tables whose largest weight exceeds this are in 斤 (jin), not kg. */
+const JIN_THRESHOLD = 110;
 const MIN_CM = 5;
 const MAX_CM = 300;
 
@@ -148,20 +150,25 @@ function hwFromHeightTable(table: unknown): HwRow[] {
   if (!g || g.length < 2) return [];
   const corner = g[0]![0] ?? '';
   const weightsFirst = /^体重/.test(corner);
-  const jin = /斤/.test(corner);
-  const out: HwRow[] = [];
+  const cells: { label: string; h: [number, number]; w: [number, number]; wText: string }[] = [];
   for (const col of g.slice(1)) {
     for (let r = 1; r < col.length; r++) {
       const label = col[r]!;
       if (CELL_EMPTY.test(label)) continue;
+      const wText = weightsFirst ? g[0]![r] ?? '' : col[0]!;
       const h = bounds(weightsFirst ? col[0]! : g[0]![r] ?? '');
-      const w = bounds(weightsFirst ? g[0]![r] ?? '' : col[0]!);
-      if (!h || !w) continue;
-      const k = jin ? 0.5 : 1;
-      out.push({ label, heightMin: h[0], heightMax: h[1], weightMinKg: w[0] * k, weightMaxKg: w[1] * k });
+      const w = bounds(wText);
+      if (h && w) cells.push({ label, h, w, wText });
     }
   }
-  return out;
+  // Explicit 斤/kg labels win; an unlabelled table is 斤 when its largest weight exceeds JIN_THRESHOLD.
+  const labels = [corner, ...cells.map((c) => c.wText)].join(' ');
+  const jin = /斤/.test(labels) ? true
+    : /kg|公斤/i.test(labels) ? false
+    : Math.max(0, ...cells.map((c) => c.w[1])) > JIN_THRESHOLD;
+  const k = jin ? 0.5 : 1;
+  return cells.map(({ label, h, w }) =>
+    ({ label, heightMin: h[0], heightMax: h[1], weightMinKg: w[0] * k, weightMaxKg: w[1] * k }));
 }
 
 function sizeTables(componentsVO: unknown): { sizeTable?: unknown; heightTable?: unknown } {

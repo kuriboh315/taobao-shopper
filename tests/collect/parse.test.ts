@@ -112,6 +112,29 @@ describe('structured size chart', () => {
     ]);
   });
 
+  describe('height/weight table units', () => {
+    const col = (...v: string[]) => ({ data: v.map(value => ({ value })) });
+    const hw = (corner: string, w1: string, w2: string) => parseProduct({
+      item: { title: '裤子' },
+      componentsVO: { sizeTableVO: { sizeTableTaoDetailView: { datas: { sizeData: {
+        heightTable: { data: [{ data: { columnsData: [col(corner, '170-175'), col(w1, 'M'), col(w2, 'L')] } }] },
+      } } } } },
+    }, 'x').sizeChart!.hwTable.map(r => [r.weightMinKg, r.weightMaxKg]);
+
+    it('treats an unlabelled table with weights over 110 as 斤', () => {
+      expect(hw('身高/体重', '100-120', '121-140')).toEqual([[50, 60], [60.5, 70]]);
+    });
+
+    it('treats an unlabelled table with small weights as kg', () => {
+      expect(hw('身高/体重', '50-60', '60-70')).toEqual([[50, 60], [60, 70]]);
+    });
+
+    it('lets explicit labels win', () => {
+      expect(hw('身高/体重(kg)', '100-120', '121-140')).toEqual([[100, 120], [121, 140]]);
+      expect(hw('身高/体重', '80-100斤', '100-110斤')).toEqual([[40, 50], [50, 55]]);
+    });
+  });
+
   it('reads body guidance from labels in several styles', () => {
     const res = {
       item: { title: '夹克外套', itemId: '9' },
@@ -174,6 +197,14 @@ describe('parseProduct robustness', () => {
     expect(p.price).toEqual({ min: 129, max: 159, coupon: 99 });
     expect(p.salesText).toBe('已售 1万+');
     expect(p.salesCount).toBe(10000);
+  });
+
+  it('leaves the discounted price unset when it is not below the list price', () => {
+    const sku = (list: string, subPrice: string) => ({ price: { priceText: list }, subPrice: { priceText: subPrice } });
+    const equal = parseProduct({ skuCore: { sku2info: { 0: sku('138', '138'), 1: sku('138', '138') } } }, 'x');
+    expect(equal.price).toEqual({ min: 138, max: 138 });
+    const higher = parseProduct({ componentsVO: { priceVO: { price: { priceText: '99' }, extraPrice: { priceText: '120' } } } }, 'x');
+    expect(higher.price).toEqual({ min: 99, max: 99 });
   });
 });
 
