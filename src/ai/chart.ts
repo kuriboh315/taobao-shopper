@@ -183,6 +183,28 @@ export function normalizeChart(raw: unknown, skuSizes: string[], category: Categ
   return { found: rows.length > 0, category, rows, hwTable };
 }
 
+/**
+ * Combines the photo chart (primary) with the page's structured chart for the same product.
+ * Photo found: photo rows, with measurement keys they lack filled from the structured row of the same size.
+ * Photo not found: the structured chart, if it has rows. Neither: found:false with whichever hwTable exists.
+ */
+export function mergeCharts(photo: SizeChart, structured: SizeChart | undefined): SizeChart {
+  const hwTable = photo.hwTable.length > 0 ? photo.hwTable : structured?.hwTable ?? [];
+  if (photo.found) {
+    const byLabel = new Map((structured?.rows ?? []).map((r) => [normalizeSizeLabel(r.label), r.measures]));
+    const rows = photo.rows.map((r) => ({
+      label: r.label,
+      measures: { ...byLabel.get(normalizeSizeLabel(r.label)), ...r.measures },
+    }));
+    return { ...photo, rows, hwTable };
+  }
+  if (structured?.found) {
+    return { ...structured, hwTable: structured.hwTable.length > 0 ? structured.hwTable : photo.hwTable };
+  }
+  const category = photo.category !== 'other' ? photo.category : structured?.category ?? 'other';
+  return { found: false, category, rows: [], hwTable };
+}
+
 // ---- two-pass reading ------------------------------------------------------
 
 export type ChartDeps = {

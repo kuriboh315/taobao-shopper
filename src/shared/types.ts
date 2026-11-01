@@ -26,7 +26,8 @@ export interface ProductData { itemId: string; title: string; priceText?: string
   skuSizes: string[];
   salesText?: string; salesCount?: number;
   shop: { name?: string; dsr?: { description?: number; service?: number; shipping?: number }; ageYears?: number; extra: string[] };
-  sizeGuideText?: string; images: { main: string[]; sku: string[]; detail: string[] } }
+  sizeGuideText?: string; images: { main: string[]; sku: string[]; detail: string[] };
+  sizeChart?: SizeChart } // structured size data from the page (sizeDescList or size-table component)
 export interface Review { id: string; text: string; sku?: string; date?: string }
 
 export type Sizing = 'runs_small' | 'runs_large' | 'true_to_size';

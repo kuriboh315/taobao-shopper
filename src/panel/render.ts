@@ -48,8 +48,9 @@ function header(hint: string | null, tabs: [string, string, string?][] = []): HT
 
 function priceBlock(price: NonNullable<Report['price']>): HTMLElement {
   return el('div', { class: 'price' },
-    el('div', { class: 'main' }, price.cad ? `${price.cny} ≈ ${price.cad}` : price.cny),
-    price.coupon ? el('div', { class: 'muted' }, price.coupon) : null,
+    el('div', { class: 'main' }, price.discounted
+      ? `${price.discounted} (was ${price.cny})`
+      : price.cad ? `${price.cny} ≈ ${price.cad}` : price.cny),
     el('div', { class: 'muted' }, price.rateNote ?? 'CAD rate unavailable'));
 }
 

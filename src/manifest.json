@@ -6,6 +6,7 @@
   "permissions": ["sidePanel", "storage", "activeTab", "tabs"],
   "host_permissions": [
     "https://item.taobao.com/*",
+    "https://detail.tmall.com/*",
     "https://*.alicdn.com/*",
     "https://api.anthropic.com/*",
     "https://api.frankfurter.app/*"
@@ -15,13 +16,13 @@
   "options_page": "options.html",
   "content_scripts": [
     {
-      "matches": ["https://item.taobao.com/item.htm*"],
+      "matches": ["https://item.taobao.com/item.htm*", "https://detail.tmall.com/item.htm*"],
       "js": ["hook.js"],
       "world": "MAIN",
       "run_at": "document_start"
     },
     {
-      "matches": ["https://item.taobao.com/item.htm*"],
+      "matches": ["https://item.taobao.com/item.htm*", "https://detail.tmall.com/item.htm*"],
       "js": ["content.js"],
       "run_at": "document_idle"
     }

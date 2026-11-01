@@ -6,7 +6,10 @@ import { DEFAULT_PROFILE as P } from '../../src/shared/schemas';
 
 const report = (): Report => ({
   summary: { sizeTile: 'XL', reviewsLean: 'XXL?', positivePct: 82, sold: '10k+' },
-  price: { cny: '¥129–159', cad: 'CA$25.09–30.93', coupon: 'Coupon ¥119 ≈ CA$23.14', rateNote: '1 CNY = 0.1945 CAD (ECB, 2026-10-30)' },
+  price: {
+    cny: '¥129–159', cad: 'CA$25.09–30.93', coupon: 'After discount ¥119 ≈ CA$23.14', discounted: '¥119 ≈ CA$23.14',
+    rateNote: '1 CNY = 0.1945 CAD (ECB, 2026-10-30)',
+  },
   size: {
     chartFound: true, shopGuide: null,
     chartSays: 'Chart says XL — Relaxed', reviewsSay: '4 of 10 sizing comments say it runs small',
@@ -54,17 +57,24 @@ describe('renderReport', () => {
     expect(row!.classList.contains('rec')).toBe(true);
   });
 
-  it('shows price above the summary, with coupon and rate note', () => {
+  it('shows the discounted price prominently, with the list price and rate note', () => {
     renderReport(root, report());
     const price = root.querySelector('.price')!;
-    expect(price.textContent).toContain('¥129–159 ≈ CA$25.09–30.93');
-    expect(price.textContent).toContain('Coupon ¥119');
+    expect(price.querySelector('.main')!.textContent).toBe('¥119 ≈ CA$23.14 (was ¥129–159)');
+    expect(price.textContent).toContain('1 CNY = 0.1945 CAD');
     expect(price.nextElementSibling!.classList.contains('summary')).toBe(true);
+  });
+
+  it('shows the list price with CAD when there is no discount', () => {
+    const r = report();
+    r.price = { ...r.price!, coupon: null, discounted: null };
+    renderReport(root, r);
+    expect(root.querySelector('.price .main')!.textContent).toBe('¥129–159 ≈ CA$25.09–30.93');
   });
 
   it('shows only CNY and a note without an exchange rate', () => {
     const r = report();
-    r.price = { cny: '¥129', cad: null, coupon: null, rateNote: null };
+    r.price = { cny: '¥129', cad: null, coupon: null, discounted: null, rateNote: null };
     renderReport(root, r);
     expect(root.querySelector('.price')!.textContent).toContain('¥129');
     expect(root.querySelector('.price')!.textContent).toContain('CAD rate unavailable');

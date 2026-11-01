@@ -1,5 +1,5 @@
 import { analyzeReviews } from '../ai/reviews';
-import { readSizeChart } from '../ai/chart';
+import { mergeCharts, readSizeChart } from '../ai/chart';
 import {
   getCachedReport, loadProfile, loadSettings, putCachedReport, setFitOverride, type CachedRun,
 } from '../profile/storage';
@@ -46,12 +46,14 @@ export interface PanelController {
 const RELOAD_MSG = 'Reload the Taobao tab and try again.';
 const GENERIC_ERROR = 'Something went wrong. Try again.';
 
-/** Returns the item id when the URL is a Taobao product page, else null. */
+const PRODUCT_HOSTS = new Set(['item.taobao.com', 'detail.tmall.com']);
+
+/** Returns the item id when the URL is a Taobao or Tmall product page, else null. */
 export function itemIdFromUrl(url: string | undefined): string | null {
   if (!url) return null;
   try {
     const u = new URL(url);
-    if (u.hostname !== 'item.taobao.com' || u.pathname !== '/item.htm') return null;
+    if (!PRODUCT_HOSTS.has(u.hostname) || u.pathname !== '/item.htm') return null;
     return u.searchParams.get('id') || null;
   } catch {
     return null;
@@ -205,8 +207,10 @@ export function createPanel(root: HTMLElement, deps: PanelDeps): PanelController
     };
     show();
     try {
+      // The photos are always read; the page's structured sizes only fill gaps or stand in when they have no chart.
       const [chart, analysis] = await Promise.all([
-        deps.readSizeChart(product, settings, (msg) => { chartMsg = msg; show(); }),
+        deps.readSizeChart(product, settings, (msg) => { chartMsg = msg; show(); })
+          .then((photo) => mergeCharts(photo, product.sizeChart)),
         deps.analyzeReviews(reviews, product, settings).then((a) => { reviewsMsg = null; show(); return a; }),
       ]);
       if (myToken !== token) return;

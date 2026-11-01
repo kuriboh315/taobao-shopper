@@ -103,19 +103,22 @@ describe('formatPrice', () => {
     expect(formatPrice({ min: 129, max: 159, coupon: 118 }, ecb)).toEqual({
       cny: '¥129–159',
       cad: 'CA$25.09–30.93',
-      coupon: 'Coupon ¥118 ≈ CA$22.95',
+      coupon: 'After discount ¥118 ≈ CA$22.95',
+      discounted: '¥118 ≈ CA$22.95',
       rateNote: '1 CNY = 0.1945 CAD (ECB, 2026-10-30)',
     });
   });
 
   it('returns cad null without fx', () => {
     expect(formatPrice({ min: 129, max: 129 }, null)).toEqual({
-      cny: '¥129', cad: null, coupon: null, rateNote: null,
+      cny: '¥129', cad: null, coupon: null, discounted: null, rateNote: null,
     });
   });
 
   it('shows the coupon without fx and a manual rate note', () => {
-    expect(formatPrice({ min: 129, max: 129, coupon: 119 }, null)?.coupon).toBe('Coupon ¥119');
+    expect(formatPrice({ min: 129, max: 129, coupon: 119 }, null)).toMatchObject({
+      coupon: 'After discount ¥119', discounted: '¥119',
+    });
     const manual: FxRate = { cnyToCad: 0.19, date: '2026-10-31', source: 'manual' };
     expect(formatPrice({ min: 129, max: 129 }, manual)?.rateNote).toBe('1 CNY = 0.19 CAD (your rate)');
   });

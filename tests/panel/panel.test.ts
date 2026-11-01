@@ -160,6 +160,38 @@ describe('analysis flow', () => {
     expect(vi.mocked(t.deps.putCachedReport).mock.calls[0]![0]).toBe('123');
   });
 
+  it('always reads the photos and fills gaps from the structured chart', async () => {
+    const structured: SizeChart = {
+      found: true, category: 'top', hwTable: [],
+      rows: [{ label: 'XL', measures: { chest: 999, shoulder: 50 } }],
+    };
+    const t = setup();
+    await t.start();
+    await vi.waitFor(() => button(t.root, 'Analyse this product').click());
+    t.port.emit({ type: 'done', product: { ...product, sizeChart: structured }, reviews, stoppedBy: 'exhausted' });
+    await waitFor(t.root, 'Chart says XL');
+    expect(t.deps.readSizeChart).toHaveBeenCalledOnce();
+    const saved = vi.mocked(t.deps.putCachedReport).mock.calls[0]![1].chart;
+    expect(saved.rows.find(r => r.label === 'XL')!.measures).toEqual({ chest: 122, length: 72, shoulder: 50 });
+  });
+
+  it('uses the structured chart when the photos have none', async () => {
+    const structured: SizeChart = { ...chart, rows: chart.rows.slice(0, 2) };
+    const t = setup({ readSizeChart: vi.fn(async () => ({ found: false, category: 'other' as const, rows: [], hwTable: [] })) });
+    await t.start();
+    await vi.waitFor(() => button(t.root, 'Analyse this product').click());
+    t.port.emit({ type: 'done', product: { ...product, sizeChart: structured }, reviews, stoppedBy: 'exhausted' });
+    await waitFor(t.root, 'Chart says XL');
+    expect(t.deps.readSizeChart).toHaveBeenCalledOnce();
+    expect(vi.mocked(t.deps.putCachedReport).mock.calls[0]![1].chart).toEqual(structured);
+  });
+
+  it('accepts Tmall product pages', async () => {
+    const t = setup({ getActiveTab: vi.fn(async () => ({ id: 7, url: 'https://detail.tmall.com/item.htm?id=123' })) });
+    await t.start();
+    await vi.waitFor(() => expect(button(t.root, 'Analyse this product')).toBeDefined());
+  });
+
   it('"Use what you have" sends finish', async () => {
     const t = setup();
     await t.start();

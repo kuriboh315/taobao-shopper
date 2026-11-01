@@ -82,20 +82,22 @@ function cadAmount(cny: number, r: number): string {
 export function formatPrice(
   price: ProductData['price'],
   fx: FxRate | null,
-): { cny: string; cad: string | null; coupon: string | null; rateNote: string | null } | null {
+): { cny: string; cad: string | null; coupon: string | null; discounted: string | null; rateNote: string | null } | null {
   if (!price) return null;
   const range = price.min === price.max;
   const cny = `¥${cnyAmount(price.min)}${range ? '' : `–${cnyAmount(price.max)}`}`;
   const cad = fx
     ? `CA$${cadAmount(price.min, fx.cnyToCad)}${range ? '' : `–${cadAmount(price.max, fx.cnyToCad)}`}`
     : null;
-  let coupon: string | null = null;
+  // `discounted` is the bare amount for the headline price line; `coupon` is the labelled form.
+  let discounted: string | null = null;
   if (price.coupon !== undefined) {
-    coupon = `Coupon ¥${cnyAmount(price.coupon)}`;
-    if (fx) coupon += ` ≈ CA$${cadAmount(price.coupon, fx.cnyToCad)}`;
+    discounted = `¥${cnyAmount(price.coupon)}`;
+    if (fx) discounted += ` ≈ CA$${cadAmount(price.coupon, fx.cnyToCad)}`;
   }
+  const coupon = discounted ? `After discount ${discounted}` : null;
   const rateNote = fx
     ? `1 CNY = ${fx.cnyToCad} CAD (${fx.source === 'ecb' ? `ECB, ${fx.date}` : 'your rate'})`
     : null;
-  return { cny, cad, coupon, rateNote };
+  return { cny, cad, coupon, discounted, rateNote };
 }

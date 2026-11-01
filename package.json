@@ -4,7 +4,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "build": "tsc --noEmit && vite build",
+    "build": "tsc --noEmit && vite build && vite build -c vite.content.config.ts --mode hook && vite build -c vite.content.config.ts --mode content && tsx scripts/check-bundles.ts",
     "test": "vitest run",
     "dev": "vite build --watch",
     "fixtures": "tsx scripts/extract-fixtures.ts --fixtures tests/fixtures/raw tests/fixtures"

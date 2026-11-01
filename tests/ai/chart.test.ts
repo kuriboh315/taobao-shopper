@@ -1,8 +1,8 @@
 import { describe, it, expect, vi } from 'vitest';
-import { normalizeChart, readSizeChart } from '../../src/ai/chart';
+import { mergeCharts, normalizeChart, readSizeChart } from '../../src/ai/chart';
 import type { ChartDeps } from '../../src/ai/chart';
 import type { Tile } from '../../src/ai/images';
-import type { ProductData, Settings } from '../../src/shared/types';
+import type { ProductData, Settings, SizeChart } from '../../src/shared/types';
 
 const row = (label: string, measures: unknown[]) => ({ label, measures });
 const m = (key: string | null, value: number, basis = 'circumference') => ({ name_zh: 'x', key, value, basis });
@@ -158,5 +158,57 @@ describe('readSizeChart', () => {
     });
     await readSizeChart(product, settings, () => {}, { call, fetchTiles: fakeFetch } as unknown as ChartDeps);
     expect(imageCount(calls[1]!.content)).toBe(6);
+  });
+});
+
+describe('mergeCharts', () => {
+  const structured: SizeChart = {
+    found: true, category: 'bottom',
+    rows: [
+      { label: 'S', measures: { waist: 68, hips: 110, length: 102 } },
+      { label: '2XL', measures: { waist: 84, hips: 120, length: 106 } },
+      { label: '3XL', measures: { waist: 88 } },
+    ],
+    hwTable: [{ label: 'S', weightMinKg: 49, weightMaxKg: 53.5 }],
+  };
+
+  it('keeps photo values and fills missing keys from the structured chart', () => {
+    const photo: SizeChart = {
+      found: true, category: 'bottom', hwTable: [],
+      rows: [
+        { label: 'S码', measures: { waist: 70, thigh: 60 } },
+        { label: 'XXL', measures: { waist: 85 } },
+        { label: 'XS', measures: { waist: 64 } },
+      ],
+    };
+    expect(mergeCharts(photo, structured)).toEqual({
+      found: true, category: 'bottom',
+      rows: [
+        { label: 'S码', measures: { waist: 70, thigh: 60, hips: 110, length: 102 } },
+        { label: 'XXL', measures: { waist: 85, hips: 120, length: 106 } },
+        { label: 'XS', measures: { waist: 64 } },
+      ],
+      hwTable: [{ label: 'S', weightMinKg: 49, weightMaxKg: 53.5 }],
+    });
+  });
+
+  it('keeps the photo chart unchanged without structured data', () => {
+    const photo: SizeChart = { found: true, category: 'top', rows: [{ label: 'M', measures: { chest: 100 } }], hwTable: [] };
+    expect(mergeCharts(photo, undefined)).toEqual(photo);
+  });
+
+  it('returns the structured chart when the photos have none', () => {
+    const photo: SizeChart = { found: false, category: 'other', rows: [], hwTable: [] };
+    expect(mergeCharts(photo, structured)).toEqual(structured);
+  });
+
+  it('keeps the photo hwTable when only that exists', () => {
+    const hw = [{ label: 'M', heightMin: 170, heightMax: 175 }];
+    const photo: SizeChart = { found: false, category: 'top', rows: [], hwTable: hw };
+    expect(mergeCharts(photo, undefined)).toEqual({ found: false, category: 'top', rows: [], hwTable: hw });
+    const weightsOnly: SizeChart = { found: false, category: 'bottom', rows: [], hwTable: [{ label: 'S', weightMinKg: 49 }] };
+    expect(mergeCharts(photo, weightsOnly)).toEqual({ found: false, category: 'top', rows: [], hwTable: hw });
+    expect(mergeCharts({ ...photo, hwTable: [] }, weightsOnly)).toEqual(
+      { found: false, category: 'top', rows: [], hwTable: weightsOnly.hwTable });
   });
 });

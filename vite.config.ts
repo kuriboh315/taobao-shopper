@@ -24,10 +24,9 @@ function extensionFiles(): Plugin {
   };
 }
 
+// hook.js and content.js are built separately as IIFEs (vite.content.config.ts).
 const stableNames: Record<string, string> = {
   background: 'background.js',
-  hook: 'hook.js',
-  content: 'content.js',
 };
 
 export default defineConfig({
@@ -43,8 +42,6 @@ export default defineConfig({
     rollupOptions: {
       input: {
         background: resolve(root, 'src/background/index.ts'),
-        hook: resolve(root, 'src/collect/hook.ts'),
-        content: resolve(root, 'src/collect/content.ts'),
         panel: resolve(root, 'src/panel/panel.html'),
         options: resolve(root, 'src/options/options.html'),
       },
