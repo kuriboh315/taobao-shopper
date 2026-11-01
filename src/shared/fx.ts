@@ -5,6 +5,7 @@ export const FX_URL = 'https://api.frankfurter.app/latest?from=CNY&to=CAD';
 
 const CACHE_KEY = 'fx:CNY-CAD';
 const CACHE_TTL_MS = 24 * 60 * 60 * 1000;
+const FETCH_TIMEOUT_MS = 5000;
 
 const rate = z.number().min(0.05).max(1);
 const FxResponseSchema = z.object({
@@ -45,9 +46,16 @@ export async function getCnyToCad(settings: Settings | null, deps?: FxDeps): Pro
 
   try {
     if (!d) throw new Error('no deps');
-    const res = await d.fetch(FX_URL);
-    if (!res.ok) throw new Error(`HTTP ${res.status}`);
-    const body = FxResponseSchema.parse(await res.json());
+    const ctrl = new AbortController();
+    const timer = setTimeout(() => ctrl.abort(), FETCH_TIMEOUT_MS);
+    let body: z.infer<typeof FxResponseSchema>;
+    try {
+      const res = await d.fetch(FX_URL, { signal: ctrl.signal });
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      body = FxResponseSchema.parse(await res.json());
+    } finally {
+      clearTimeout(timer);
+    }
     const entry = { rate: body.rates.CAD, date: body.date, fetchedAt: now };
     try { await d.storage.set({ [CACHE_KEY]: entry }); } catch { /* cache write is best-effort */ }
     return asRate(entry);

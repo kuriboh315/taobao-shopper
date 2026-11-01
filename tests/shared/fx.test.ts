@@ -33,7 +33,7 @@ describe('getCnyToCad', () => {
     const storage = makeStorage({ [KEY]: { rate: 0.19, date: '2026-10-29', fetchedAt: NOW - 25 * HOUR } });
     const f = okFetch({ date: '2026-10-30', rates: { CAD: 0.1945 } });
     const r = await getCnyToCad(null, mk(storage, f));
-    expect(f).toHaveBeenCalledWith(FX_URL);
+    expect(f).toHaveBeenCalledWith(FX_URL, expect.objectContaining({ signal: expect.anything() }));
     expect(r).toEqual({ cnyToCad: 0.1945, date: '2026-10-30', source: 'ecb' });
     expect(storage.data[KEY]).toEqual({ rate: 0.1945, date: '2026-10-30', fetchedAt: NOW });
   });
@@ -65,6 +65,20 @@ describe('getCnyToCad', () => {
     const storage = makeStorage({ [KEY]: { rate: 0.2, date: '2026-10-28', fetchedAt: NOW - 48 * HOUR } });
     const r = await getCnyToCad(settings(0.19), mk(storage, vi.fn(async () => { throw new Error('net'); })));
     expect(r).toEqual({ cnyToCad: 0.2, date: '2026-10-28', source: 'ecb' });
+  });
+
+  it('aborts a hung fetch after 5 s and falls back', async () => {
+    vi.useFakeTimers();
+    try {
+      const hung = vi.fn((_url: string, init: { signal: AbortSignal }) => new Promise((_res, rej) => {
+        init.signal.addEventListener('abort', () => rej(new Error('aborted')));
+      }));
+      const p = getCnyToCad(settings(0.19), mk(makeStorage(), hung));
+      await vi.advanceTimersByTimeAsync(5000);
+      expect(await p).toEqual({ cnyToCad: 0.19, date: '2026-10-31', source: 'manual' });
+    } finally {
+      vi.useRealTimers();
+    }
   });
 
   it('treats a non-ok response as a failure', async () => {
