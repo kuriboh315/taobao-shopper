@@ -23,7 +23,7 @@ export interface PanelDeps {
   connect(tabId: number): PanelPort;
   openOptions(): void;
   /** Called when the active tab changes or navigates. */
-  onTabChange(cb: () => void): void;
+  onTabChange(cb: (updatedTabId?: number) => void): void;
   /** Called with the changed storage keys. */
   onStorageChange(cb: (keys: string[]) => void): void;
   loadProfile: typeof loadProfile;
@@ -114,8 +114,10 @@ export function createPanel(root: HTMLElement, deps: PanelDeps): PanelController
     await rerender();
   }
 
-  async function refresh(force = true): Promise<void> {
+  async function refresh(force = true, updatedTabId?: number): Promise<void> {
     const tab = await deps.getActiveTab();
+    // onUpdated fires for every tab; only the active tab matters here.
+    if (updatedTabId !== undefined && updatedTabId !== tab?.id) return;
     const itemId = itemIdFromUrl(tab?.url);
     if (tab?.id === undefined || !tab.url || !itemId) {
       token++;
@@ -222,7 +224,7 @@ export function createPanel(root: HTMLElement, deps: PanelDeps): PanelController
     }
   }
 
-  deps.onTabChange(() => void refresh(false));
+  deps.onTabChange((updatedTabId) => void refresh(false, updatedTabId));
   deps.onStorageChange((keys) => {
     if (keys.includes('profile')) void rerender();
     if (keys.includes('settings') && !busy && !showingReport) void refresh(true);
@@ -240,7 +242,7 @@ function realDeps(): PanelDeps {
     openOptions: () => void chrome.runtime.openOptionsPage(),
     onTabChange: (cb) => {
       chrome.tabs.onActivated.addListener(() => cb());
-      chrome.tabs.onUpdated.addListener((_id, info) => { if (info.url || info.status === 'complete') cb(); });
+      chrome.tabs.onUpdated.addListener((id, info) => { if (info.url || info.status === 'complete') cb(id); });
     },
     onStorageChange: (cb) => {
       chrome.storage.onChanged.addListener((changes, area) => {

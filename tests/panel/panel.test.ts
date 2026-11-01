@@ -46,14 +46,14 @@ function setup(over: Partial<PanelDeps> = {}, opts: { cached?: CachedRun; settin
   const cache = new Map<string, CachedRun>();
   if (opts.cached) cache.set('123', opts.cached);
   const port = makePort();
-  const tabListeners: (() => void)[] = [];
+  const tabListeners: ((id?: number) => void)[] = [];
   const storageListeners: ((keys: string[]) => void)[] = [];
   let currentProfile = profile;
   const deps = {
     getActiveTab: vi.fn(async () => ({ id: 7, url: ITEM_URL })),
     connect: vi.fn(() => port),
     openOptions: vi.fn(),
-    onTabChange: (cb: () => void) => { tabListeners.push(cb); },
+    onTabChange: (cb: (id?: number) => void) => { tabListeners.push(cb); },
     onStorageChange: (cb: (keys: string[]) => void) => { storageListeners.push(cb); },
     loadProfile: vi.fn(async () => currentProfile),
     loadSettings: vi.fn(async () => (opts.settings === false ? null : { apiKey: 'k', model: 'm' })),
@@ -79,7 +79,7 @@ function setup(over: Partial<PanelDeps> = {}, opts: { cached?: CachedRun; settin
     root, deps, port, cache,
     start: () => createPanel(root, deps).refresh(),
     changeProfile: (p: Profile) => { currentProfile = p; storageListeners.forEach(cb => cb(['profile'])); },
-    changeTab: () => tabListeners.forEach(cb => cb()),
+    changeTab: (id?: number) => tabListeners.forEach(cb => cb(id)),
   };
 }
 
@@ -201,6 +201,18 @@ describe('analysis flow', () => {
     await vi.waitFor(() => button(t.root, 'Analyse this product').click());
     t.port.drop();
     await waitFor(t.root, 'Reload the Taobao tab and try again.');
+  });
+
+  it('ignores onUpdated events for other tabs while an error is showing', async () => {
+    const t = setup();
+    await t.start();
+    await vi.waitFor(() => button(t.root, 'Analyse this product').click());
+    t.port.emit({ type: 'error', message: 'Could not read this page.' });
+    await waitFor(t.root, 'Could not read this page.');
+    t.changeTab(99);
+    await new Promise(r => setTimeout(r, 20));
+    expect(text(t.root)).toContain('Could not read this page.');
+    expect(button(t.root, 'Retry')).toBeDefined();
   });
 
   it('shows content-script errors', async () => {

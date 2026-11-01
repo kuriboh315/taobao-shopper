@@ -1,7 +1,8 @@
 // @vitest-environment jsdom
 import { describe, it, expect, beforeEach, vi } from 'vitest';
 import { renderReport, renderState, type PanelState } from '../../src/panel/render';
-import type { Report } from '../../src/report/build';
+import { buildReport, type Report } from '../../src/report/build';
+import { DEFAULT_PROFILE as P } from '../../src/shared/schemas';
 
 const report = (): Report => ({
   summary: { sizeTile: 'XL', reviewsLean: 'XXL?', positivePct: 82, sold: '10k+' },
@@ -131,6 +132,28 @@ describe('renderReport', () => {
     expect(root.querySelector('footer')!.textContent).toContain('Analysed 3 hours ago');
     root.querySelector<HTMLButtonElement>('footer button')!.click();
     expect(onReanalyse).toHaveBeenCalledOnce();
+  });
+
+  it('renders the no-chart notice and the labelled shop guide from a real buildReport', () => {
+    const profile = { ...P, body: { heightCm: 175, weightKg: 70 } };
+    const run = {
+      at: 1,
+      product: { itemId: '1', title: 't', skuSizes: ['M', 'L'], shop: { extra: [] }, images: { main: [], sku: [], detail: [] } },
+      reviews: [],
+      chart: {
+        found: false, category: 'top' as const, rows: [],
+        hwTable: [
+          { label: 'M', heightMin: 160, heightMax: 170, weightMinKg: 50, weightMaxKg: 60 },
+          { label: 'L', heightMin: 170, heightMax: 180, weightMinKg: 65, weightMaxKg: 75 },
+        ],
+      },
+      analysis: null,
+    };
+    renderReport(root, buildReport(run, profile, null));
+    const t = root.querySelector('#s-size')!.textContent!;
+    expect(t).toContain('No size chart found in the photos');
+    expect(t).toContain("Shop's guide says L");
+    expect(t).not.toContain('★');
   });
 
   it('renders the no-chart notice and the shop guide', () => {
