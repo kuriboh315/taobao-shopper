@@ -544,7 +544,7 @@ Measuring hints, fixed copy:
   - `hook.ts` (MAIN world) reads `window.__ICE_APP_CONTEXT__.loaderData.home.data.res` once the page is ready and posts `{ source:'tbs-hook', kind:'product', body: res }`.
   - `parseProduct` takes that `res`. Take the paths from `tests/fixtures/*/ssr.json`: `item.title`, `item.itemId`, `item.vagueSellCount`, `item.images`, `seller.*` (shopName, and `evaluates` for DSR), `skuBase.props` (size and colour values) and `skuCore` (prices).
   - Fields that can't be found stay undefined, and DOM fallbacks fill them.
-- **Structured sizes (new):** `ProductData` gains `sizeChart?: SizeChart`.
+- **Structured sizes (new):** `ProductData` gains `sizeChart?: SizeChart`. Sources, in order: `skuBase.props[].values[].sizeDescList`; else the size-table component kept in the fixtures as `componentsVO.sizeTableVO.sizeTableTaoDetailView.datas` (`sizeTable`/`heightTable`, see tee/pants/shoes `ssr.json`). Tmall has no `sizeTableVO`.
   - `parseProduct` builds it from `skuBase.props[].values[].sizeDescList` when present, with `found:true` and the category taken from the title or props, else `'other'`.
   - Key mapping: 胸围→chest, 衣长/裤长/裤侧长/后中长→length, 肩宽→shoulder, 袖长→sleeve, 腰围/适合腰围→waist, 臀围→hips, 大腿围/腿围→thigh, 脚口/裤脚→legOpening, 内长/内裆→inseam, 脚长→footLength.
   - Parse values like `"68.0cm"` to numbers. Drop unknown keys.
@@ -556,7 +556,16 @@ Measuring hints, fixed copy:
   - Test against every fixture's `reviews.json`.
 - **Detail images:** take them from `mtop.taobao.detail.getdesc` (JSONP, same hook) when seen, else from the DOM.
 - **Bundling:** `hook.js` and `content.js` must be self-contained classic scripts with no ES imports (minor carried from Task 1). Build them as IIFE bundles. Verify with a test or build check that `dist/hook.js` and `dist/content.js` contain no `import ` statements.
-- **Panel orchestration:** modify `src/panel/panel.ts` so that when `product.sizeChart?.found`, that chart is used and `readSizeChart` is **not** called, so there's no vision cost. Otherwise call `readSizeChart` as now. Add a test in `tests/panel/panel.test.ts`.
+- **Panel orchestration (revised 2026-11-01 by the user, supersedes the line it replaces):** every product is sized against **its own** chart. Size charts from different shops are never mixed and nothing carries over between products. **The photos are the primary source:**
+  - Always run `readSizeChart` (photo pass). If the photos contain a size chart (`found`), use it.
+  - Fill any measurement keys the photo chart lacks from `product.sizeChart`, matching rows by `normalizeSizeLabel`. The photo value wins whenever both have a key.
+  - If the photos have no chart, use `product.sizeChart` (structured data). If neither exists, use the no-chart path.
+  - Implement this as a pure function `mergeCharts(photo: SizeChart, structured: SizeChart | undefined): SizeChart` in `src/ai/chart.ts`, with tests:
+    - photo found → photo values kept and missing keys filled
+    - photo not found → structured chart returned
+    - neither → `found:false` (with any hwTable kept)
+  - Wire it into `panel.ts`, with a panel test asserting `readSizeChart` is called even when `product.sizeChart` exists.
+- **Discounted price (user correction):** the tee shows ¥138 list price but sells for ¥117. Read the discounted price from `skuCore.sku2info.*.subPrice.priceText` (fallback `componentsVO.priceVO.extraPrice.priceText`) into `price.coupon`, keeping `min`/`max` from the list price (`sku2info.*.price.priceText`). The fixture test for tee asserts `coupon === 117`. In `src/shared/fx.ts` `formatPrice`, rename the label from `"Coupon ¥…"` to `"After discount ¥117 ≈ CA$…"` and update its test. The panel's price line shows the discounted price prominently when present: `"¥117 ≈ CA$22.76 (was ¥138)"`.
 
 ---
 
