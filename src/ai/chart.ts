@@ -88,7 +88,7 @@ const LOCATE_SYSTEM =
 
 const READ_SYSTEM =
   'You transcribe size tables from product images. Transcribe only what is printed; never estimate or infer values. ' +
-  'If no table is legible, set found to false and return empty rows. Copy size labels exactly as printed. ' +
+  'If no measurement table is legible, set found to false and return empty rows, but still transcribe any legible height/weight table into hw. Copy size labels exactly as printed. ' +
   'Set unit to the unit the table uses (cm, inch or mm). Map column headers to keys: ' +
   '胸围→chest, 衣长/后中长/裤长→length, 肩宽→shoulder, 袖长→sleeve, 腰围→waist, 臀围→hips, ' +
   '大腿围/腿围→thigh, 脚口/裤脚→legOpening, 内长/内裆长→inseam, 脚长/内长(鞋)→footLength. ' +
@@ -133,8 +133,10 @@ function emptyChart(category: Category): SizeChart {
 /** Validates model output and converts it to a cm/kg SizeChart. `category` comes from pass 1. */
 export function normalizeChart(raw: unknown, skuSizes: string[], category: Category = 'other'): SizeChart {
   const parsed = RawChartSchema.safeParse(raw);
-  if (!parsed.success || !parsed.data.found) return emptyChart(category);
-  const { unit, rows: rawRows, hw } = parsed.data;
+  if (!parsed.success) return emptyChart(category);
+  const { unit, hw } = parsed.data;
+  // When the model says no measurement table was found, ignore any rows but keep hw.
+  const rawRows = parsed.data.found ? parsed.data.rows : [];
   const toCm = unit === 'inch' ? 2.54 : unit === 'mm' ? 0.1 : 1;
 
   let rows: ChartRow[] = [];

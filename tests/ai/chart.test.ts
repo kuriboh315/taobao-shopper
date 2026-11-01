@@ -79,6 +79,16 @@ describe('normalizeChart', () => {
     expect(c.found).toBe(false);
   });
 
+  it('keeps the hw table when the model reports found false', () => {
+    const c = normalizeChart(
+      { found: false, unit: 'cm', rows: [], hw: [{ label: 'L', heightMin: 170, heightMax: 180, weightMin: 120, weightMax: 140, weightUnit: 'jin' }] },
+      [],
+    );
+    expect(c.found).toBe(false);
+    expect(c.rows).toEqual([]);
+    expect(c.hwTable).toEqual([{ label: 'L', heightMin: 170, heightMax: 180, weightMinKg: 60, weightMaxKg: 70 }]);
+  });
+
   it('is not found for malformed output', () => {
     expect(normalizeChart({ nonsense: 1 }, []).found).toBe(false);
   });
