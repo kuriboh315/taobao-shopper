@@ -28,6 +28,8 @@ A **Chrome extension** (Manifest V3) with a **side panel**. The user browses Chi
    - **Shop trust**: low shop ratings, a new shop, low sales, suspicious review patterns (e.g. many near-identical short reviews, cashback-for-good-review mentions such as 好评返现).
 5. **Sales and shop stats**: units sold, the shop's DSR ratings (description / service / shipping), shop age, and any other trust indicators shown on the page.
 6. **When chart and reviews disagree, show both and let the user decide.** The tool never silently overrides one with the other. Example: "Chart says XL. Reviews lean XXL: 31 of 120 sizing comments say it runs small."
+7. **Price in Canadian dollars** (added 2026-10-31): show the item price in CNY and CAD (range when variants differ, plus the coupon price when shown). Item price only; shipping and agent fees are excluded. The rate is the ECB daily rate via a free public API, refreshed at most once a day, with a backup rate the user sets in Settings; the rate's date is shown.
+8. **Per-item fit choice** (added 2026-10-31): each item is first matched to the user's usual fit for its category. Buttons on the item (Fitted · True to size · Relaxed · Oversized) let the user choose a different fit for that item only. The recommendation, ★ and fit notes recompute instantly without new API calls, and the choice is remembered for that item, with "Reset to my fit".
 
 ## 4. Non-goals
 
@@ -73,6 +75,8 @@ These tags are structured choices, not free text, so the fit code can use them d
 
 **API settings:** Anthropic API key and model choice (sensible default preselected).
 
+**Currency:** optional backup exchange rate (1 CNY in CAD), used only when today's rate can't be fetched.
+
 The settings page shows short hints on how to measure each field. Taobao charts list **garment** measurements, not body measurements, and the hints should say this.
 
 ## 7. The report (side panel)
@@ -82,7 +86,9 @@ Approved layout ("B revised"; mockup at `.superpowers/brainstorm/473-1793472530/
 - **Everything on one scrolling page, nothing collapsed.** The user wants to see it all at once with minimal clicking.
 - **A tab bar is pinned at the top: Size · Reviews · Shop · Flags (n).** Tabs are jump links that scroll to the section; they never hide other sections. The Flags tab shows the count and is highlighted when there are flags.
 - **Summary row at the top:** chart's size pick · size reviews lean towards (only if different) · % positive · units sold.
+- **Price line** above the summary row: "¥129–159 ≈ CA$25.09–30.93", plus the coupon price and the rate's source/date.
 - **Size section:**
+  - A fit selector (Fitted · True to size · Relaxed · Oversized), with the user's usual fit marked "your fit" and preselected for every new item.
   - A table: one row per size; columns for each measurement the chart provides; a final "Fit for you" column with a short note such as "Regular, sleeves −2" or "Very baggy". The recommended row is highlighted with ★.
   - A line saying what it compared against (e.g. "vs your body (chest 108) and fav hoodie (chest 120, length 71)").
   - "**Chart says**" and "**Reviews say**" side by side.
@@ -133,12 +139,15 @@ Approved layout ("B revised"; mockup at `.superpowers/brainstorm/473-1793472530/
 - Chinese Taobao only.
 - Careful review collection (~40–80 reviews, human pace, pause on captcha).
 - Sizing model: body + reference garment + per-measurement fit tags calibrate personal ease; category preference sets the target (§6).
+- Prices also in CAD; per-item fit selector that starts at the usual fit (added 2026-10-31).
 
 **My calls (the user can override):**
 - No-chart behaviour (§7): show "No size chart found", the shop's height/weight guide pick, and the reviews' consensus; no ★.
 - Test fixtures: the plan starts with capturing real logged-in product pages (clothing with a chart in the detail images, clothing without a chart, shoes, a non-clothing item). These are captured from the user's browser, with the user's help if needed, and saved as fixtures before the page-reading code is written.
 - Fit math is done in deterministic code; the model only reads the chart and the reviews.
 - Analysis runs only on click, and the result is cached per product ID so reopening the panel doesn't cost again (with a "re-analyse" button).
+- Exchange rate: ECB daily rate via api.frankfurter.app, cached 24 h, backup rate in Settings; item price only.
+- The per-item fit choice is remembered for that item.
 - Default model: a current Claude model with vision. Use the latest Sonnet-class model as the default for chart reading and review analysis; it's selectable in settings.
 
 ## 11. Left to the builder

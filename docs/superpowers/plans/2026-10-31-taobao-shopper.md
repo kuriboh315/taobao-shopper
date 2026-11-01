@@ -16,7 +16,9 @@
 
 ## Global Constraints
 
-- Chinese Taobao only. Content scripts match `https://item.taobao.com/item.htm*`. Host permissions are `https://item.taobao.com/*`, `https://*.alicdn.com/*` and `https://api.anthropic.com/*`.
+- Chinese Taobao only. Content scripts match `https://item.taobao.com/item.htm*`. Host permissions are `https://item.taobao.com/*`, `https://*.alicdn.com/*`, `https://api.anthropic.com/*` and `https://api.frankfurter.app/*` (exchange rate, Task 5b).
+- Prices are shown in CNY and CAD (item price only, no shipping or agent fees). The rate is the ECB daily rate, cached for 24 h, with a user-set backup rate.
+- Each item starts at the user's usual fit for its category. The per-item fit selector only changes that item and is remembered for it.
 - Analysis runs **only when the user clicks**. There are no background or automatic API calls.
 - Review collection is careful:
   - collect about **40–80 reviews** (hard cap 80; fewer is fine if the page runs out)
@@ -368,6 +370,58 @@ it('easeLevel tie → looser', () => expect(easeLevel('chest', 8)).toBe('just_ri
 
 ---
 
+### Task 5b: Price types and CNY → CAD conversion (added 2026-10-31, user scope change)
+
+**Files:**
+- Modify: `src/shared/types.ts`, `src/shared/schemas.ts`, `src/manifest.json`
+- Create: `src/shared/fx.ts`
+- Test: `tests/shared/fx.test.ts`, `tests/shared/schemas.test.ts` (extend)
+
+**Interfaces:**
+- `types.ts` gains:
+  - `ProductData.price?: { min: number; max: number; coupon?: number }` (CNY; min = max when there's a single price; `coupon` is the 券后 price when the page shows one)
+  - `Settings.fallbackCnyToCad?: number`
+  - `export interface FxRate { cnyToCad: number; date: string /* YYYY-MM-DD */; source: 'ecb' | 'manual' }`
+- `SettingsSchema`: `fallbackCnyToCad` is optional, between 0.05 and 1.
+- `fx.ts` produces:
+  - `FX_URL = 'https://api.frankfurter.app/latest?from=CNY&to=CAD'`
+  - `getCnyToCad(settings: Settings | null, deps?: { fetch: typeof fetch; now: () => number; storage: chrome.storage.LocalStorageArea }): Promise<FxRate | null>`
+  - `formatPrice(price: ProductData['price'], fx: FxRate | null): { cny: string; cad: string | null; coupon: string | null; rateNote: string | null } | null`
+- Manifest: add host permission `https://api.frankfurter.app/*`.
+
+**Rules:**
+- **`getCnyToCad`:**
+  - Use the rate cached under storage key `fx:CNY-CAD` if it was fetched within the last **24 h**.
+  - Otherwise fetch `FX_URL`. The response looks like `{ "date": "2026-10-30", "rates": { "CAD": 0.1945 } }`. Validate it with zod (rate between 0.05 and 1), cache `{ rate, date, fetchedAt }`, and return it with source `'ecb'`.
+  - If the fetch or validation fails, return the stale cached value if there is one, else `settings.fallbackCnyToCad` with source `'manual'` and today's date, else `null`.
+  - Never throw.
+- **`formatPrice`:**
+  - CNY: `"¥129"`, or `"¥129–159"` for a range. Whole yuan, unless the value has cents, then 2 decimals.
+  - CAD: `"CA$25.09"`, or `"CA$25.09–30.93"` for a range, rounded to cents. `null` when `fx` is null.
+  - Coupon: `"Coupon ¥119 ≈ CA$23.15"`, or `"Coupon ¥119"` without fx; `null` when there's no coupon.
+  - Rate note: `"1 CNY = 0.1945 CAD (ECB, 2026-10-30)"`, or `"(your rate)"` instead of the ECB part when the source is manual.
+  - Return `null` when `price` is undefined.
+
+- [ ] **Step 1: Write the failing tests:**
+  - Fresh cache (fetched 1 h ago) → no fetch call, the cached rate is returned.
+  - Stale cache (25 h) with a fetch returning `{date:'2026-10-30',rates:{CAD:0.1945}}` → returns `{cnyToCad:0.1945,date:'2026-10-30',source:'ecb'}` and writes the cache.
+  - Fetch rejects with no cache and `fallbackCnyToCad 0.19` → source `'manual'`, rate 0.19.
+  - Fetch rejects with no cache and no fallback → `null`.
+  - A response rate of 7.2 (inverted pair) fails validation → falls back.
+  - `formatPrice({min:129,max:159,coupon:118}, {cnyToCad:0.1945,date:'2026-10-30',source:'ecb'})` returns:
+    - `cny` `'¥129–159'`
+    - `cad` `'CA$25.09–30.93'`
+    - `coupon` `'Coupon ¥118 ≈ CA$22.95'`
+    - `rateNote` `'1 CNY = 0.1945 CAD (ECB, 2026-10-30)'`
+  - Single price with `fx null` → `cad null`.
+  - Schema: `fallbackCnyToCad 2` is rejected.
+- [ ] **Step 2: Run the tests to confirm they fail.** Expected: FAIL.
+- [ ] **Step 3: Implement** the type/schema changes, `fx.ts` and the manifest permission.
+- [ ] **Step 4: Run the tests to confirm they pass.** Run `npm run build && npm test`. Expected: PASS.
+- [ ] **Step 5: Commit** with message `feat: CNY→CAD price conversion`.
+
+---
+
 ### Task 6: Storage and settings page
 
 **Files:**
@@ -383,7 +437,9 @@ it('easeLevel tie → looser', () => expect(easeLevel('chest', 8)).toBe('just_ri
   - `getCachedReport(itemId: string): Promise<CachedRun | null>`
   - `putCachedReport(itemId: string, run: CachedRun): Promise<void>`
 
-  `CachedRun = { at: number; product: ProductData; reviews: Review[]; chart: SizeChart; analysis: ReviewAnalysis | null }`. The cache stores inputs, not fit results; fit is recomputed from the current profile on every render. Keep at most 50 items, evicting the oldest.
+  - `setFitOverride(itemId: string, pref: FitPref | null): Promise<void>`, which updates `fitOverride` on the cached run (`null` clears it). It does nothing if the item isn't cached.
+
+  `CachedRun = { at: number; product: ProductData; reviews: Review[]; chart: SizeChart; analysis: ReviewAnalysis | null; fitOverride?: FitPref }`. The cache stores inputs, not fit results; fit is recomputed from the current profile on every render. Keep at most 50 items, evicting the oldest. Re-analysing an item keeps its existing `fitOverride`.
 - Storage is `chrome.storage.local`, keys `profile`, `settings` and `cache:<itemId>`. Tests use an in-memory stub of `chrome.storage.local`.
 
 **Settings page content:**
@@ -395,6 +451,7 @@ it('easeLevel tie → looser', () => expect(easeLevel('chest', 8)).toBe('just_ri
 - **Shoe section:** label, EU, CN, insole.
 - **Fit preference** select per category.
 - **API section:** key (password input), model (text input, default `claude-sonnet-5-5`).
+- **Currency section:** "Backup exchange rate (1 CNY in CAD)", an optional number input that maps to `Settings.fallbackCnyToCad`. Hint: "Used only if today's rate can't be fetched."
 - **Save button**, showing inline validation messages next to the offending field.
 
 Measuring hints, fixed copy:
@@ -440,6 +497,11 @@ Measuring hints, fixed copy:
   - all three are zod-validated with `.passthrough()`, and missing fields become `undefined`, never throw
 - `dom.ts` produces `productFromDom(doc: Document): Partial<ProductData>`. It is used to fill whatever `parseProduct` left empty: title, salesText, shop DSR, and detail image URLs from the lazy-load attributes (`data-src`, `data-ks-lazyload`, `src`).
 - `salesCount`: parse `"已售 1万+"` → 10000, `"月销 3000+"` → 3000, `"已售 512"` → 512.
+- **`price`** (Task 5b type):
+  - `min`/`max` come from the SKU prices when they're available, else from the displayed price, `"¥129-159"` → {129, 159}.
+  - `coupon` comes from the 券后 / 到手价 price when it's shown.
+  - If no price can be read, leave it undefined.
+  - Each fixture's `expected.json` records the visible price, and the fixture tests assert it.
 - Image URLs: normalise protocol-relative `//img.alicdn.com/...` to `https:`, and strip thumbnail suffixes like `_60x60q90.jpg` to get the full image.
 
 - [ ] **Step 1: Write the failing tests** against all four fixture sets. For each set, `parseProduct(responses.filter(product))` merged with `productFromDom(page.html)`:
@@ -648,15 +710,17 @@ Measuring hints, fixed copy:
 
 **Interfaces:**
 - Consumes: `recommend`, `pickFromHwTable`, `nearbyReviewers`, `normalizeSizeLabel`, and all the types.
-- Produces `buildReport(run: CachedRun, profile: Profile): Report`, with:
+- Produces `buildReport(run: CachedRun, profile: Profile, fx: FxRate | null): Report`, with:
 
 ```ts
 interface Quote { zh: string; en: string }
 interface Flag { group: 'fit' | 'quality' | 'shop'; text: string; source: string } // source e.g. "14 reviews"
 interface Report {
   summary: { sizeTile: string; reviewsLean: string | null; positivePct: number | null; sold: string | null };
+  price: ReturnType<typeof formatPrice>; // Task 5b; null when no price was read
   size: null | { chartFound: boolean; fit: FitResult | null; shopGuide: string | null;
-    chartSays: string | null; reviewsSay: string | null; quotes: Quote[] };
+    chartSays: string | null; reviewsSay: string | null; quotes: Quote[];
+    fitChoice: null | { category: 'top' | 'outerwear' | 'bottom' | 'shoe'; usual: FitPref; current: FitPref } };
   reviews: { positivePct: number | null; total: number; liked: string[]; disliked: string[]; quotes: Quote[] };
   shop: { rows: [string, string][] };
   flags: Flag[];
@@ -667,6 +731,13 @@ interface Report {
 
 **Rules:**
 - **`size` is null** when `chart.category === 'other'` and `skuSizes` has no size-like labels (spec: non-clothing skips the size section).
+- **Per-item fit (user scope change):**
+  - Let `cat = chart.category`. For top, outerwear, bottom and shoe: `usual = profile.prefs[cat]` and `current = run.fitOverride ?? usual`.
+  - Fit is computed with `recommend(chart, { ...profile, prefs: { ...profile.prefs, [cat]: current } })`, so each item first matches the user's usual fit and the override only changes this item.
+  - `fitChoice` is null for `other`, and when there's no chart.
+  - The lean, `chartSays` and `sizeTile` all follow the overridden recommendation.
+- **`price`:** `formatPrice(run.product.price, fx)`.
+- **`nearbyReviewers` grouping:** normalise `sizeBought` with `normalizeSizeLabel` before grouping (deferred minor from Task 5).
 - **`positivePct`:** round(100 · pos / (pos + neg + mixed)); null if there are no labels. `total` is the number of reviews.
 - **Sizing consensus.** Let `n` be the number of labels with non-null `sizing`, and `small` and `large` the counts of each.
   - `reviewsSay`: `"{small} of {n} sizing comments say it runs small"` when small ≥ large and small > 0, the mirror wording for large, or `"{tts} of {n} say true to size"`.
@@ -702,6 +773,8 @@ interface Report {
   - A quote's `zh` equals the stored review text exactly.
   - `shopFlags` with DSR 4.5 and age 0.4 years gives two flags, the second reading `'Shop opened 5 months ago'`.
   - Flags sort fit → quality → shop.
+  - **Fit override:** the same run with `fitOverride: 'oversized'` (usual `slightly_relaxed`) gives `sizeTile 'XXL'` and `fitChoice` `{category:'top', usual:'slightly_relaxed', current:'oversized'}`. With no override, `current === usual` and `sizeTile 'XL'`.
+  - `price` is passed through `formatPrice`: `{min:129,max:129}` with an fx of 0.1945 gives `report.price.cad === 'CA$25.09'`.
 - [ ] **Step 2: Run the tests to confirm they fail.** Expected: FAIL.
 - [ ] **Step 3: Implement `build.ts` and `shopFlags.ts`.**
 - [ ] **Step 4: Run the tests to confirm they pass.** Expected: PASS.
@@ -729,10 +802,16 @@ interface Report {
 
 **Layout** (approved mockup `panel-layout-v2.html`):
 - A sticky header with "Taobao Shopper", the profile hint (e.g. "Profile: tops = oversized"), and a tab bar **Size · Reviews · Shop · Flags (n)**. The tabs are `<a>` elements that `scrollIntoView({behavior:'smooth'})` to the sections and never hide anything. Flags gets a red border when n > 0.
+- **Price line** directly above the summary row (when `report.price` isn't null): `"¥129–159 ≈ CA$25.09–30.93"`. Below it, smaller, the coupon line if any and the rate note. Without fx it shows only the CNY value and "CAD rate unavailable".
 - **Summary row:** four tiles (sizeTile, reviewsLean if any, positive %, sold).
+- **Fit selector** at the top of the Size section, when `size.fitChoice` isn't null:
+  - a segmented row of 4 buttons, **Fitted · True to size · Relaxed · Oversized** (`fitted`, `true_to_size`, `slightly_relaxed`, `oversized`)
+  - the `current` button is highlighted (`aria-pressed="true"`), and the `usual` button carries a small "your fit" label
+  - clicking a button calls `setFitOverride(itemId, pref)` (or `null` when the pref equals `usual`) and re-renders from the cache with no API call
+  - a "Reset to my fit" link appears only when `current !== usual`
 - **Size section:** table (Size + one column per measure present + "Fit for you"), with the recommended row bold and ★. Below it:
   - the comparedAgainst line
-  - the fit detail lines
+  - the fit detail lines for the recommended size, then under "Size down" / "Size up" the detail lines of the adjacent rows (spec §3.2: how neighbouring sizes fit)
   - a two-box "Chart says" / "Reviews say" row (or the "No size chart found in the photos" notice + "Shop's guide says")
   - quotes (Chinese line above, English line below)
 - **Reviews section:** positive % bar, Liked/Disliked, quotes.
@@ -761,6 +840,7 @@ interface Report {
    - if `done` arrives with 0 reviews, still render, with the Reviews section reading "No reviews found on this page."
 4. Errors from any step go to the `error` state with that step's plain-English message. If the content script connection fails, use "Reload the Taobao tab and try again."
 5. Re-render from the cache when the profile changes (`chrome.storage.onChanged` on `profile`). This needs no API call.
+6. Get the exchange rate with `getCnyToCad(settings)` (Task 5b) once per render session, in parallel with everything else. It never blocks or fails the report.
 
 - [ ] **Step 1: Write the failing tests.**
   - `renderReport` with the Task 12 test report:
