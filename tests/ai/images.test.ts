@@ -1,5 +1,5 @@
 import { describe, it, expect, vi } from 'vitest';
-import { tileRects, fetchTiles } from '../../src/ai/images';
+import { tileRects, fetchTiles, fetchImageBlob } from '../../src/ai/images';
 import type { ImageDeps } from '../../src/ai/images';
 
 describe('tileRects', () => {
@@ -35,6 +35,29 @@ describe('tileRects', () => {
   it('returns nothing for empty dimensions', () => {
     expect(tileRects(0, 100)).toEqual([]);
     expect(tileRects(100, 0)).toEqual([]);
+  });
+});
+
+describe('fetchImageBlob timeout', () => {
+  it('aborts a fetch that never resolves after 10 s', async () => {
+    vi.useFakeTimers();
+    try {
+      const hang = vi.fn(
+        (_url: string, init?: { signal?: AbortSignal }) =>
+          new Promise<Response>((_res, rej) => {
+            init?.signal?.addEventListener('abort', () => rej(new Error('aborted')));
+          }),
+      );
+      const p = fetchImageBlob('u', hang as unknown as typeof fetch);
+      const assertion = expect(p).rejects.toThrow('aborted');
+      await vi.advanceTimersByTimeAsync(9_999);
+      expect(hang.mock.calls[0]![1]!.signal!.aborted).toBe(false);
+      await vi.advanceTimersByTimeAsync(1);
+      await assertion;
+      expect(hang.mock.calls[0]![1]!.signal!.aborted).toBe(true);
+    } finally {
+      vi.useRealTimers();
+    }
   });
 });
 

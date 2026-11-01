@@ -54,11 +54,28 @@ function toBase64(bytes: Uint8Array): string {
   return btoa(bin);
 }
 
+const FETCH_TIMEOUT_MS = 10_000;
+
+/** Fetches an image body, aborting if the request or body read exceeds timeoutMs. */
+export async function fetchImageBlob(
+  url: string,
+  fetchImpl: typeof fetch = fetch,
+  timeoutMs = FETCH_TIMEOUT_MS,
+): Promise<Blob> {
+  const ctrl = new AbortController();
+  const timer = setTimeout(() => ctrl.abort(), timeoutMs);
+  try {
+    const res = await fetchImpl(url, { signal: ctrl.signal });
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    return await res.blob();
+  } finally {
+    clearTimeout(timer);
+  }
+}
+
 const browserDeps: ImageDeps = {
   async load(url) {
-    const res = await fetch(url);
-    if (!res.ok) throw new Error(`HTTP ${res.status}`);
-    const bmp = await createImageBitmap(await res.blob());
+    const bmp = await createImageBitmap(await fetchImageBlob(url));
     return { width: bmp.width, height: bmp.height, source: bmp };
   },
   async encode(img, rect, maxEdge) {
