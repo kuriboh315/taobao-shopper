@@ -1,0 +1,79 @@
+:root {
+  color-scheme: light dark;
+  --bg: #ffffff;
+  --fg: #1f2328;
+  --line: rgba(128, 128, 128, 0.35);
+  --line-soft: rgba(128, 128, 128, 0.2);
+  --green: 46, 160, 67;
+  --amber: 210, 153, 34;
+  --red: 218, 54, 51;
+}
+@media (prefers-color-scheme: dark) {
+  :root { --bg: #1e1e1e; --fg: #e6e6e6; }
+}
+
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--fg); font: 13px/1.45 system-ui, -apple-system, "Segoe UI", sans-serif; }
+
+.top { position: sticky; top: 0; z-index: 2; background: var(--bg); padding: 10px 12px 6px; border-bottom: 1px solid var(--line); }
+.hdr { display: flex; justify-content: space-between; align-items: baseline; font-weight: 600; font-size: 14px; margin-bottom: 6px; }
+.muted { opacity: 0.65; font-size: 11px; font-weight: 400; }
+.tabs { display: flex; gap: 4px; }
+.tabs a { padding: 3px 9px; border-radius: 6px; border: 1px solid var(--line); font-size: 12px; color: inherit; text-decoration: none; cursor: pointer; }
+.tabs a:hover { background: var(--line-soft); }
+.tabs a.flags-hot { border-color: rgba(var(--red), 0.7); }
+
+.body { padding: 8px 12px 20px; }
+section { padding: 10px 0; border-bottom: 1px solid var(--line-soft); scroll-margin-top: 80px; }
+h4 { margin: 0 0 6px; font-size: 12px; text-transform: uppercase; letter-spacing: 0.04em; opacity: 0.75; }
+h5 { margin: 6px 0 2px; font-size: 11px; opacity: 0.75; }
+
+button { font: inherit; color: inherit; background: transparent; border: 1px solid var(--line); border-radius: 6px; padding: 5px 12px; cursor: pointer; }
+button:hover { background: var(--line-soft); }
+button.primary { background: rgba(var(--green), 0.2); border-color: rgba(var(--green), 0.7); }
+
+.state { padding: 24px 4px; text-align: center; white-space: pre-line; }
+.state .actions { display: flex; gap: 8px; justify-content: center; margin-top: 10px; }
+.state.error p { color: rgb(var(--red)); }
+
+.price { padding: 4px 0 8px; }
+.price .main { font-size: 16px; font-weight: 600; }
+
+.summary { display: flex; gap: 6px; padding: 4px 0 8px; border-bottom: 1px solid var(--line-soft); }
+.summary > div { flex: 1; border: 1px solid var(--line); border-radius: 6px; padding: 6px; text-align: center; font-size: 11px; }
+.summary b { display: block; font-size: 15px; }
+.summary .size { background: rgba(var(--green), 0.15); border-color: rgba(var(--green), 0.6); }
+
+.fit-wrap { margin-bottom: 8px; }
+.fit-select { display: flex; }
+.fit-select button { flex: 1; padding: 4px 2px; font-size: 11px; border-radius: 0; margin-left: -1px; }
+.fit-select button:first-child { border-radius: 6px 0 0 6px; margin-left: 0; }
+.fit-select button:last-child { border-radius: 0 6px 6px 0; }
+.fit-select button[aria-pressed="true"] { background: rgba(var(--green), 0.2); border-color: rgba(var(--green), 0.7); font-weight: 600; }
+.fit-select .yours { display: block; font-size: 9px; opacity: 0.7; }
+.fit-reset { display: inline-block; margin-top: 4px; font-size: 11px; color: inherit; }
+
+.fit-table { width: 100%; border-collapse: collapse; font-size: 12px; }
+.fit-table td, .fit-table th { padding: 3px 4px; border-bottom: 1px solid var(--line-soft); text-align: left; }
+.fit-table tr.rec td { font-weight: 700; background: rgba(var(--green), 0.12); }
+
+.details { margin-top: 6px; font-size: 12px; }
+.detail { margin: 2px 0; }
+.two { display: flex; gap: 6px; margin-top: 8px; }
+.two > div { flex: 1; border-radius: 6px; padding: 6px 8px; font-size: 12px; }
+.two .chart { border: 1px solid rgba(var(--green), 0.6); }
+.two .rev { border: 1px solid rgba(var(--amber), 0.7); }
+.notice { padding: 6px 8px; border: 1px dashed var(--line); border-radius: 6px; font-size: 12px; }
+
+.quote { font-size: 12px; margin: 6px 0; }
+.quote .zh, .quote .en { display: block; }
+.quote .zh { opacity: 0.65; }
+
+.flag { background: rgba(var(--red), 0.1); border-left: 3px solid rgba(var(--red), 0.8); padding: 4px 8px; margin: 4px 0; font-size: 12px; }
+
+.bar { height: 6px; border-radius: 3px; background: var(--line-soft); overflow: hidden; margin: 2px 0 6px; }
+.bar span { display: block; height: 100%; background: rgba(var(--green), 0.8); }
+
+.kv { display: grid; grid-template-columns: 1fr auto; gap: 2px 8px; font-size: 12px; }
+
+footer { display: flex; justify-content: space-between; align-items: center; padding-top: 12px; }
