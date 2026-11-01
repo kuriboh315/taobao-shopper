@@ -1,0 +1,1228 @@
+{
+  "item": {
+    "title": "一脚蹬乐福鞋黑色德比鞋男款懒人豆豆鞋商务正装休闲英伦风皮鞋男",
+    "itemId": "859369109395",
+    "vagueSellCount": "1000+",
+    "images": [
+      "https://img.alicdn.com/imgextra/i3/1014884746/O1CN01k9yfuR1kvilZpvX7H_!!1014884746.jpg",
+      "https://img.alicdn.com/imgextra/i1/1014884746/O1CN01r7aIGC1kvilY6KRBn_!!1014884746.jpg",
+      "https://img.alicdn.com/imgextra/i4/1014884746/O1CN01eRjZFI1kvilbXir7n_!!1014884746.jpg",
+      "https://img.alicdn.com/imgextra/i2/1014884746/O1CN0144BxyS1kvilY6J61e_!!1014884746.jpg",
+      "https://img.alicdn.com/imgextra/i4/1014884746/O1CN01vLoBzs1kvila5ZZ1r_!!1014884746.jpg"
+    ],
+    "spuId": "0"
+  },
+  "seller": {
+    "shopName": "驰狼红人馆",
+    "sellerNick": "中国牛仔鞋业",
+    "shopId": "73025454",
+    "sellerId": "1014884746",
+    "userId": "1014884746",
+    "evaluates": [
+      {
+        "score": "4.8 ",
+        "level": "0",
+        "levelText": "平",
+        "title": "宝贝描述",
+        "type": "desc"
+      },
+      {
+        "score": "4.8 ",
+        "level": "0",
+        "levelText": "平",
+        "title": "卖家服务",
+        "type": "serv"
+      },
+      {
+        "score": "4.8 ",
+        "level": "0",
+        "levelText": "平",
+        "title": "物流服务",
+        "type": "post"
+      }
+    ],
+    "creditLevel": "15",
+    "certText": "金牌卖家",
+    "sellerType": "C",
+    "pcShopUrl": "//shop73025454.taobao.com"
+  },
+  "skuBase": {
+    "props": [
+      {
+        "hasGroupTags": "false",
+        "packProp": "false",
+        "shouldGroup": "false",
+        "comboProperty": "false",
+        "values": [
+          {
+            "comboPropertyValue": "false",
+            "vid": "28341",
+            "corner": {
+              "cornerBackgroundColor": "#ff5000",
+              "skuCornerIcon": "",
+              "cornerPVPath": "1627207:28341",
+              "cornerBorderColor": "#FFFFFF",
+              "cornerText": "千人加购",
+              "cornerTextColor": "#FFFFFF"
+            },
+            "image": "https://gw.alicdn.com/bao/uploaded/i4/1014884746/O1CN01iLUk3c1kvilbXfxyE_!!1014884746.jpg",
+            "name": "黑色"
+          },
+          {
+            "comboPropertyValue": "false",
+            "vid": "73262960",
+            "corner": {},
+            "image": "https://gw.alicdn.com/bao/uploaded/i4/1014884746/O1CN01GkkbxG1kvilagxikG_!!1014884746.jpg",
+            "name": "黑色升级款"
+          },
+          {
+            "comboPropertyValue": "false",
+            "vid": "5643929125",
+            "corner": {},
+            "image": "https://gw.alicdn.com/bao/uploaded/i1/1014884746/O1CN01Wgjns81kvinJnwQqj_!!1014884746.jpg",
+            "name": "7CM增高款"
+          },
+          {
+            "comboPropertyValue": "false",
+            "vid": "41768260075",
+            "corner": {},
+            "image": "https://gw.alicdn.com/bao/uploaded/i3/1014884746/O1CN018BeffhbsxTL2R3rs_!!1014884746.jpg",
+            "name": "7CM增高【升级款】"
+          }
+        ],
+        "hasImage": "true",
+        "pid": "1627207",
+        "bigImageMode": "true",
+        "nameDesc": "（4）",
+        "name": "颜色分类",
+        "valueMap": {
+          "28341": {
+            "comboPropertyValue": "false",
+            "vid": "28341",
+            "corner": {
+              "cornerBackgroundColor": "#ff5000",
+              "skuCornerIcon": "",
+              "cornerPVPath": "1627207:28341",
+              "cornerBorderColor": "#FFFFFF",
+              "cornerText": "千人加购",
+              "cornerTextColor": "#FFFFFF"
+            },
+            "image": "https://gw.alicdn.com/bao/uploaded/i4/1014884746/O1CN01iLUk3c1kvilbXfxyE_!!1014884746.jpg",
+            "name": "黑色"
+          },
+          "73262960": {
+            "comboPropertyValue": "false",
+            "vid": "73262960",
+            "corner": {},
+            "image": "https://gw.alicdn.com/bao/uploaded/i4/1014884746/O1CN01GkkbxG1kvilagxikG_!!1014884746.jpg",
+            "name": "黑色升级款"
+          },
+          "5643929125": {
+            "comboPropertyValue": "false",
+            "vid": "5643929125",
+            "corner": {},
+            "image": "https://gw.alicdn.com/bao/uploaded/i1/1014884746/O1CN01Wgjns81kvinJnwQqj_!!1014884746.jpg",
+            "name": "7CM增高款"
+          },
+          "41768260075": {
+            "comboPropertyValue": "false",
+            "vid": "41768260075",
+            "corner": {},
+            "image": "https://gw.alicdn.com/bao/uploaded/i3/1014884746/O1CN018BeffhbsxTL2R3rs_!!1014884746.jpg",
+            "name": "7CM增高【升级款】"
+          }
+        }
+      },
+      {
+        "hasGroupTags": "false",
+        "packProp": "false",
+        "shouldGroup": "false",
+        "comboProperty": "false",
+        "values": [
+          {
+            "comboPropertyValue": "false",
+            "vid": "575504782",
+            "corner": {},
+            "name": "36女码"
+          },
+          {
+            "comboPropertyValue": "false",
+            "vid": "659012460",
+            "corner": {},
+            "name": "37女码"
+          },
+          {
+            "comboPropertyValue": "false",
+            "vid": "103189693",
+            "corner": {},
+            "name": "38"
+          },
+          {
+            "comboPropertyValue": "false",
+            "vid": "418624880",
+            "corner": {},
+            "name": "39"
+          },
+          {
+            "comboPropertyValue": "false",
+            "vid": "229418985",
+            "corner": {},
+            "name": "40"
+          },
+          {
+            "comboPropertyValue": "false",
+            "vid": "407396361",
+            "corner": {},
+            "name": "41"
+          },
+          {
+            "comboPropertyValue": "false",
+            "vid": "473680452",
+            "corner": {},
+            "name": "42"
+          },
+          {
+            "comboPropertyValue": "false",
+            "vid": "225078235",
+            "corner": {},
+            "name": "43"
+          },
+          {
+            "comboPropertyValue": "false",
+            "vid": "64797379",
+            "corner": {},
+            "name": "44"
+          },
+          {
+            "comboPropertyValue": "false",
+            "vid": "481222891",
+            "corner": {},
+            "name": "45"
+          },
+          {
+            "comboPropertyValue": "false",
+            "vid": "662626373",
+            "corner": {},
+            "name": "46"
+          }
+        ],
+        "hasImage": "false",
+        "pid": "20549",
+        "name": "尺码",
+        "valueMap": {
+          "64797379": {
+            "comboPropertyValue": "false",
+            "vid": "64797379",
+            "corner": {},
+            "name": "44"
+          },
+          "103189693": {
+            "comboPropertyValue": "false",
+            "vid": "103189693",
+            "corner": {},
+            "name": "38"
+          },
+          "225078235": {
+            "comboPropertyValue": "false",
+            "vid": "225078235",
+            "corner": {},
+            "name": "43"
+          },
+          "229418985": {
+            "comboPropertyValue": "false",
+            "vid": "229418985",
+            "corner": {},
+            "name": "40"
+          },
+          "407396361": {
+            "comboPropertyValue": "false",
+            "vid": "407396361",
+            "corner": {},
+            "name": "41"
+          },
+          "418624880": {
+            "comboPropertyValue": "false",
+            "vid": "418624880",
+            "corner": {},
+            "name": "39"
+          },
+          "473680452": {
+            "comboPropertyValue": "false",
+            "vid": "473680452",
+            "corner": {},
+            "name": "42"
+          },
+          "481222891": {
+            "comboPropertyValue": "false",
+            "vid": "481222891",
+            "corner": {},
+            "name": "45"
+          },
+          "575504782": {
+            "comboPropertyValue": "false",
+            "vid": "575504782",
+            "corner": {},
+            "name": "36女码"
+          },
+          "659012460": {
+            "comboPropertyValue": "false",
+            "vid": "659012460",
+            "corner": {},
+            "name": "37女码"
+          },
+          "662626373": {
+            "comboPropertyValue": "false",
+            "vid": "662626373",
+            "corner": {},
+            "name": "46"
+          }
+        }
+      }
+    ],
+    "skus": [
+      {
+        "propPath": "1627207:28341;20549:575504782",
+        "skuId": "5842610948809"
+      },
+      {
+        "propPath": "1627207:28341;20549:659012460",
+        "skuId": "5842610948813"
+      },
+      {
+        "propPath": "1627207:28341;20549:103189693",
+        "skuId": "5841135655538"
+      },
+      {
+        "propPath": "1627207:28341;20549:418624880",
+        "skuId": "5841135655539"
+      },
+      {
+        "propPath": "1627207:28341;20549:229418985",
+        "skuId": "5841135655540"
+      },
+      {
+        "propPath": "1627207:28341;20549:407396361",
+        "skuId": "5841135655541"
+      },
+      {
+        "propPath": "1627207:28341;20549:473680452",
+        "skuId": "5841135655542"
+      },
+      {
+        "propPath": "1627207:28341;20549:225078235",
+        "skuId": "5841135655543"
+      },
+      {
+        "propPath": "1627207:28341;20549:64797379",
+        "skuId": "5841135655544"
+      },
+      {
+        "propPath": "1627207:28341;20549:481222891",
+        "skuId": "5728133549297"
+      },
+      {
+        "propPath": "1627207:28341;20549:662626373",
+        "skuId": "5728133549299"
+      },
+      {
+        "propPath": "1627207:73262960;20549:575504782",
+        "skuId": "5842610948811"
+      },
+      {
+        "propPath": "1627207:73262960;20549:659012460",
+        "skuId": "5842610948815"
+      },
+      {
+        "propPath": "1627207:73262960;20549:103189693",
+        "skuId": "5868373799064"
+      },
+      {
+        "propPath": "1627207:73262960;20549:418624880",
+        "skuId": "5868373799068"
+      },
+      {
+        "propPath": "1627207:73262960;20549:229418985",
+        "skuId": "5868373799066"
+      },
+      {
+        "propPath": "1627207:73262960;20549:407396361",
+        "skuId": "5868373799067"
+      },
+      {
+        "propPath": "1627207:73262960;20549:473680452",
+        "skuId": "5868373799069"
+      },
+      {
+        "propPath": "1627207:73262960;20549:225078235",
+        "skuId": "5868373799065"
+      },
+      {
+        "propPath": "1627207:73262960;20549:64797379",
+        "skuId": "5868373799070"
+      },
+      {
+        "propPath": "1627207:73262960;20549:481222891",
+        "skuId": "5728133549298"
+      },
+      {
+        "propPath": "1627207:73262960;20549:662626373",
+        "skuId": "5728133549300"
+      },
+      {
+        "propPath": "1627207:5643929125;20549:575504782",
+        "skuId": "5842610948810"
+      },
+      {
+        "propPath": "1627207:5643929125;20549:659012460",
+        "skuId": "5842610948814"
+      },
+      {
+        "propPath": "1627207:5643929125;20549:103189693",
+        "skuId": "5842610948802"
+      },
+      {
+        "propPath": "1627207:5643929125;20549:418624880",
+        "skuId": "5842610948806"
+      },
+      {
+        "propPath": "1627207:5643929125;20549:229418985",
+        "skuId": "5842610948804"
+      },
+      {
+        "propPath": "1627207:5643929125;20549:407396361",
+        "skuId": "5842610948805"
+      },
+      {
+        "propPath": "1627207:5643929125;20549:473680452",
+        "skuId": "5842610948807"
+      },
+      {
+        "propPath": "1627207:5643929125;20549:225078235",
+        "skuId": "5842610948803"
+      },
+      {
+        "propPath": "1627207:5643929125;20549:64797379",
+        "skuId": "5842610948812"
+      },
+      {
+        "propPath": "1627207:5643929125;20549:481222891",
+        "skuId": "5842610948808"
+      },
+      {
+        "propPath": "1627207:5643929125;20549:662626373",
+        "skuId": "5842610948816"
+      },
+      {
+        "propPath": "1627207:41768260075;20549:575504782",
+        "skuId": "6119660368119"
+      },
+      {
+        "propPath": "1627207:41768260075;20549:659012460",
+        "skuId": "6119660368121"
+      },
+      {
+        "propPath": "1627207:41768260075;20549:103189693",
+        "skuId": "6119660368112"
+      },
+      {
+        "propPath": "1627207:41768260075;20549:418624880",
+        "skuId": "6119660368116"
+      },
+      {
+        "propPath": "1627207:41768260075;20549:229418985",
+        "skuId": "6119660368114"
+      },
+      {
+        "propPath": "1627207:41768260075;20549:407396361",
+        "skuId": "6119660368115"
+      },
+      {
+        "propPath": "1627207:41768260075;20549:473680452",
+        "skuId": "6119660368117"
+      },
+      {
+        "propPath": "1627207:41768260075;20549:225078235",
+        "skuId": "6119660368113"
+      },
+      {
+        "propPath": "1627207:41768260075;20549:64797379",
+        "skuId": "6119660368120"
+      },
+      {
+        "propPath": "1627207:41768260075;20549:481222891",
+        "skuId": "6119660368118"
+      },
+      {
+        "propPath": "1627207:41768260075;20549:662626373",
+        "skuId": "6119660368122"
+      }
+    ]
+  },
+  "skuCore": {
+    "sku2info": {
+      "0": {
+        "price": {
+          "priceTitle": "优惠前",
+          "priceText": "138",
+          "priceDesc": "起",
+          "priceMoney": "13800"
+        },
+        "quantity": 200,
+        "quantityText": "有货"
+      },
+      "5842610948816": {
+        "price": {
+          "priceText": "168",
+          "priceMoney": "16800"
+        },
+        "quantity": 0,
+        "quantityText": "无货"
+      },
+      "6119660368122": {
+        "price": {
+          "priceTitle": "优惠前",
+          "priceText": "198",
+          "priceMoney": "19800"
+        },
+        "quantity": 200,
+        "quantityText": "有货"
+      },
+      "6119660368120": {
+        "price": {
+          "priceTitle": "优惠前",
+          "priceText": "198",
+          "priceMoney": "19800"
+        },
+        "quantity": 197,
+        "quantityText": "有货"
+      },
+      "6119660368121": {
+        "price": {
+          "priceText": "198",
+          "priceMoney": "19800"
+        },
+        "quantity": 0,
+        "quantityText": "无货"
+      },
+      "6119660368118": {
+        "price": {
+          "priceTitle": "优惠前",
+          "priceText": "198",
+          "priceMoney": "19800"
+        },
+        "quantity": 197,
+        "quantityText": "有货"
+      },
+      "6119660368119": {
+        "price": {
+          "priceText": "198",
+          "priceMoney": "19800"
+        },
+        "quantity": 0,
+        "quantityText": "无货"
+      },
+      "6119660368116": {
+        "price": {
+          "priceTitle": "优惠前",
+          "priceText": "198",
+          "priceMoney": "19800"
+        },
+        "quantity": 198,
+        "quantityText": "有货"
+      },
+      "6119660368117": {
+        "price": {
+          "priceTitle": "优惠前",
+          "priceText": "198",
+          "priceMoney": "19800"
+        },
+        "quantity": 192,
+        "quantityText": "有货"
+      },
+      "6119660368114": {
+        "price": {
+          "priceTitle": "优惠前",
+          "priceText": "198",
+          "priceMoney": "19800"
+        },
+        "quantity": 196,
+        "quantityText": "有货"
+      },
+      "6119660368115": {
+        "price": {
+          "priceTitle": "优惠前",
+          "priceText": "198",
+          "priceMoney": "19800"
+        },
+        "quantity": 193,
+        "quantityText": "有货"
+      },
+      "6119660368112": {
+        "price": {
+          "priceTitle": "优惠前",
+          "priceText": "198",
+          "priceMoney": "19800"
+        },
+        "quantity": 199,
+        "quantityText": "有货"
+      },
+      "6119660368113": {
+        "price": {
+          "priceTitle": "优惠前",
+          "priceText": "198",
+          "priceMoney": "19800"
+        },
+        "quantity": 195,
+        "quantityText": "有货"
+      },
+      "5842610948802": {
+        "price": {
+          "priceTitle": "优惠前",
+          "priceText": "168",
+          "priceMoney": "16800"
+        },
+        "quantity": 200,
+        "quantityText": "有货"
+      },
+      "5842610948803": {
+        "price": {
+          "priceTitle": "优惠前",
+          "priceText": "168",
+          "priceMoney": "16800"
+        },
+        "quantity": 200,
+        "quantityText": "有货"
+      },
+      "5842610948804": {
+        "price": {
+          "priceTitle": "优惠前",
+          "priceText": "168",
+          "priceMoney": "16800"
+        },
+        "quantity": 200,
+        "quantityText": "有货"
+      },
+      "5842610948805": {
+        "price": {
+          "priceTitle": "优惠前",
+          "priceText": "168",
+          "priceMoney": "16800"
+        },
+        "quantity": 200,
+        "quantityText": "有货"
+      },
+      "5842610948806": {
+        "price": {
+          "priceTitle": "优惠前",
+          "priceText": "168",
+          "priceMoney": "16800"
+        },
+        "quantity": 200,
+        "quantityText": "有货"
+      },
+      "5842610948807": {
+        "price": {
+          "priceTitle": "优惠前",
+          "priceText": "168",
+          "priceMoney": "16800"
+        },
+        "quantity": 200,
+        "quantityText": "有货"
+      },
+      "5868373799067": {
+        "price": {
+          "priceTitle": "优惠前",
+          "priceText": "148",
+          "priceMoney": "14800"
+        },
+        "quantity": 200,
+        "quantityText": "有货"
+      },
+      "5842610948808": {
+        "price": {
+          "priceText": "168",
+          "priceMoney": "16800"
+        },
+        "quantity": 0,
+        "quantityText": "无货"
+      },
+      "5842610948809": {
+        "price": {
+          "priceTitle": "优惠前",
+          "priceText": "138",
+          "priceMoney": "13800"
+        },
+        "quantity": 200,
+        "quantityText": "有货"
+      },
+      "5728133549297": {
+        "price": {
+          "priceTitle": "优惠前",
+          "priceText": "138",
+          "priceMoney": "13800"
+        },
+        "quantity": 200,
+        "quantityText": "有货"
+      },
+      "5868373799066": {
+        "price": {
+          "priceTitle": "优惠前",
+          "priceText": "148",
+          "priceMoney": "14800"
+        },
+        "quantity": 200,
+        "quantityText": "有货"
+      },
+      "5868373799065": {
+        "price": {
+          "priceTitle": "优惠前",
+          "priceText": "148",
+          "priceMoney": "14800"
+        },
+        "quantity": 200,
+        "quantityText": "有货"
+      },
+      "5728133549298": {
+        "price": {
+          "priceTitle": "优惠前",
+          "priceText": "138",
+          "priceMoney": "13800"
+        },
+        "quantity": 200,
+        "quantityText": "有货"
+      },
+      "5842610948810": {
+        "price": {
+          "priceText": "168",
+          "priceMoney": "16800"
+        },
+        "quantity": 0,
+        "quantityText": "无货"
+      },
+      "5728133549299": {
+        "price": {
+          "priceTitle": "优惠前",
+          "priceText": "138",
+          "priceMoney": "13800"
+        },
+        "quantity": 200,
+        "quantityText": "有货"
+      },
+      "5842610948811": {
+        "price": {
+          "priceTitle": "优惠前",
+          "priceText": "138",
+          "priceMoney": "13800"
+        },
+        "quantity": 200,
+        "quantityText": "有货"
+      },
+      "5868373799064": {
+        "price": {
+          "priceTitle": "优惠前",
+          "priceText": "148",
+          "priceMoney": "14800"
+        },
+        "quantity": 200,
+        "quantityText": "有货"
+      },
+      "5728133549300": {
+        "price": {
+          "priceTitle": "优惠前",
+          "priceText": "138",
+          "priceMoney": "13800"
+        },
+        "quantity": 200,
+        "quantityText": "有货"
+      },
+      "5842610948812": {
+        "price": {
+          "priceTitle": "优惠前",
+          "priceText": "168",
+          "priceMoney": "16800"
+        },
+        "quantity": 200,
+        "quantityText": "有货"
+      },
+      "5842610948813": {
+        "price": {
+          "priceTitle": "优惠前",
+          "priceText": "138",
+          "priceMoney": "13800"
+        },
+        "quantity": 200,
+        "quantityText": "有货"
+      },
+      "5868373799070": {
+        "price": {
+          "priceTitle": "优惠前",
+          "priceText": "148",
+          "priceMoney": "14800"
+        },
+        "quantity": 200,
+        "quantityText": "有货"
+      },
+      "5868373799069": {
+        "price": {
+          "priceTitle": "优惠前",
+          "priceText": "148",
+          "priceMoney": "14800"
+        },
+        "quantity": 200,
+        "quantityText": "有货"
+      },
+      "5842610948814": {
+        "price": {
+          "priceText": "168",
+          "priceMoney": "16800"
+        },
+        "quantity": 0,
+        "quantityText": "无货"
+      },
+      "5842610948815": {
+        "price": {
+          "priceTitle": "优惠前",
+          "priceText": "138",
+          "priceMoney": "13800"
+        },
+        "quantity": 200,
+        "quantityText": "有货"
+      },
+      "5868373799068": {
+        "price": {
+          "priceTitle": "优惠前",
+          "priceText": "148",
+          "priceMoney": "14800"
+        },
+        "quantity": 200,
+        "quantityText": "有货"
+      },
+      "5841135655544": {
+        "price": {
+          "priceTitle": "优惠前",
+          "priceText": "138",
+          "priceMoney": "13800"
+        },
+        "quantity": 200,
+        "quantityText": "有货"
+      },
+      "5841135655543": {
+        "price": {
+          "priceTitle": "优惠前",
+          "priceText": "138",
+          "priceMoney": "13800"
+        },
+        "quantity": 200,
+        "quantityText": "有货"
+      },
+      "5841135655542": {
+        "price": {
+          "priceTitle": "优惠前",
+          "priceText": "138",
+          "priceMoney": "13800"
+        },
+        "quantity": 200,
+        "quantityText": "有货"
+      },
+      "5841135655541": {
+        "price": {
+          "priceTitle": "优惠前",
+          "priceText": "138",
+          "priceMoney": "13800"
+        },
+        "quantity": 200,
+        "quantityText": "有货"
+      },
+      "5841135655540": {
+        "price": {
+          "priceTitle": "优惠前",
+          "priceText": "138",
+          "priceMoney": "13800"
+        },
+        "quantity": 200,
+        "quantityText": "有货"
+      },
+      "5841135655539": {
+        "price": {
+          "priceTitle": "优惠前",
+          "priceText": "138",
+          "priceMoney": "13800"
+        },
+        "quantity": 200,
+        "quantityText": "有货"
+      },
+      "5841135655538": {
+        "price": {
+          "priceTitle": "优惠前",
+          "priceText": "138",
+          "priceMoney": "13800"
+        },
+        "quantity": 200,
+        "quantityText": "有货"
+      }
+    }
+  },
+  "plusViewVO": {
+    "industryParamVO": {
+      "hit": "true",
+      "enhanceParamList": [
+        {
+          "valueName": "橡胶",
+          "propertyName": "鞋底材质",
+          "structPv": "false"
+        },
+        {
+          "valueName": "厚底",
+          "propertyName": "跟底款式",
+          "structPv": "false"
+        },
+        {
+          "valueName": "乐福鞋",
+          "propertyName": "款式",
+          "structPv": "false"
+        },
+        {
+          "valueName": "青春潮流",
+          "propertyName": "风格",
+          "structPv": "false"
+        },
+        {
+          "valueName": "系带",
+          "propertyName": "闭合方式",
+          "structPv": "false"
+        },
+        {
+          "valueName": "超纤皮",
+          "propertyName": "鞋面内里材质",
+          "structPv": "false"
+        }
+      ],
+      "basicParamList": [
+        {
+          "valueName": "无品牌/无注册商标",
+          "propertyName": "品牌"
+        },
+        {
+          "valueName": "42,40,45,43,38,39,44,46,41,36女码,37女码",
+          "propertyName": "尺码"
+        },
+        {
+          "valueName": "超纤皮",
+          "propertyName": "鞋面材质"
+        },
+        {
+          "valueName": "青少年,青年,中年",
+          "propertyName": "适用人群"
+        },
+        {
+          "valueName": "春秋",
+          "propertyName": "季节"
+        },
+        {
+          "valueName": "2024年冬季",
+          "propertyName": "上市年份季节"
+        },
+        {
+          "valueName": "增高",
+          "propertyName": "功能"
+        },
+        {
+          "valueName": "圆头",
+          "propertyName": "鞋头款式"
+        },
+        {
+          "valueName": "男女通用",
+          "propertyName": "适用性别"
+        },
+        {
+          "valueName": "黑色,黑色升级款,7CM增高款,7CM增高【升级款】",
+          "propertyName": "颜色分类"
+        }
+      ]
+    }
+  },
+  "componentsVO": {
+    "priceVO": {
+      "mainBelt": {
+        "priceBeltImg": "https://gw.alicdn.com/imgextra/i1/O1CN01LbZ8qgQUzNK32p0m_!!6000000007072-0-tps-1500-256.jpg",
+        "rightBelt": {
+          "extraTextColor": "#FFFFFF",
+          "countdown": "false",
+          "extraText": "结束",
+          "text": "11月8日 24点",
+          "textColor": "#FFFFFF"
+        },
+        "logo": "https://img.alicdn.com/i4/O1CN01Ydag4EZHbDB0ioSy_!!4611686018427384654-2-atmosphere_center_image_storag-merlin-356-72.png",
+        "beltStyleType": 2
+      },
+      "price": {
+        "priceUnit": "￥",
+        "priceTitle": "优惠前",
+        "priceTitleColor": "#FF4F00",
+        "priceText": "138",
+        "priceDesc": "起",
+        "priceMoney": "13800",
+        "hiddenPrice": "false"
+      },
+      "isNewStyle": "true"
+    },
+    "titleVO": {
+      "salesDesc": "已售 1000+"
+    },
+    "sizeTableVO": {
+      "sizeTableTaoDetailView": {
+        "datas": {
+          "sizeData": {
+            "sizeTable": {
+              "hasScroll": "true",
+              "contentOffset": 0,
+              "code": "sizeTable",
+              "data": [
+                {
+                  "subTitle": "",
+                  "data": {
+                    "columnsData": [
+                      {
+                        "data": [
+                          {
+                            "light": "false",
+                            "bold": "true",
+                            "value": "尺码",
+                            "selected": "false"
+                          },
+                          {
+                            "light": "false",
+                            "bold": "true",
+                            "value": "脚长",
+                            "selected": "false"
+                          }
+                        ],
+                        "width": 108,
+                        "index": 0,
+                        "hasSimilar": "false"
+                      },
+                      {
+                        "data": [
+                          {
+                            "light": "false",
+                            "bold": "true",
+                            "value": "36女码",
+                            "selected": "false"
+                          },
+                          {
+                            "light": "false",
+                            "bold": "false",
+                            "value": "23",
+                            "selected": "false"
+                          }
+                        ],
+                        "width": 127,
+                        "index": 1,
+                        "hasSimilar": "false"
+                      },
+                      {
+                        "data": [
+                          {
+                            "light": "false",
+                            "bold": "true",
+                            "value": "37女码",
+                            "selected": "false"
+                          },
+                          {
+                            "light": "false",
+                            "bold": "false",
+                            "value": "23.5",
+                            "selected": "false"
+                          }
+                        ],
+                        "width": 127,
+                        "index": 2,
+                        "hasSimilar": "false"
+                      },
+                      {
+                        "data": [
+                          {
+                            "light": "false",
+                            "bold": "true",
+                            "value": "38",
+                            "selected": "false"
+                          },
+                          {
+                            "light": "false",
+                            "bold": "false",
+                            "value": "24",
+                            "selected": "false"
+                          }
+                        ],
+                        "width": 108,
+                        "index": 3,
+                        "hasSimilar": "false"
+                      },
+                      {
+                        "data": [
+                          {
+                            "light": "false",
+                            "bold": "true",
+                            "value": "39",
+                            "selected": "false"
+                          },
+                          {
+                            "light": "false",
+                            "bold": "false",
+                            "value": "24.5",
+                            "selected": "false"
+                          }
+                        ],
+                        "width": 108,
+                        "index": 4,
+                        "hasSimilar": "false"
+                      },
+                      {
+                        "data": [
+                          {
+                            "light": "false",
+                            "bold": "true",
+                            "value": "40",
+                            "selected": "false"
+                          },
+                          {
+                            "light": "false",
+                            "bold": "false",
+                            "value": "25",
+                            "selected": "false"
+                          }
+                        ],
+                        "width": 108,
+                        "index": 5,
+                        "hasSimilar": "false"
+                      },
+                      {
+                        "data": [
+                          {
+                            "light": "false",
+                            "bold": "true",
+                            "value": "41",
+                            "selected": "false"
+                          },
+                          {
+                            "light": "false",
+                            "bold": "false",
+                            "value": "25.5",
+                            "selected": "false"
+                          }
+                        ],
+                        "width": 108,
+                        "index": 6,
+                        "hasSimilar": "false"
+                      },
+                      {
+                        "data": [
+                          {
+                            "light": "false",
+                            "bold": "true",
+                            "value": "42",
+                            "selected": "false"
+                          },
+                          {
+                            "light": "false",
+                            "bold": "false",
+                            "value": "26",
+                            "selected": "false"
+                          }
+                        ],
+                        "width": 108,
+                        "index": 7,
+                        "hasSimilar": "false"
+                      },
+                      {
+                        "data": [
+                          {
+                            "light": "false",
+                            "bold": "true",
+                            "value": "43",
+                            "selected": "false"
+                          },
+                          {
+                            "light": "false",
+                            "bold": "false",
+                            "value": "26.5",
+                            "selected": "false"
+                          }
+                        ],
+                        "width": 108,
+                        "index": 8,
+                        "hasSimilar": "false"
+                      },
+                      {
+                        "data": [
+                          {
+                            "light": "false",
+                            "bold": "true",
+                            "value": "44",
+                            "selected": "false"
+                          },
+                          {
+                            "light": "false",
+                            "bold": "false",
+                            "value": "27",
+                            "selected": "false"
+                          }
+                        ],
+                        "width": 108,
+                        "index": 9,
+                        "hasSimilar": "false"
+                      },
+                      {
+                        "data": [
+                          {
+                            "light": "false",
+                            "bold": "true",
+                            "value": "45",
+                            "selected": "false"
+                          },
+                          {
+                            "light": "false",
+                            "bold": "false",
+                            "value": "27.5",
+                            "selected": "false"
+                          }
+                        ],
+                        "width": 108,
+                        "index": 10,
+                        "hasSimilar": "false"
+                      },
+                      {
+                        "data": [
+                          {
+                            "light": "false",
+                            "bold": "true",
+                            "value": "46",
+                            "selected": "false"
+                          },
+                          {
+                            "light": "false",
+                            "bold": "false",
+                            "value": "28",
+                            "selected": "false"
+                          }
+                        ],
+                        "width": 108,
+                        "index": 11,
+                        "hasSimilar": "false"
+                      }
+                    ]
+                  },
+                  "type": "40"
+                }
+              ],
+              "row": 0,
+              "title": "尺寸表",
+              "type": "40",
+              "titleUnit": "厘米/公斤"
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,1416 @@
+{
+  "item": {
+    "title": "Entong美式复古工装牛仔裤男生街头多口袋百搭宽松直筒休闲长裤子",
+    "itemId": "845432953096",
+    "vagueSellCount": "4000+",
+    "images": [
+      "https://img.alicdn.com/imgextra/i4/692898537/O1CN01O7uySX2Cw0DK1G1p3_!!692898537.jpg",
+      "https://img.alicdn.com/imgextra/i4/692898537/O1CN01yM7znv2Cw0DLUHQPZ_!!692898537.jpg",
+      "https://img.alicdn.com/imgextra/i2/692898537/O1CN01IFx8eO2Cw0DEuVbdX_!!692898537.jpg",
+      "https://img.alicdn.com/imgextra/i3/692898537/O1CN01kpOBAp2Cw0DM25EVz_!!692898537.jpg",
+      "https://img.alicdn.com/imgextra/i3/692898537/O1CN01FlOU6D2Cw0DM6z9C1_!!692898537.jpg"
+    ],
+    "spuId": "0"
+  },
+  "seller": {
+    "shopName": "entong潮流男装",
+    "sellerNick": "entong潮流男装",
+    "shopId": "66127031",
+    "sellerId": "692898537",
+    "userId": "692898537",
+    "evaluates": [
+      {
+        "score": "4.7 ",
+        "level": "-1",
+        "levelText": "低",
+        "title": "宝贝描述",
+        "type": "desc"
+      },
+      {
+        "score": "4.8 ",
+        "level": "-1",
+        "levelText": "低",
+        "title": "卖家服务",
+        "type": "serv"
+      },
+      {
+        "score": "4.8 ",
+        "level": "-1",
+        "levelText": "低",
+        "title": "物流服务",
+        "type": "post"
+      }
+    ],
+    "creditLevel": "16",
+    "certText": "金牌卖家",
+    "sellerType": "C",
+    "pcShopUrl": "//shop66127031.taobao.com"
+  },
+  "skuBase": {
+    "props": [
+      {
+        "hasGroupTags": "false",
+        "packProp": "false",
+        "shouldGroup": "false",
+        "comboProperty": "false",
+        "values": [
+          {
+            "comboPropertyValue": "false",
+            "vid": "28341",
+            "corner": {},
+            "image": "https://gw.alicdn.com/bao/uploaded/i1/692898537/O1CN01hb3cRx2Cw0DNoqI5E_!!692898537.webp",
+            "name": "黑色"
+          },
+          {
+            "comboPropertyValue": "false",
+            "vid": "28866",
+            "corner": {},
+            "image": "https://gw.alicdn.com/bao/uploaded/i3/692898537/O1CN01wxbDz22Cw0FX0xUNJ_!!692898537.jpg",
+            "name": "藏青色"
+          },
+          {
+            "comboPropertyValue": "false",
+            "vid": "93586002",
+            "corner": {
+              "cornerBackgroundColor": "#ff5000",
+              "skuCornerIcon": "",
+              "cornerPVPath": "1627207:93586002",
+              "cornerBorderColor": "#FFFFFF",
+              "cornerText": "千人加购",
+              "cornerTextColor": "#FFFFFF"
+            },
+            "image": "https://gw.alicdn.com/bao/uploaded/i2/692898537/O1CN0175rdKs2Cw0JdKRNmm_!!692898537.jpg",
+            "name": "黑色加绒"
+          },
+          {
+            "comboPropertyValue": "false",
+            "vid": "381334202",
+            "corner": {
+              "cornerBackgroundColor": "#ff5000",
+              "skuCornerIcon": "",
+              "cornerPVPath": "1627207:381334202",
+              "cornerBorderColor": "#FFFFFF",
+              "cornerText": "全网低价",
+              "cornerTextColor": "#FFFFFF"
+            },
+            "image": "https://gw.alicdn.com/bao/uploaded/i2/692898537/O1CN01EHqIgk2Cw0JcMQ8U0_!!692898537.jpg",
+            "name": "藏青色加绒"
+          }
+        ],
+        "hasImage": "true",
+        "pid": "1627207",
+        "bigImageMode": "true",
+        "nameDesc": "（4）",
+        "name": "颜色",
+        "valueMap": {
+          "28341": {
+            "comboPropertyValue": "false",
+            "vid": "28341",
+            "corner": {},
+            "image": "https://gw.alicdn.com/bao/uploaded/i1/692898537/O1CN01hb3cRx2Cw0DNoqI5E_!!692898537.webp",
+            "name": "黑色"
+          },
+          "28866": {
+            "comboPropertyValue": "false",
+            "vid": "28866",
+            "corner": {},
+            "image": "https://gw.alicdn.com/bao/uploaded/i3/692898537/O1CN01wxbDz22Cw0FX0xUNJ_!!692898537.jpg",
+            "name": "藏青色"
+          },
+          "93586002": {
+            "comboPropertyValue": "false",
+            "vid": "93586002",
+            "corner": {
+              "cornerBackgroundColor": "#ff5000",
+              "skuCornerIcon": "",
+              "cornerPVPath": "1627207:93586002",
+              "cornerBorderColor": "#FFFFFF",
+              "cornerText": "千人加购",
+              "cornerTextColor": "#FFFFFF"
+            },
+            "image": "https://gw.alicdn.com/bao/uploaded/i2/692898537/O1CN0175rdKs2Cw0JdKRNmm_!!692898537.jpg",
+            "name": "黑色加绒"
+          },
+          "381334202": {
+            "comboPropertyValue": "false",
+            "vid": "381334202",
+            "corner": {
+              "cornerBackgroundColor": "#ff5000",
+              "skuCornerIcon": "",
+              "cornerPVPath": "1627207:381334202",
+              "cornerBorderColor": "#FFFFFF",
+              "cornerText": "全网低价",
+              "cornerTextColor": "#FFFFFF"
+            },
+            "image": "https://gw.alicdn.com/bao/uploaded/i2/692898537/O1CN01EHqIgk2Cw0JcMQ8U0_!!692898537.jpg",
+            "name": "藏青色加绒"
+          }
+        }
+      },
+      {
+        "hasGroupTags": "false",
+        "packProp": "false",
+        "shouldGroup": "false",
+        "comboProperty": "false",
+        "values": [
+          {
+            "comboPropertyValue": "false",
+            "vid": "28314",
+            "corner": {},
+            "sizeDescList": [
+              {
+                "value": "68.0cm",
+                "key": "适合腰围"
+              },
+              {
+                "value": "110.0cm",
+                "key": "臀围"
+              },
+              {
+                "value": "102.0cm",
+                "key": "裤侧长"
+              }
+            ],
+            "name": "S 98-107斤"
+          },
+          {
+            "comboPropertyValue": "false",
+            "vid": "28315",
+            "corner": {},
+            "sizeDescList": [
+              {
+                "value": "72.0cm",
+                "key": "适合腰围"
+              },
+              {
+                "value": "112.0cm",
+                "key": "臀围"
+              },
+              {
+                "value": "103.0cm",
+                "key": "裤侧长"
+              }
+            ],
+            "name": "M 108-116斤"
+          },
+          {
+            "comboPropertyValue": "false",
+            "vid": "28316",
+            "corner": {},
+            "sizeDescList": [
+              {
+                "value": "76.0cm",
+                "key": "适合腰围"
+              },
+              {
+                "value": "116.0cm",
+                "key": "臀围"
+              },
+              {
+                "value": "104.0cm",
+                "key": "裤侧长"
+              }
+            ],
+            "name": "L 117-125斤"
+          },
+          {
+            "comboPropertyValue": "false",
+            "vid": "28317",
+            "corner": {},
+            "sizeDescList": [
+              {
+                "value": "80.0cm",
+                "key": "适合腰围"
+              },
+              {
+                "value": "118.0cm",
+                "key": "臀围"
+              },
+              {
+                "value": "105.0cm",
+                "key": "裤侧长"
+              }
+            ],
+            "name": "XL 126-140斤"
+          },
+          {
+            "comboPropertyValue": "false",
+            "vid": "6145171",
+            "corner": {},
+            "sizeDescList": [
+              {
+                "value": "84.0cm",
+                "key": "适合腰围"
+              },
+              {
+                "value": "120.0cm",
+                "key": "臀围"
+              },
+              {
+                "value": "106.0cm",
+                "key": "裤侧长"
+              }
+            ],
+            "name": "2XL 141-155斤"
+          },
+          {
+            "comboPropertyValue": "false",
+            "vid": "115781",
+            "corner": {},
+            "sizeDescList": [
+              {
+                "value": "88.0cm",
+                "key": "适合腰围"
+              },
+              {
+                "value": "124.0cm",
+                "key": "臀围"
+              },
+              {
+                "value": "107.0cm",
+                "key": "裤侧长"
+              }
+            ],
+            "name": "3XL 156-170斤"
+          },
+          {
+            "comboPropertyValue": "false",
+            "vid": "3727387",
+            "corner": {},
+            "sizeDescList": [
+              {
+                "value": "92.0cm",
+                "key": "适合腰围"
+              },
+              {
+                "value": "128.0cm",
+                "key": "臀围"
+              },
+              {
+                "value": "108.0cm",
+                "key": "裤侧长"
+              }
+            ],
+            "name": "4XL 171-185斤"
+          }
+        ],
+        "hasImage": "false",
+        "pid": "20518",
+        "name": "尺码",
+        "valueMap": {
+          "28314": {
+            "comboPropertyValue": "false",
+            "vid": "28314",
+            "corner": {},
+            "sizeDescList": [
+              {
+                "value": "68.0cm",
+                "key": "适合腰围"
+              },
+              {
+                "value": "110.0cm",
+                "key": "臀围"
+              },
+              {
+                "value": "102.0cm",
+                "key": "裤侧长"
+              }
+            ],
+            "name": "S 98-107斤"
+          },
+          "28315": {
+            "comboPropertyValue": "false",
+            "vid": "28315",
+            "corner": {},
+            "sizeDescList": [
+              {
+                "value": "72.0cm",
+                "key": "适合腰围"
+              },
+              {
+                "value": "112.0cm",
+                "key": "臀围"
+              },
+              {
+                "value": "103.0cm",
+                "key": "裤侧长"
+              }
+            ],
+            "name": "M 108-116斤"
+          },
+          "28316": {
+            "comboPropertyValue": "false",
+            "vid": "28316",
+            "corner": {},
+            "sizeDescList": [
+              {
+                "value": "76.0cm",
+                "key": "适合腰围"
+              },
+              {
+                "value": "116.0cm",
+                "key": "臀围"
+              },
+              {
+                "value": "104.0cm",
+                "key": "裤侧长"
+              }
+            ],
+            "name": "L 117-125斤"
+          },
+          "28317": {
+            "comboPropertyValue": "false",
+            "vid": "28317",
+            "corner": {},
+            "sizeDescList": [
+              {
+                "value": "80.0cm",
+                "key": "适合腰围"
+              },
+              {
+                "value": "118.0cm",
+                "key": "臀围"
+              },
+              {
+                "value": "105.0cm",
+                "key": "裤侧长"
+              }
+            ],
+            "name": "XL 126-140斤"
+          },
+          "115781": {
+            "comboPropertyValue": "false",
+            "vid": "115781",
+            "corner": {},
+            "sizeDescList": [
+              {
+                "value": "88.0cm",
+                "key": "适合腰围"
+              },
+              {
+                "value": "124.0cm",
+                "key": "臀围"
+              },
+              {
+                "value": "107.0cm",
+                "key": "裤侧长"
+              }
+            ],
+            "name": "3XL 156-170斤"
+          },
+          "3727387": {
+            "comboPropertyValue": "false",
+            "vid": "3727387",
+            "corner": {},
+            "sizeDescList": [
+              {
+                "value": "92.0cm",
+                "key": "适合腰围"
+              },
+              {
+                "value": "128.0cm",
+                "key": "臀围"
+              },
+              {
+                "value": "108.0cm",
+                "key": "裤侧长"
+              }
+            ],
+            "name": "4XL 171-185斤"
+          },
+          "6145171": {
+            "comboPropertyValue": "false",
+            "vid": "6145171",
+            "corner": {},
+            "sizeDescList": [
+              {
+                "value": "84.0cm",
+                "key": "适合腰围"
+              },
+              {
+                "value": "120.0cm",
+                "key": "臀围"
+              },
+              {
+                "value": "106.0cm",
+                "key": "裤侧长"
+              }
+            ],
+            "name": "2XL 141-155斤"
+          }
+        }
+      }
+    ],
+    "skus": [
+      {
+        "propPath": "1627207:28341;20518:28314",
+        "skuId": "5791965234927"
+      },
+      {
+        "propPath": "1627207:28341;20518:28315",
+        "selected": "true",
+        "skuId": "5791965234928"
+      },
+      {
+        "propPath": "1627207:28341;20518:28316",
+        "skuId": "5791965234929"
+      },
+      {
+        "propPath": "1627207:28341;20518:28317",
+        "skuId": "5791965234930"
+      },
+      {
+        "propPath": "1627207:28341;20518:6145171",
+        "skuId": "5791965234931"
+      },
+      {
+        "propPath": "1627207:28341;20518:115781",
+        "skuId": "5791965234932"
+      },
+      {
+        "propPath": "1627207:28341;20518:3727387",
+        "skuId": "5791965234933"
+      },
+      {
+        "propPath": "1627207:28866;20518:28314",
+        "skuId": "5908032383398"
+      },
+      {
+        "propPath": "1627207:28866;20518:28315",
+        "skuId": "5908032383399"
+      },
+      {
+        "propPath": "1627207:28866;20518:28316",
+        "skuId": "5908032383400"
+      },
+      {
+        "propPath": "1627207:28866;20518:28317",
+        "skuId": "5908032383401"
+      },
+      {
+        "propPath": "1627207:28866;20518:6145171",
+        "skuId": "5908032383403"
+      },
+      {
+        "propPath": "1627207:28866;20518:115781",
+        "skuId": "5908032383397"
+      },
+      {
+        "propPath": "1627207:28866;20518:3727387",
+        "skuId": "5908032383402"
+      },
+      {
+        "propPath": "1627207:93586002;20518:28314",
+        "skuId": "5961516368057"
+      },
+      {
+        "propPath": "1627207:93586002;20518:28315",
+        "skuId": "5961516368059"
+      },
+      {
+        "propPath": "1627207:93586002;20518:28316",
+        "skuId": "5961516368061"
+      },
+      {
+        "propPath": "1627207:93586002;20518:28317",
+        "skuId": "5961516368063"
+      },
+      {
+        "propPath": "1627207:93586002;20518:6145171",
+        "skuId": "5961516368067"
+      },
+      {
+        "propPath": "1627207:93586002;20518:115781",
+        "skuId": "5961516368055"
+      },
+      {
+        "propPath": "1627207:93586002;20518:3727387",
+        "skuId": "5961516368065"
+      },
+      {
+        "propPath": "1627207:381334202;20518:28314",
+        "skuId": "5961516368056"
+      },
+      {
+        "propPath": "1627207:381334202;20518:28315",
+        "skuId": "5961516368058"
+      },
+      {
+        "propPath": "1627207:381334202;20518:28316",
+        "skuId": "5961516368060"
+      },
+      {
+        "propPath": "1627207:381334202;20518:28317",
+        "skuId": "5961516368062"
+      },
+      {
+        "propPath": "1627207:381334202;20518:6145171",
+        "skuId": "5961516368066"
+      },
+      {
+        "propPath": "1627207:381334202;20518:115781",
+        "skuId": "5961516368054"
+      },
+      {
+        "propPath": "1627207:381334202;20518:3727387",
+        "skuId": "5961516368064"
+      }
+    ]
+  },
+  "skuCore": {
+    "sku2info": {
+      "0": {
+        "price": {
+          "priceTitle": "优惠前",
+          "priceText": "149.8",
+          "priceDesc": "起",
+          "priceMoney": "14980"
+        },
+        "quantity": 200,
+        "quantityText": "有货"
+      },
+      "5961516368060": {
+        "price": {
+          "priceTitle": "优惠前",
+          "priceText": "169.8",
+          "priceMoney": "16980"
+        },
+        "quantity": 200,
+        "quantityText": "有货"
+      },
+      "5961516368061": {
+        "price": {
+          "priceTitle": "优惠前",
+          "priceText": "169.8",
+          "priceMoney": "16980"
+        },
+        "quantity": 200,
+        "quantityText": "有货"
+      },
+      "5961516368062": {
+        "price": {
+          "priceTitle": "优惠前",
+          "priceText": "169.8",
+          "priceMoney": "16980"
+        },
+        "quantity": 200,
+        "quantityText": "有货"
+      },
+      "5961516368063": {
+        "price": {
+          "priceTitle": "优惠前",
+          "priceText": "169.8",
+          "priceMoney": "16980"
+        },
+        "quantity": 200,
+        "quantityText": "有货"
+      },
+      "5961516368056": {
+        "price": {
+          "priceTitle": "优惠前",
+          "priceText": "169.8",
+          "priceMoney": "16980"
+        },
+        "quantity": 200,
+        "quantityText": "有货"
+      },
+      "5961516368057": {
+        "price": {
+          "priceTitle": "优惠前",
+          "priceText": "169.8",
+          "priceMoney": "16980"
+        },
+        "quantity": 200,
+        "quantityText": "有货"
+      },
+      "5961516368058": {
+        "price": {
+          "priceTitle": "优惠前",
+          "priceText": "169.8",
+          "priceMoney": "16980"
+        },
+        "quantity": 200,
+        "quantityText": "有货"
+      },
+      "5961516368059": {
+        "price": {
+          "priceTitle": "优惠前",
+          "priceText": "169.8",
+          "priceMoney": "16980"
+        },
+        "quantity": 200,
+        "quantityText": "有货"
+      },
+      "5961516368054": {
+        "price": {
+          "priceTitle": "优惠前",
+          "priceText": "169.8",
+          "priceMoney": "16980"
+        },
+        "quantity": 200,
+        "quantityText": "有货"
+      },
+      "5961516368055": {
+        "price": {
+          "priceTitle": "优惠前",
+          "priceText": "169.8",
+          "priceMoney": "16980"
+        },
+        "quantity": 200,
+        "quantityText": "有货"
+      },
+      "5908032383397": {
+        "price": {
+          "priceTitle": "优惠前",
+          "priceText": "149.8",
+          "priceMoney": "14980"
+        },
+        "quantity": 200,
+        "quantityText": "有货"
+      },
+      "5908032383398": {
+        "price": {
+          "priceTitle": "优惠前",
+          "priceText": "149.8",
+          "priceMoney": "14980"
+        },
+        "quantity": 200,
+        "quantityText": "有货"
+      },
+      "5908032383399": {
+        "price": {
+          "priceTitle": "优惠前",
+          "priceText": "149.8",
+          "priceMoney": "14980"
+        },
+        "quantity": 200,
+        "quantityText": "有货"
+      },
+      "5908032383400": {
+        "price": {
+          "priceTitle": "优惠前",
+          "priceText": "149.8",
+          "priceMoney": "14980"
+        },
+        "quantity": 200,
+        "quantityText": "有货"
+      },
+      "5908032383401": {
+        "price": {
+          "priceTitle": "优惠前",
+          "priceText": "149.8",
+          "priceMoney": "14980"
+        },
+        "quantity": 200,
+        "quantityText": "有货"
+      },
+      "5908032383402": {
+        "price": {
+          "priceTitle": "优惠前",
+          "priceText": "149.8",
+          "priceMoney": "14980"
+        },
+        "quantity": 200,
+        "quantityText": "有货"
+      },
+      "5908032383403": {
+        "price": {
+          "priceTitle": "优惠前",
+          "priceText": "149.8",
+          "priceMoney": "14980"
+        },
+        "quantity": 200,
+        "quantityText": "有货"
+      },
+      "5791965234927": {
+        "price": {
+          "priceTitle": "优惠前",
+          "priceText": "149.8",
+          "priceMoney": "14980"
+        },
+        "quantity": 200,
+        "quantityText": "有货"
+      },
+      "5791965234931": {
+        "price": {
+          "priceTitle": "优惠前",
+          "priceText": "149.8",
+          "priceMoney": "14980"
+        },
+        "quantity": 200,
+        "quantityText": "有货"
+      },
+      "5791965234930": {
+        "price": {
+          "priceTitle": "优惠前",
+          "priceText": "149.8",
+          "priceMoney": "14980"
+        },
+        "quantity": 200,
+        "quantityText": "有货"
+      },
+      "5791965234929": {
+        "price": {
+          "priceTitle": "优惠前",
+          "priceText": "149.8",
+          "priceMoney": "14980"
+        },
+        "quantity": 200,
+        "quantityText": "有货"
+      },
+      "5791965234928": {
+        "price": {
+          "priceTitle": "优惠前",
+          "priceText": "149.8",
+          "priceMoney": "14980"
+        },
+        "quantity": 200,
+        "quantityText": "有货"
+      },
+      "5791965234933": {
+        "price": {
+          "priceTitle": "优惠前",
+          "priceText": "149.8",
+          "priceMoney": "14980"
+        },
+        "quantity": 200,
+        "quantityText": "有货"
+      },
+      "5791965234932": {
+        "price": {
+          "priceTitle": "优惠前",
+          "priceText": "149.8",
+          "priceMoney": "14980"
+        },
+        "quantity": 21,
+        "quantityText": "有货"
+      },
+      "5961516368064": {
+        "price": {
+          "priceTitle": "优惠前",
+          "priceText": "169.8",
+          "priceMoney": "16980"
+        },
+        "quantity": 200,
+        "quantityText": "有货"
+      },
+      "5961516368065": {
+        "price": {
+          "priceTitle": "优惠前",
+          "priceText": "169.8",
+          "priceMoney": "16980"
+        },
+        "quantity": 200,
+        "quantityText": "有货"
+      },
+      "5961516368066": {
+        "price": {
+          "priceTitle": "优惠前",
+          "priceText": "169.8",
+          "priceMoney": "16980"
+        },
+        "quantity": 200,
+        "quantityText": "有货"
+      },
+      "5961516368067": {
+        "price": {
+          "priceTitle": "优惠前",
+          "priceText": "169.8",
+          "priceMoney": "16980"
+        },
+        "quantity": 200,
+        "quantityText": "有货"
+      }
+    }
+  },
+  "plusViewVO": {
+    "industryParamVO": {
+      "hit": "true",
+      "enhanceParamList": [
+        {
+          "valueName": "青春流行",
+          "propertyName": "基础风格",
+          "structPv": "false"
+        },
+        {
+          "valueName": "棉",
+          "propertyName": "面料",
+          "structPv": "false"
+        },
+        {
+          "valueName": "口袋",
+          "propertyName": "款式细节",
+          "structPv": "false"
+        },
+        {
+          "valueName": "宽松",
+          "propertyName": "版型",
+          "structPv": "false"
+        },
+        {
+          "valueName": "无弹",
+          "propertyName": "弹力等级",
+          "structPv": "false"
+        }
+      ],
+      "basicParamList": [
+        {
+          "valueName": "Entong",
+          "propertyName": "品牌"
+        },
+        {
+          "valueName": "美式",
+          "propertyName": "系列"
+        },
+        {
+          "valueName": "中腰",
+          "propertyName": "腰型"
+        },
+        {
+          "valueName": "228元",
+          "propertyName": "吊牌价"
+        },
+        {
+          "valueName": "3XL,2XL,4XL,XL,S,M,L",
+          "propertyName": "尺码"
+        },
+        {
+          "valueName": "否",
+          "propertyName": "是否商场同款"
+        },
+        {
+          "valueName": "男士,青年",
+          "propertyName": "适用人群"
+        },
+        {
+          "valueName": "拉链",
+          "propertyName": "裤门襟"
+        },
+        {
+          "valueName": "日常",
+          "propertyName": "适用场景"
+        },
+        {
+          "valueName": "棉100%",
+          "propertyName": "材质成分"
+        },
+        {
+          "valueName": "四季通用",
+          "propertyName": "适用季节"
+        },
+        {
+          "valueName": "不易变形",
+          "propertyName": "功能"
+        },
+        {
+          "valueName": "直筒",
+          "propertyName": "裤脚口款式"
+        },
+        {
+          "valueName": "宽松直筒",
+          "propertyName": "款式版型"
+        },
+        {
+          "valueName": "2025年春季",
+          "propertyName": "上市年份季节"
+        },
+        {
+          "valueName": "中国",
+          "propertyName": "产地"
+        },
+        {
+          "valueName": "休闲",
+          "propertyName": "风格"
+        },
+        {
+          "valueName": "黑色,藏青色,黑色加绒,藏青色加绒",
+          "propertyName": "颜色"
+        }
+      ]
+    }
+  },
+  "componentsVO": {
+    "priceVO": {
+      "mainBelt": {
+        "priceBeltImg": "https://gw.alicdn.com/imgextra/i4/O1CN01611wlp1QkSa60ey3l_!!6000000002014-2-tps-1500-256.png",
+        "rightBelt": {
+          "extraTextColor": "#FFFFFF",
+          "countdown": "false",
+          "textColor": "#FFFFFF"
+        },
+        "logo": "https://img.alicdn.com/imgextra/i1/O1CN01np7efzgNNjC0ARnD_!!6000000005416-2-tps-83-36.png",
+        "beltStyleType": 2
+      },
+      "price": {
+        "priceUnit": "￥",
+        "priceTitle": "优惠前",
+        "priceTitleColor": "#FF4F00",
+        "priceText": "149.8",
+        "priceDesc": "起",
+        "priceMoney": "14980",
+        "hiddenPrice": "false"
+      },
+      "isNewStyle": "true"
+    },
+    "titleVO": {
+      "salesDesc": "已售 4000+"
+    },
+    "sizeTableVO": {
+      "sizeTableTaoDetailView": {
+        "datas": {
+          "sizeData": {
+            "optionLine": {
+              "hasScroll": "false",
+              "contentOffset": 0,
+              "code": "optionLine",
+              "data": [
+                {
+                  "subTitle": "",
+                  "data": {
+                    "list": [
+                      {
+                        "selectedText": "宽松",
+                        "title": "版型",
+                        "list": [
+                          "紧身",
+                          "修身",
+                          "常规",
+                          "宽松",
+                          "超宽"
+                        ]
+                      },
+                      {
+                        "selectedText": "无弹",
+                        "title": "弹力",
+                        "list": [
+                          "无弹",
+                          "微弹",
+                          "中弹",
+                          "高弹",
+                          "超弹"
+                        ]
+                      }
+                    ]
+                  }
+                }
+              ],
+              "row": 0,
+              "title": "商品尺码信息",
+              "type": "100"
+            },
+            "heightTable": {
+              "hasScroll": "true",
+              "contentOffset": 0,
+              "code": "heightTable",
+              "data": [
+                {
+                  "subTitle": "",
+                  "data": {
+                    "columnsData": [
+                      {
+                        "data": [
+                          {
+                            "light": "false",
+                            "bold": "true",
+                            "value": "身高/体重",
+                            "selected": "false"
+                          },
+                          {
+                            "light": "false",
+                            "bold": "true",
+                            "value": "165-170",
+                            "selected": "false"
+                          },
+                          {
+                            "light": "false",
+                            "bold": "true",
+                            "value": "170-175",
+                            "selected": "false"
+                          },
+                          {
+                            "light": "false",
+                            "bold": "true",
+                            "value": "175-180",
+                            "selected": "false"
+                          }
+                        ],
+                        "width": 163.5,
+                        "index": 0,
+                        "hasSimilar": "false"
+                      },
+                      {
+                        "data": [
+                          {
+                            "light": "false",
+                            "bold": "true",
+                            "value": "50-65",
+                            "selected": "false"
+                          },
+                          {
+                            "light": "false",
+                            "bold": "false",
+                            "value": "S",
+                            "selected": "false"
+                          },
+                          {
+                            "light": "false",
+                            "bold": "false",
+                            "value": "S",
+                            "selected": "false"
+                          },
+                          {
+                            "light": "false",
+                            "bold": "false",
+                            "value": "M",
+                            "selected": "false"
+                          }
+                        ],
+                        "width": 121,
+                        "index": 1,
+                        "hasSimilar": "false"
+                      },
+                      {
+                        "data": [
+                          {
+                            "light": "false",
+                            "bold": "true",
+                            "value": "65-70",
+                            "selected": "false"
+                          },
+                          {
+                            "light": "false",
+                            "bold": "false",
+                            "value": "M",
+                            "selected": "false"
+                          },
+                          {
+                            "light": "false",
+                            "bold": "false",
+                            "value": "M",
+                            "selected": "false"
+                          },
+                          {
+                            "light": "false",
+                            "bold": "false",
+                            "value": "L",
+                            "selected": "false"
+                          }
+                        ],
+                        "width": 121,
+                        "index": 2,
+                        "hasSimilar": "false"
+                      },
+                      {
+                        "data": [
+                          {
+                            "light": "false",
+                            "bold": "true",
+                            "value": "70-75",
+                            "selected": "false"
+                          },
+                          {
+                            "light": "false",
+                            "bold": "false",
+                            "value": "M",
+                            "selected": "false"
+                          },
+                          {
+                            "light": "false",
+                            "bold": "false",
+                            "value": "M",
+                            "selected": "false"
+                          },
+                          {
+                            "light": "false",
+                            "bold": "false",
+                            "value": "L",
+                            "selected": "false"
+                          }
+                        ],
+                        "width": 121,
+                        "index": 3,
+                        "hasSimilar": "false"
+                      },
+                      {
+                        "data": [
+                          {
+                            "light": "false",
+                            "bold": "true",
+                            "value": "75-80",
+                            "selected": "false"
+                          },
+                          {
+                            "light": "false",
+                            "bold": "false",
+                            "value": "L",
+                            "selected": "false"
+                          },
+                          {
+                            "light": "false",
+                            "bold": "false",
+                            "value": "L",
+                            "selected": "false"
+                          },
+                          {
+                            "light": "false",
+                            "bold": "false",
+                            "value": "XL",
+                            "selected": "false"
+                          }
+                        ],
+                        "width": 121,
+                        "index": 4,
+                        "hasSimilar": "false"
+                      },
+                      {
+                        "data": [
+                          {
+                            "light": "false",
+                            "bold": "true",
+                            "value": "80-85",
+                            "selected": "false"
+                          },
+                          {
+                            "light": "false",
+                            "bold": "false",
+                            "value": "XL",
+                            "selected": "false"
+                          },
+                          {
+                            "light": "false",
+                            "bold": "false",
+                            "value": "XL",
+                            "selected": "false"
+                          },
+                          {
+                            "light": "false",
+                            "bold": "false",
+                            "value": "2XL",
+                            "selected": "false"
+                          }
+                        ],
+                        "width": 121,
+                        "index": 5,
+                        "hasSimilar": "false"
+                      },
+                      {
+                        "data": [
+                          {
+                            "light": "false",
+                            "bold": "true",
+                            "value": "85-90",
+                            "selected": "false"
+                          },
+                          {
+                            "light": "false",
+                            "bold": "false",
+                            "value": "-",
+                            "selected": "false"
+                          },
+                          {
+                            "light": "false",
+                            "bold": "false",
+                            "value": "2XL",
+                            "selected": "false"
+                          },
+                          {
+                            "light": "false",
+                            "bold": "false",
+                            "value": "3XL",
+                            "selected": "false"
+                          }
+                        ],
+                        "width": 121,
+                        "index": 6,
+                        "hasSimilar": "false"
+                      },
+                      {
+                        "data": [
+                          {
+                            "light": "false",
+                            "bold": "true",
+                            "value": "90-95",
+                            "selected": "false"
+                          },
+                          {
+                            "light": "false",
+                            "bold": "false",
+                            "value": "-",
+                            "selected": "false"
+                          },
+                          {
+                            "light": "false",
+                            "bold": "false",
+                            "value": "-",
+                            "selected": "false"
+                          },
+                          {
+                            "light": "false",
+                            "bold": "false",
+                            "value": "4XL",
+                            "selected": "false"
+                          }
+                        ],
+                        "width": 121,
+                        "index": 7,
+                        "hasSimilar": "false"
+                      }
+                    ]
+                  },
+                  "type": "30"
+                }
+              ],
+              "row": 0,
+              "title": "身高体重对照表",
+              "type": "30",
+              "titleUnit": "厘米/公斤"
+            },
+            "sizeTable": {
+              "hasScroll": "false",
+              "contentOffset": 0,
+              "code": "sizeTable",
+              "data": [
+                {
+                  "subTitle": "",
+                  "data": {
+                    "columnsData": [
+                      {
+                        "data": [
+                          {
+                            "light": "false",
+                            "bold": "true",
+                            "value": "尺码",
+                            "selected": "false"
+                          },
+                          {
+                            "light": "false",
+                            "bold": "true",
+                            "value": "S",
+                            "selected": "false"
+                          },
+                          {
+                            "light": "false",
+                            "bold": "true",
+                            "value": "M",
+                            "selected": "true"
+                          },
+                          {
+                            "light": "false",
+                            "bold": "true",
+                            "value": "L",
+                            "selected": "false"
+                          }
+                        ],
+                        "width": 108,
+                        "index": 0,
+                        "hasSimilar": "false"
+                      },
+                      {
+                        "data": [
+                          {
+                            "light": "false",
+                            "bold": "true",
+                            "value": "腰围",
+                            "selected": "false"
+                          },
+                          {
+                            "light": "false",
+                            "bold": "false",
+                            "value": "68.0",
+                            "selected": "false"
+                          },
+                          {
+                            "light": "true",
+                            "bold": "true",
+                            "value": "72.0",
+                            "selected": "false"
+                          },
+                          {
+                            "light": "false",
+                            "bold": "false",
+                            "value": "76.0",
+                            "selected": "false"
+                          }
+                        ],
+                        "width": 108,
+                        "index": 1,
+                        "hasSimilar": "false"
+                      },
+                      {
+                        "data": [
+                          {
+                            "light": "false",
+                            "bold": "true",
+                            "value": "臀围",
+                            "selected": "false"
+                          },
+                          {
+                            "light": "false",
+                            "bold": "false",
+                            "value": "110.0",
+                            "selected": "false"
+                          },
+                          {
+                            "light": "true",
+                            "bold": "true",
+                            "value": "112.0",
+                            "selected": "false"
+                          },
+                          {
+                            "light": "false",
+                            "bold": "false",
+                            "value": "116.0",
+                            "selected": "false"
+                          }
+                        ],
+                        "width": 113,
+                        "index": 2,
+                        "hasSimilar": "false"
+                      },
+                      {
+                        "data": [
+                          {
+                            "light": "false",
+                            "bold": "true",
+                            "value": "裤侧长",
+                            "selected": "false"
+                          },
+                          {
+                            "light": "false",
+                            "bold": "false",
+                            "value": "102.0",
+                            "selected": "false"
+                          },
+                          {
+                            "light": "true",
+                            "bold": "true",
+                            "value": "103.0",
+                            "selected": "false"
+                          },
+                          {
+                            "light": "false",
+                            "bold": "false",
+                            "value": "104.0",
+                            "selected": "false"
+                          }
+                        ],
+                        "width": 122,
+                        "index": 3,
+                        "hasSimilar": "false"
+                      }
+                    ]
+                  },
+                  "type": "40"
+                }
+              ],
+              "row": 0,
+              "title": "尺寸表",
+              "type": "40",
+              "titleUnit": "厘米/公斤"
+            }
+          }
+        }
+      }
+    }
+  }
+}

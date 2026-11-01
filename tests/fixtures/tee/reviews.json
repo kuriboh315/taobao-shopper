@@ -1,0 +1,76 @@
+[
+  {
+    "api": "mtop.taobao.rate.detaillist.get",
+    "ret": [
+      "SUCCESS::调用成功"
+    ],
+    "v": "6.0",
+    "data": {
+      "feedAllCount": "100",
+      "feedAllCountFuzzy": "100+",
+      "feedAppendCount": "0",
+      "feedAppendCountFuzzy": "0",
+      "feedBadCount": "0",
+      "feedBadCountFuzzy": "0",
+      "feedGoodCount": "100",
+      "feedGoodCountFuzzy": "100+",
+      "feedMediaCount": "2",
+      "feedMediaCountFuzzy": "2",
+      "feedNormalCount": "0",
+      "feedNormalCountFuzzy": "0",
+      "feedNotGoodCount": "0",
+      "feedNotGoodCountFuzzy": "0",
+      "feedPicCount": "2",
+      "feedPicCountFuzzy": "2",
+      "feedStoreCount": "0",
+      "feedVideoCount": "0",
+      "feedVideoCountFuzzy": "0",
+      "hasNext": "false",
+      "total": "5",
+      "totalFuzzy": "5",
+      "totalPage": "1",
+      "rateList": [
+        {
+          "id": "1317410682543",
+          "feedback": "面料品质：很好舒服",
+          "skuValueStr": "黑灰色；M[现货]",
+          "feedbackDate": "2026年10月22日",
+          "rateType": "1",
+          "auctionNumId": "939581302106"
+        },
+        {
+          "id": "1311153378432",
+          "feedback": "每个码都买过，终于买到合适的码数了，",
+          "skuValueStr": "黑灰色；L[现货]",
+          "feedbackDate": "2026年7月30日",
+          "rateType": "1",
+          "auctionNumId": "939581302106"
+        },
+        {
+          "id": "1308696149751",
+          "feedback": "很好很合适 是自己想要的那一种 快递也快",
+          "skuValueStr": "黑灰色；L[现货]",
+          "feedbackDate": "2026年6月28日",
+          "rateType": "1",
+          "auctionNumId": "939581302106"
+        },
+        {
+          "id": "1314678344202",
+          "feedback": "不太容易皱。",
+          "skuValueStr": "黑灰色；XL[现货]",
+          "feedbackDate": "2026年9月14日",
+          "rateType": "1",
+          "auctionNumId": "939581302106"
+        },
+        {
+          "id": "1306882601207",
+          "feedback": "穿上挺显气质的，挺满意。",
+          "skuValueStr": "黑灰色；S[现货]",
+          "feedbackDate": "2026年6月6日",
+          "rateType": "1",
+          "auctionNumId": "939581302106"
+        }
+      ]
+    }
+  }
+]

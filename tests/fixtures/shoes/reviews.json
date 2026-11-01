@@ -1,0 +1,67 @@
+[
+  {
+    "api": "mtop.taobao.rate.detaillist.get",
+    "ret": [
+      "SUCCESS::调用成功"
+    ],
+    "v": "6.0",
+    "data": {
+      "feedAllCount": "300",
+      "feedAllCountFuzzy": "300+",
+      "feedAppendCount": "1",
+      "feedAppendCountFuzzy": "1",
+      "feedBadCount": "0",
+      "feedBadCountFuzzy": "0",
+      "feedGoodCount": "300",
+      "feedGoodCountFuzzy": "300+",
+      "feedMediaCount": "2",
+      "feedMediaCountFuzzy": "2",
+      "feedNormalCount": "0",
+      "feedNormalCountFuzzy": "0",
+      "feedNotGoodCount": "0",
+      "feedNotGoodCountFuzzy": "0",
+      "feedPicCount": "2",
+      "feedPicCountFuzzy": "2",
+      "feedStoreCount": "0",
+      "feedVideoCount": "0",
+      "feedVideoCountFuzzy": "0",
+      "hasNext": "false",
+      "total": "4",
+      "totalFuzzy": "4",
+      "totalPage": "1",
+      "rateList": [
+        {
+          "id": "1314054000689",
+          "feedback": "总体来说非常不错，物流效率极佳，商品也是图片描述一致满意满意",
+          "skuValueStr": "黑色升级款；45",
+          "feedbackDate": "2026年9月6日",
+          "rateType": "1",
+          "auctionNumId": "859369109395"
+        },
+        {
+          "id": "1314918864430",
+          "feedback": "该用户未及时主动评价，系统默认评价",
+          "feedbackDate": "2026年9月18日",
+          "rateType": "1",
+          "auctionNumId": "859369109395"
+        },
+        {
+          "id": "1310987294547",
+          "feedback": "这双鞋子的质量很好，穿着舒适；卖家的服务态度也很好，很有耐心解答问题",
+          "skuValueStr": "黑色；41",
+          "feedbackDate": "2026年7月28日",
+          "rateType": "1",
+          "auctionNumId": "859369109395"
+        },
+        {
+          "id": "1310904618965",
+          "feedback": "鞋子穿上好看，款式时尚大气。质量不错不臭脚。尺码标准，很喜欢",
+          "skuValueStr": "黑色升级款；41",
+          "feedbackDate": "2026年7月27日",
+          "rateType": "1",
+          "auctionNumId": "859369109395"
+        }
+      ]
+    }
+  }
+]

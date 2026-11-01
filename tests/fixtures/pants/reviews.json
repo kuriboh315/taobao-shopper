@@ -1,0 +1,196 @@
+[
+  {
+    "api": "mtop.taobao.rate.detaillist.get",
+    "ret": [
+      "SUCCESS::调用成功"
+    ],
+    "v": "6.0",
+    "data": {
+      "feedAllCount": "400",
+      "feedAllCountFuzzy": "400+",
+      "feedAppendCount": "1",
+      "feedAppendCountFuzzy": "1",
+      "feedBadCount": "2",
+      "feedBadCountFuzzy": "2",
+      "feedGoodCount": "400",
+      "feedGoodCountFuzzy": "400+",
+      "feedMediaCount": "5",
+      "feedMediaCountFuzzy": "5",
+      "feedNormalCount": "5",
+      "feedNormalCountFuzzy": "5",
+      "feedNotGoodCount": "7",
+      "feedNotGoodCountFuzzy": "7",
+      "feedPicCount": "5",
+      "feedPicCountFuzzy": "5",
+      "feedStoreCount": "0",
+      "feedVideoCount": "0",
+      "feedVideoCountFuzzy": "0",
+      "hasNext": "false",
+      "total": "20",
+      "totalFuzzy": "20",
+      "totalPage": "1",
+      "rateList": [
+        {
+          "id": "1317370396237",
+          "feedback": "秋冬季 厚薄适中 100/100棉",
+          "skuValueStr": "黑色；L[117-125斤]",
+          "feedbackDate": "2026年10月20日",
+          "rateType": "0",
+          "auctionNumId": "845432953096"
+        },
+        {
+          "id": "1315979643077",
+          "feedback": "穿着有型，质量也不错，孩子喜欢留下了",
+          "skuValueStr": "黑色；L[117-125斤]",
+          "feedbackDate": "2026年10月5日",
+          "rateType": "1",
+          "auctionNumId": "845432953096"
+        },
+        {
+          "id": "1316186492822",
+          "feedback": "裤子很厚 大小也很合适 物流速度很快 推荐",
+          "skuValueStr": "黑色加绒；S[98-107斤]",
+          "feedbackDate": "2026年10月4日",
+          "rateType": "1",
+          "auctionNumId": "845432953096"
+        },
+        {
+          "id": "1316709429701",
+          "feedback": "裤子挺好，版型颜色都可以。就是这个拉链有点问题，很难拉，感觉用力就会坏掉",
+          "skuValueStr": "藏青色；L[117-125斤]",
+          "feedbackDate": "2026年10月12日",
+          "rateType": "1",
+          "auctionNumId": "845432953096"
+        },
+        {
+          "id": "1316176704445",
+          "feedback": "做工很扎实，针脚均匀。",
+          "skuValueStr": "黑色；3XL[156-170斤]",
+          "feedbackDate": "2026年10月4日",
+          "rateType": "1",
+          "auctionNumId": "1000077439943"
+        },
+        {
+          "id": "1316930888254",
+          "feedback": "腰型不勒肉。",
+          "skuValueStr": "藏青色；L[117-125斤]",
+          "feedbackDate": "2026年10月14日",
+          "rateType": "1",
+          "auctionNumId": "845432953096"
+        },
+        {
+          "id": "1311913329684",
+          "feedback": "很好,穿起来好看时尚大款 很好",
+          "skuValueStr": "黑色；S[98-107斤]",
+          "feedbackDate": "2026年8月10日",
+          "rateType": "1",
+          "auctionNumId": "997388489272"
+        },
+        {
+          "id": "1315294313127",
+          "feedback": "好看好看好看很满意",
+          "skuValueStr": "黑色；XL[126-140斤]",
+          "feedbackDate": "2026年9月23日",
+          "rateType": "1",
+          "auctionNumId": "1000077439943"
+        },
+        {
+          "id": "1312038091800",
+          "feedback": "裤子不错",
+          "skuValueStr": "黑色；4XL[171-185斤]",
+          "feedbackDate": "2026年8月13日",
+          "rateType": "1",
+          "auctionNumId": "997388489272"
+        },
+        {
+          "id": "1306434278009",
+          "feedback": "质量非常好，非常喜欢",
+          "skuValueStr": "黑色；XL[126-140斤]",
+          "feedbackDate": "2026年6月1日",
+          "rateType": "1",
+          "auctionNumId": "997388489272"
+        },
+        {
+          "id": "1305850804137",
+          "feedback": "好穿，价格也实惠",
+          "skuValueStr": "黑色；XL[126-140斤]",
+          "feedbackDate": "2026年5月24日",
+          "rateType": "1",
+          "auctionNumId": "997388489272"
+        },
+        {
+          "id": "1318002001699",
+          "feedback": "双十一涨价了19元，本来想再买的，套路原来96",
+          "skuValueStr": "黑色；3XL[156-170斤]",
+          "feedbackDate": "2026年10月29日",
+          "rateType": "1",
+          "auctionNumId": "845432953096"
+        },
+        {
+          "id": "1315214477306",
+          "feedback": "裤子面料太垃圾了，超级吸毛吸尘，出门一圈裤子全都是是脏东西",
+          "skuValueStr": "黑色；XL[126-140斤]",
+          "feedbackDate": "2026年9月22日",
+          "rateType": "-1",
+          "auctionNumId": "845432953096"
+        },
+        {
+          "id": "1317367352939",
+          "feedback": "偏大，裤腿太长了",
+          "skuValueStr": "黑色；2XL[141-155斤]",
+          "feedbackDate": "2026年10月20日",
+          "rateType": "0",
+          "auctionNumId": "845432953096"
+        },
+        {
+          "id": "1312366417424",
+          "feedback": "一般般，裤子吸毛不耐脏版型也就那回事不推荐",
+          "skuValueStr": "黑色；L[117-125斤]",
+          "feedbackDate": "2026年8月16日",
+          "rateType": "0",
+          "auctionNumId": "845432953096"
+        },
+        {
+          "id": "1310389018847",
+          "feedback": "版型还可以，但是做工质量真的谈不上多好，裤子这个扣，调节的时候断了，图片里是另一个扣（一共有两个）还有腰部的位置线头没处理干净，穿起来很磨，不舒服。",
+          "skuValueStr": "黑色；L[117-125斤]",
+          "feedbackDate": "2026年7月20日",
+          "rateType": "0",
+          "auctionNumId": "1000077439943"
+        },
+        {
+          "id": "1311868277373",
+          "feedback": "15天内买家未作出评价",
+          "skuValueStr": "黑色；S[98-107斤]",
+          "feedbackDate": "2026年8月9日",
+          "rateType": "-2",
+          "auctionNumId": "997388489272"
+        },
+        {
+          "id": "1317057408382",
+          "feedback": "裤腿偏长",
+          "skuValueStr": "黑色加绒；2XL[141-155斤]",
+          "feedbackDate": "2026年10月16日",
+          "rateType": "1",
+          "auctionNumId": "845432953096"
+        },
+        {
+          "id": "1305940833801",
+          "feedback": "服务态度差的离谱，淘宝客户也是偏向商家而不是客户的，购买的注意了，商家不得了的",
+          "skuValueStr": "黑色；XL[126-140斤]",
+          "feedbackDate": "2026年5月26日",
+          "rateType": "-1",
+          "auctionNumId": "845432953096"
+        },
+        {
+          "id": "1318173224704",
+          "feedback": "面料挺柔软的。 颜色无色差。 面料没什么弹性。",
+          "skuValueStr": "藏青色；4XL[171-185斤]",
+          "feedbackDate": "2026年10月31日",
+          "rateType": "1",
+          "auctionNumId": "845432953096"
+        }
+      ]
+    }
+  }
+]
