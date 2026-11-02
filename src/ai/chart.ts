@@ -29,7 +29,7 @@ const LOCATE_SCHEMA: JsonSchema = {
   additionalProperties: false,
 };
 
-const nullableNumber = { type: ['number', 'null'], description: 'null when not printed.' };
+const nullableNumber = { anyOf: [{ type: 'number' }, { type: 'null' }], description: 'null when not printed.' };
 
 const READ_SCHEMA: JsonSchema = {
   type: 'object',
@@ -48,7 +48,7 @@ const READ_SCHEMA: JsonSchema = {
               type: 'object',
               properties: {
                 name_zh: { type: 'string', description: 'Column header as printed.' },
-                key: { type: ['string', 'null'], enum: [...MEASURE_KEYS, null] },
+                key: { anyOf: [{ type: 'string', enum: [...MEASURE_KEYS] }, { type: 'null' }] },
                 value: { type: 'number' },
                 basis: { type: 'string', enum: ['circumference', 'flat'] },
               },
