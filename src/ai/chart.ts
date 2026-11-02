@@ -1,5 +1,5 @@
 import { z } from 'zod';
-import { callTool, type ContentBlock, type ToolDef } from './client';
+import { callStructured, type ContentBlock, type JsonSchema } from './client';
 import { fetchTiles, type Tile } from './images';
 import { normalizeSizeLabel } from '../shared/sizeLabel';
 import type { Category, ChartRow, HwRow, MeasureKey, ProductData, Settings, SizeChart } from '../shared/types';
@@ -15,70 +15,71 @@ const LOCATE_EDGE = 512;
 const READ_MAX_TILES = 6;
 const READ_EDGE = 1568;
 
-// ---- tool definitions ------------------------------------------------------
+// ---- output schemas --------------------------------------------------------
+// Structured outputs: every object sets additionalProperties:false and lists all its keys in `required`;
+// absent values are null. Array length limits are unsupported, so they are enforced in code.
 
-const LOCATE_TOOL: ToolDef = {
-  name: 'locate_size_chart',
-  description: 'Report which numbered image tiles contain a size table or a height/weight recommendation table.',
-  input_schema: {
-    type: 'object',
-    properties: {
-      tiles: { type: 'array', items: { type: 'integer' }, description: 'Tile numbers containing a size table or height/weight table.' },
-      category: { type: 'string', enum: [...CATEGORIES], description: 'Garment category of the product.' },
-    },
-    required: ['tiles', 'category'],
+const LOCATE_SCHEMA: JsonSchema = {
+  type: 'object',
+  properties: {
+    tiles: { type: 'array', items: { type: 'integer' }, description: 'Tile numbers containing a size table or height/weight table.' },
+    category: { type: 'string', enum: [...CATEGORIES], description: 'Garment category of the product.' },
   },
+  required: ['tiles', 'category'],
+  additionalProperties: false,
 };
 
-const READ_TOOL: ToolDef = {
-  name: 'read_size_chart',
-  description: 'Transcribe the size table(s) printed in the images.',
-  input_schema: {
-    type: 'object',
-    properties: {
-      found: { type: 'boolean' },
-      unit: { type: 'string', enum: ['cm', 'inch', 'mm'] },
-      rows: {
-        type: 'array',
-        items: {
-          type: 'object',
-          properties: {
-            label: { type: 'string', description: 'Size label exactly as printed, e.g. M, 175/92A, 38.' },
-            measures: {
-              type: 'array',
-              items: {
-                type: 'object',
-                properties: {
-                  name_zh: { type: 'string', description: 'Column header as printed.' },
-                  key: { type: ['string', 'null'], enum: [...MEASURE_KEYS, null] },
-                  value: { type: 'number' },
-                  basis: { type: 'string', enum: ['circumference', 'flat'] },
-                },
-                required: ['name_zh', 'key', 'value', 'basis'],
+const nullableNumber = { type: ['number', 'null'], description: 'null when not printed.' };
+
+const READ_SCHEMA: JsonSchema = {
+  type: 'object',
+  properties: {
+    found: { type: 'boolean' },
+    unit: { type: 'string', enum: ['cm', 'inch', 'mm'] },
+    rows: {
+      type: 'array',
+      items: {
+        type: 'object',
+        properties: {
+          label: { type: 'string', description: 'Size label exactly as printed, e.g. M, 175/92A, 38.' },
+          measures: {
+            type: 'array',
+            items: {
+              type: 'object',
+              properties: {
+                name_zh: { type: 'string', description: 'Column header as printed.' },
+                key: { type: ['string', 'null'], enum: [...MEASURE_KEYS, null] },
+                value: { type: 'number' },
+                basis: { type: 'string', enum: ['circumference', 'flat'] },
               },
+              required: ['name_zh', 'key', 'value', 'basis'],
+              additionalProperties: false,
             },
           },
-          required: ['label', 'measures'],
         },
-      },
-      hw: {
-        type: 'array',
-        items: {
-          type: 'object',
-          properties: {
-            label: { type: 'string' },
-            heightMin: { type: 'number' },
-            heightMax: { type: 'number' },
-            weightMin: { type: 'number' },
-            weightMax: { type: 'number' },
-            weightUnit: { type: 'string', enum: ['kg', 'jin'] },
-          },
-          required: ['label', 'weightUnit'],
-        },
+        required: ['label', 'measures'],
+        additionalProperties: false,
       },
     },
-    required: ['found', 'unit', 'rows', 'hw'],
+    hw: {
+      type: 'array',
+      items: {
+        type: 'object',
+        properties: {
+          label: { type: 'string' },
+          heightMin: nullableNumber,
+          heightMax: nullableNumber,
+          weightMin: nullableNumber,
+          weightMax: nullableNumber,
+          weightUnit: { type: 'string', enum: ['kg', 'jin'] },
+        },
+        required: ['label', 'heightMin', 'heightMax', 'weightMin', 'weightMax', 'weightUnit'],
+        additionalProperties: false,
+      },
+    },
   },
+  required: ['found', 'unit', 'rows', 'hw'],
+  additionalProperties: false,
 };
 
 const LOCATE_SYSTEM =
@@ -113,10 +114,10 @@ const RawChartSchema = z.object({
     .array(
       z.object({
         label: z.string(),
-        heightMin: z.number().optional(),
-        heightMax: z.number().optional(),
-        weightMin: z.number().optional(),
-        weightMax: z.number().optional(),
+        heightMin: z.number().nullish(),
+        heightMax: z.number().nullish(),
+        weightMin: z.number().nullish(),
+        weightMax: z.number().nullish(),
         weightUnit: z.enum(['kg', 'jin']).catch('kg'),
       }),
     )
@@ -161,10 +162,10 @@ export function normalizeChart(raw: unknown, skuSizes: string[], category: Categ
     if (!label) continue;
     const k = h.weightUnit === 'jin' ? 0.5 : 1;
     const out: HwRow = { label };
-    if (h.heightMin !== undefined) out.heightMin = h.heightMin;
-    if (h.heightMax !== undefined) out.heightMax = h.heightMax;
-    if (h.weightMin !== undefined) out.weightMinKg = h.weightMin * k;
-    if (h.weightMax !== undefined) out.weightMaxKg = h.weightMax * k;
+    if (h.heightMin != null) out.heightMin = h.heightMin;
+    if (h.heightMax != null) out.heightMax = h.heightMax;
+    if (h.weightMin != null) out.weightMinKg = h.weightMin * k;
+    if (h.weightMax != null) out.weightMaxKg = h.weightMax * k;
     if (Object.keys(out).length > 1) hwTable.push(out);
   }
 
@@ -208,7 +209,7 @@ export function mergeCharts(photo: SizeChart, structured: SizeChart | undefined)
 // ---- two-pass reading ------------------------------------------------------
 
 export type ChartDeps = {
-  call: typeof callTool;
+  call: typeof callStructured;
   fetchTiles: typeof fetchTiles;
 };
 
@@ -228,7 +229,7 @@ export async function readSizeChart(
   onProgress: (msg: string) => void,
   deps: Partial<ChartDeps> = {},
 ): Promise<SizeChart> {
-  const call = deps.call ?? callTool;
+  const call = deps.call ?? callStructured;
   const getTiles = deps.fetchTiles ?? fetchTiles;
 
   // Pass 1: locate.
@@ -246,7 +247,7 @@ export async function readSizeChart(
     locateContent.push({ type: 'text', text: `Tile ${i}:` }, imageBlock(t));
   });
   const located = LocateSchema.parse(
-    await call({ settings, system: LOCATE_SYSTEM, content: locateContent, tool: LOCATE_TOOL, maxTokens: 512 }),
+    await call({ settings, system: LOCATE_SYSTEM, content: locateContent, schema: LOCATE_SCHEMA, maxTokens: 512 }),
   );
   const category = located.category;
 
@@ -272,6 +273,6 @@ export async function readSizeChart(
     { type: 'text', text: `Product title: ${product.title}\nSKU sizes: ${product.skuSizes.join(', ') || '(none)'}` },
     ...big.map(imageBlock),
   ];
-  const raw = await call({ settings, system: READ_SYSTEM, content: readContent, tool: READ_TOOL, maxTokens: 4096 });
+  const raw = await call({ settings, system: READ_SYSTEM, content: readContent, schema: READ_SCHEMA, maxTokens: 4096 });
   return normalizeChart(raw, product.skuSizes, category);
 }

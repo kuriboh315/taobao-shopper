@@ -1,5 +1,5 @@
 import { z } from 'zod';
-import { callTool, type ToolDef } from './client';
+import { callStructured, type JsonSchema } from './client';
 import type { ProductData, Review, ReviewAnalysis, ReviewFlag, ReviewLabel, Settings } from '../shared/types';
 
 const MAX_REVIEWS = 80;
@@ -7,59 +7,60 @@ const MAX_REVIEW_CHARS = 400;
 const MAX_PHRASES = 5;
 const MAX_TRANSLATIONS = 8;
 
-const ANALYZE_TOOL: ToolDef = {
-  name: 'analyze_reviews',
-  description: 'Label each numbered review, summarise likes and dislikes, flag fit/quality/shop patterns, and translate the most representative reviews.',
-  input_schema: {
-    type: 'object',
-    properties: {
-      labels: {
-        type: 'array',
-        description: 'One entry per review.',
-        items: {
-          type: 'object',
-          properties: {
-            idx: { type: 'integer', description: 'Review number as shown in brackets.' },
-            sentiment: { type: 'string', enum: ['pos', 'neg', 'mixed'] },
-            sizing: {
-              type: ['string', 'null'],
-              enum: ['runs_small', 'runs_large', 'true_to_size', null],
-              description: 'Set only when the review talks about fit; otherwise null.',
-            },
-            heightCm: { type: 'number', description: 'Reviewer height in cm, only if stated.' },
-            weightKg: { type: 'number', description: 'Reviewer weight in kg, only if stated (斤 ÷ 2).' },
-            sizeBought: { type: 'string', description: 'Size the reviewer bought, only if stated.' },
+// Structured outputs: every object sets additionalProperties:false and lists all its keys in `required`;
+// absent values are null. Array length limits are unsupported, so they are enforced in code and the prompt.
+const ANALYZE_SCHEMA: JsonSchema = {
+  type: 'object',
+  properties: {
+    labels: {
+      type: 'array',
+      description: 'One entry per review.',
+      items: {
+        type: 'object',
+        properties: {
+          idx: { type: 'integer', description: 'Review number as shown in brackets.' },
+          sentiment: { type: 'string', enum: ['pos', 'neg', 'mixed'] },
+          sizing: {
+            type: ['string', 'null'],
+            enum: ['runs_small', 'runs_large', 'true_to_size', null],
+            description: 'Set only when the review talks about fit; otherwise null.',
           },
-          required: ['idx', 'sentiment', 'sizing'],
+          heightCm: { type: ['number', 'null'], description: 'Reviewer height in cm, only if stated; otherwise null.' },
+          weightKg: { type: ['number', 'null'], description: 'Reviewer weight in kg, only if stated (斤 ÷ 2); otherwise null.' },
+          sizeBought: { type: ['string', 'null'], description: 'Size the reviewer bought, only if stated; otherwise null.' },
         },
-      },
-      liked: { type: 'array', maxItems: MAX_PHRASES, items: { type: 'string' }, description: 'Up to 5 short English phrases.' },
-      disliked: { type: 'array', maxItems: MAX_PHRASES, items: { type: 'string' }, description: 'Up to 5 short English phrases.' },
-      flags: {
-        type: 'array',
-        items: {
-          type: 'object',
-          properties: {
-            group: { type: 'string', enum: ['fit', 'quality', 'shop'] },
-            text: { type: 'string', description: 'Short English description of the issue.' },
-            reviewIdx: { type: 'array', items: { type: 'integer' } },
-          },
-          required: ['group', 'text', 'reviewIdx'],
-        },
-      },
-      translations: {
-        type: 'array',
-        maxItems: MAX_TRANSLATIONS,
-        description: 'English translations of up to 8 of the most representative reviews; at least 3 sizing-related when such reviews exist.',
-        items: {
-          type: 'object',
-          properties: { idx: { type: 'integer' }, en: { type: 'string' } },
-          required: ['idx', 'en'],
-        },
+        required: ['idx', 'sentiment', 'sizing', 'heightCm', 'weightKg', 'sizeBought'],
+        additionalProperties: false,
       },
     },
-    required: ['labels', 'liked', 'disliked', 'flags', 'translations'],
+    liked: { type: 'array', items: { type: 'string' }, description: `Up to ${MAX_PHRASES} short English phrases.` },
+    disliked: { type: 'array', items: { type: 'string' }, description: `Up to ${MAX_PHRASES} short English phrases.` },
+    flags: {
+      type: 'array',
+      items: {
+        type: 'object',
+        properties: {
+          group: { type: 'string', enum: ['fit', 'quality', 'shop'] },
+          text: { type: 'string', description: 'Short English description of the issue.' },
+          reviewIdx: { type: 'array', items: { type: 'integer' } },
+        },
+        required: ['group', 'text', 'reviewIdx'],
+        additionalProperties: false,
+      },
+    },
+    translations: {
+      type: 'array',
+      description: `English translations of up to ${MAX_TRANSLATIONS} of the most representative reviews; at least 3 sizing-related when such reviews exist.`,
+      items: {
+        type: 'object',
+        properties: { idx: { type: 'integer' }, en: { type: 'string' } },
+        required: ['idx', 'en'],
+        additionalProperties: false,
+      },
+    },
   },
+  required: ['labels', 'liked', 'disliked', 'flags', 'translations'],
+  additionalProperties: false,
 };
 
 const SYSTEM =
@@ -79,9 +80,9 @@ const LabelSchema = z.object({
   idx: z.number().int(),
   sentiment: z.enum(['pos', 'neg', 'mixed']),
   sizing: z.enum(['runs_small', 'runs_large', 'true_to_size']).nullable().catch(null),
-  heightCm: z.number().finite().optional().catch(undefined),
-  weightKg: z.number().finite().optional().catch(undefined),
-  sizeBought: z.string().optional().catch(undefined),
+  heightCm: z.number().finite().nullish().catch(undefined),
+  weightKg: z.number().finite().nullish().catch(undefined),
+  sizeBought: z.string().nullish().catch(undefined),
 });
 
 const FlagSchema = z.object({
@@ -124,9 +125,9 @@ export function validateAnalysis(raw: unknown, reviewCount: number): ReviewAnaly
     if (!ok(l.idx) || seen.has(l.idx)) continue;
     seen.add(l.idx);
     const label: ReviewLabel = { idx: l.idx, sentiment: l.sentiment, sizing: l.sizing };
-    if (l.heightCm !== undefined) label.heightCm = l.heightCm;
-    if (l.weightKg !== undefined) label.weightKg = l.weightKg;
-    if (l.sizeBought !== undefined) label.sizeBought = l.sizeBought;
+    if (l.heightCm != null) label.heightCm = l.heightCm;
+    if (l.weightKg != null) label.weightKg = l.weightKg;
+    if (l.sizeBought != null) label.sizeBought = l.sizeBought;
     labels.push(label);
   }
 
@@ -150,7 +151,7 @@ export function validateAnalysis(raw: unknown, reviewCount: number): ReviewAnaly
 
 // ---- model call ------------------------------------------------------------
 
-export type ReviewsDeps = { call: typeof callTool };
+export type ReviewsDeps = { call: typeof callStructured };
 
 export async function analyzeReviews(
   reviews: Review[],
@@ -159,7 +160,7 @@ export async function analyzeReviews(
   deps: Partial<ReviewsDeps> = {},
 ): Promise<ReviewAnalysis> {
   if (reviews.length === 0) return emptyAnalysis();
-  const call = deps.call ?? callTool;
+  const call = deps.call ?? callStructured;
 
   const sent = reviews.slice(0, MAX_REVIEWS);
   const list = sent
@@ -171,7 +172,7 @@ export async function analyzeReviews(
     settings,
     system: SYSTEM,
     content: [{ type: 'text', text: intro + list }],
-    tool: ANALYZE_TOOL,
+    schema: ANALYZE_SCHEMA,
     maxTokens: 8192,
   });
   return validateAnalysis(raw, sent.length);

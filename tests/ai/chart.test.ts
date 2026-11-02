@@ -2,6 +2,7 @@ import { describe, it, expect, vi } from 'vitest';
 import { mergeCharts, normalizeChart, readSizeChart } from '../../src/ai/chart';
 import type { ChartDeps } from '../../src/ai/chart';
 import type { Tile } from '../../src/ai/images';
+import { expectStrictObjectSchemas } from './schemaUtil';
 import type { ProductData, Settings, SizeChart } from '../../src/shared/types';
 
 const row = (label: string, measures: unknown[]) => ({ label, measures });
@@ -9,6 +10,14 @@ const m = (key: string | null, value: number, basis = 'circumference') => ({ nam
 
 describe('normalizeChart', () => {
   const base = { found: true, unit: 'cm', hw: [] };
+
+  it('accepts null for absent hw bounds (nullable-required schema)', () => {
+    const c = normalizeChart(
+      { found: false, unit: 'cm', rows: [], hw: [{ label: 'M', heightMin: 170, heightMax: null, weightMin: null, weightMax: 70, weightUnit: 'kg' }] },
+      [],
+    );
+    expect(c.hwTable).toEqual([{ label: 'M', heightMin: 170, weightMaxKg: 70 }]);
+  });
 
   it('doubles a flat chest', () => {
     const c = normalizeChart({ ...base, rows: [row('M', [m('chest', 60, 'flat')])] }, []);
@@ -133,10 +142,10 @@ describe('readSizeChart', () => {
   });
 
   it('sends only the located tiles, re-fetched at 1568, in pass 2', async () => {
-    const calls: { tool: { name: string }; content: { type: string }[] }[] = [];
-    const call = vi.fn(async (args: { tool: { name: string }; content: { type: string }[] }) => {
+    const calls: { schema: { properties: Record<string, unknown> }; content: { type: string }[] }[] = [];
+    const call = vi.fn(async (args: { schema: { properties: Record<string, unknown> }; content: { type: string }[] }) => {
       calls.push(args);
-      if (args.tool.name === 'locate_size_chart') return { tiles: [3, 4], category: 'top' };
+      if ('tiles' in args.schema.properties) return { tiles: [3, 4], category: 'top' };
       return { found: true, unit: 'cm', rows: [row('M', [m('chest', 100)])], hw: [] };
     });
     const chart = await readSizeChart(product, settings, () => {}, { call, fetchTiles: fakeFetch } as unknown as ChartDeps);
@@ -149,11 +158,23 @@ describe('readSizeChart', () => {
     expect(chart.rows[0]!.measures.chest).toBe(100);
   });
 
-  it('caps pass 2 at 6 tiles and ignores out-of-range indices', async () => {
-    const calls: { tool: { name: string }; content: { type: string }[] }[] = [];
-    const call = vi.fn(async (args: { tool: { name: string }; content: { type: string }[] }) => {
+  it('uses strict object schemas (additionalProperties:false, all keys required) in both passes', async () => {
+    const calls: { schema: { properties: Record<string, unknown> }; content: { type: string }[] }[] = [];
+    const call = vi.fn(async (args: { schema: { properties: Record<string, unknown> }; content: { type: string }[] }) => {
       calls.push(args);
-      if (args.tool.name === 'locate_size_chart') return { tiles: [0, 1, 2, 3, 4, 5, 6, 7, 999, -1], category: 'bottom' };
+      if ('tiles' in args.schema.properties) return { tiles: [0], category: 'top' };
+      return { found: false, unit: 'cm', rows: [], hw: [] };
+    });
+    await readSizeChart(product, settings, () => {}, { call, fetchTiles: fakeFetch } as unknown as ChartDeps);
+    expect(calls).toHaveLength(2);
+    for (const c of calls) expectStrictObjectSchemas(c.schema);
+  });
+
+  it('caps pass 2 at 6 tiles and ignores out-of-range indices', async () => {
+    const calls: { schema: { properties: Record<string, unknown> }; content: { type: string }[] }[] = [];
+    const call = vi.fn(async (args: { schema: { properties: Record<string, unknown> }; content: { type: string }[] }) => {
+      calls.push(args);
+      if ('tiles' in args.schema.properties) return { tiles: [0, 1, 2, 3, 4, 5, 6, 7, 999, -1], category: 'bottom' };
       return { found: false, unit: 'cm', rows: [], hw: [] };
     });
     await readSizeChart(product, settings, () => {}, { call, fetchTiles: fakeFetch } as unknown as ChartDeps);

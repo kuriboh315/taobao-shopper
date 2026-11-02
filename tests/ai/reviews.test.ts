@@ -1,6 +1,7 @@
 import { describe, it, expect, vi } from 'vitest';
 import { analyzeReviews, validateAnalysis } from '../../src/ai/reviews';
 import type { ReviewsDeps } from '../../src/ai/reviews';
+import { expectStrictObjectSchemas } from './schemaUtil';
 import type { ProductData, Review, Settings } from '../../src/shared/types';
 
 const label = (idx: number, extra: object = {}) => ({ idx, sentiment: 'pos', sizing: null, ...extra });
@@ -87,5 +88,13 @@ describe('analyzeReviews', () => {
     expect(text).not.toContain('长'.repeat(401));
     expect(args.system).toContain('fit / quality / shop');
     expect(args.system).toContain('÷2');
+    expect(args.schema).toBeDefined();
+    expect(args.tool).toBeUndefined();
+    expectStrictObjectSchemas(args.schema);
+  });
+
+  it('accepts null for absent optional label fields (nullable-required schema)', () => {
+    const a = validateAnalysis({ labels: [label(0, { heightCm: null, weightKg: null, sizeBought: null })] }, 1);
+    expect(a.labels).toEqual([{ idx: 0, sentiment: 'pos', sizing: null }]);
   });
 });
