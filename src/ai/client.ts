@@ -58,9 +58,12 @@ export async function callStructured(args: CallStructuredArgs): Promise<unknown>
   if (res.stop_reason === 'max_tokens') throw new Error(MSG_CUT_OFF);
   const block = res.content.find((b) => b.type === 'text');
   if (!block || block.type !== 'text') throw new Error(MSG_UNREADABLE);
+  let parsed: unknown;
   try {
-    return JSON.parse(block.text) as unknown;
+    parsed = JSON.parse(block.text);
   } catch {
     throw new Error(MSG_UNREADABLE);
   }
+  if (typeof parsed !== 'object' || parsed === null || Array.isArray(parsed)) throw new Error(MSG_UNREADABLE);
+  return parsed;
 }

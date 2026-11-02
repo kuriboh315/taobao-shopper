@@ -247,7 +247,7 @@ export async function readSizeChart(
     locateContent.push({ type: 'text', text: `Tile ${i}:` }, imageBlock(t));
   });
   const located = LocateSchema.parse(
-    await call({ settings, system: LOCATE_SYSTEM, content: locateContent, schema: LOCATE_SCHEMA, maxTokens: 512 }),
+    await call({ settings, system: LOCATE_SYSTEM, content: locateContent, schema: LOCATE_SCHEMA, maxTokens: 4096 }),
   );
   const category = located.category;
 
@@ -273,6 +273,6 @@ export async function readSizeChart(
     { type: 'text', text: `Product title: ${product.title}\nSKU sizes: ${product.skuSizes.join(', ') || '(none)'}` },
     ...big.map(imageBlock),
   ];
-  const raw = await call({ settings, system: READ_SYSTEM, content: readContent, schema: READ_SCHEMA, maxTokens: 4096 });
+  const raw = await call({ settings, system: READ_SYSTEM, content: readContent, schema: READ_SCHEMA, maxTokens: 8192 });
   return normalizeChart(raw, product.skuSizes, category);
 }

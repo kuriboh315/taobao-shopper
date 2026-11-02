@@ -172,7 +172,7 @@ export async function analyzeReviews(
     system: SYSTEM,
     content: [{ type: 'text', text: intro + list }],
     schema: ANALYZE_SCHEMA,
-    maxTokens: 8192,
+    maxTokens: 16000,
   });
   return validateAnalysis(raw, sent.length);
 }

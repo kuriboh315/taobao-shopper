@@ -70,6 +70,11 @@ describe('callStructured', () => {
     await expect(callStructured(args)).rejects.toThrow('Claude returned an unreadable answer. Try again.');
   });
 
+  it.each(['null', '[1,2]', '42', '"s"', 'true'])('treats non-object JSON %s as unreadable', async (text) => {
+    create.mockResolvedValueOnce(textReply(text));
+    await expect(callStructured(args)).rejects.toThrow('Claude returned an unreadable answer. Try again.');
+  });
+
   it('treats a reply with no text block as unreadable', async () => {
     create.mockResolvedValueOnce({ stop_reason: 'end_turn', content: [] });
     await expect(callStructured(args)).rejects.toThrow('Claude returned an unreadable answer. Try again.');
