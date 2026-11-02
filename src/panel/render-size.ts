@@ -6,6 +6,8 @@ export interface ReportHandlers {
   /** A fit button was clicked. `null` means "back to the usual fit". */
   onFit: (pref: FitPref | null) => void;
   onReanalyse: () => void;
+  /** The header Settings button was clicked. */
+  onSettings?: () => void;
 }
 
 type Size = NonNullable<Report['size']>;

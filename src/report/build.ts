@@ -70,9 +70,16 @@ function pickQuotes(run: CachedRun): { sizing: Quote[]; review: Quote[] } {
   return { sizing: toQuotes(sizingIdx), review: toQuotes(reviewIdx) };
 }
 
+/** Display-only English form of Taobao's sold text: "已售 1万+" becomes "10,000+". Unrecognised text is kept. */
+export function formatSold(raw: string): string {
+  const text = raw.replace(/^(已售|月销|已抢)\s*/, '').replace(/\s*人(付款|收货)$/, '').trim();
+  const wan = /^(\d+(?:\.\d+)?)万(\+?)$/.exec(text);
+  return wan ? `${Math.round(Number(wan[1]) * 10000).toLocaleString('en-US')}${wan[2]}` : text || raw;
+}
+
 function shopRows(run: CachedRun): [string, string][] {
   const { shop, salesText, salesCount } = run.product;
-  const sold = salesText ?? (salesCount !== undefined ? String(salesCount) : undefined);
+  const sold = salesText !== undefined ? formatSold(salesText) : salesCount !== undefined ? String(salesCount) : undefined;
   const rows: [string, string | undefined][] = [
     ['Sold', sold],
     ['Description match', shop.dsr?.description?.toString()],
@@ -133,7 +140,8 @@ export function buildReport(run: CachedRun, profile: Profile, fx: FxRate | null)
       sizeTile,
       reviewsLean: lean,
       positivePct: pct,
-      sold: product.salesText ?? (product.salesCount !== undefined ? String(product.salesCount) : null),
+      sold: product.salesText !== undefined ? `${formatSold(product.salesText)} sold`
+        : product.salesCount !== undefined ? `${product.salesCount} sold` : null,
     },
     price: formatPrice(product.price, fx),
     size: showSize

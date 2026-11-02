@@ -36,13 +36,18 @@ function jump(id: string): (e: Event) => void {
   };
 }
 
-function header(hint: string | null, tabs: [string, string, string?][] = []): HTMLElement {
+function header(hint: string | null, onSettings?: () => void, tabs: [string, string, string?][] = []): HTMLElement {
   const nav = tabs.length
     ? el('nav', { class: 'tabs' }, ...tabs.map(([label, id, cls]) =>
       el('a', { class: cls, attrs: { href: `#${id}` }, on: { click: jump(id) } }, label)))
     : null;
   return el('header', { class: 'top' },
-    el('div', { class: 'hdr' }, el('span', {}, 'Taobao Shopper'), hint ? el('span', { class: 'muted' }, hint) : null),
+    el('div', { class: 'hdr' },
+      el('span', {}, 'Taobao Shopper'),
+      hint ? el('span', { class: 'muted' }, hint) : null,
+      el('button', {
+        class: 'settings', attrs: { type: 'button', 'aria-label': 'Edit sizing settings' }, on: { click: () => onSettings?.() },
+      }, '⚙ Settings')),
     nav);
 }
 
@@ -61,7 +66,7 @@ function summaryRow(r: Report): HTMLElement {
     r.size ? tile(r.summary.sizeTile, 'chart pick', 'size') : null,
     r.summary.reviewsLean ? tile(r.summary.reviewsLean, 'reviews lean') : null,
     r.summary.positivePct !== null ? tile(`${r.summary.positivePct}%`, 'positive') : null,
-    r.summary.sold ? tile(r.summary.sold, 'sold') : null);
+    r.summary.sold ? tile(r.summary.sold, '') : null);
 }
 
 function reviewsSection(rv: Report['reviews']): HTMLElement {
@@ -111,7 +116,7 @@ export function renderReport(root: HTMLElement, r: Report, opts: ReportOptions =
     opts.at !== undefined ? el('span', { class: 'muted' }, `Analysed ${timeAgo(opts.at, opts.now ?? Date.now())}`) : null,
     button('Re-analyse', handlers.onReanalyse));
   root.replaceChildren(
-    header(hint, tabs),
+    header(hint, opts.handlers?.onSettings, tabs),
     el('div', { class: 'body' },
       r.price ? priceBlock(r.price) : null,
       summaryRow(r),
@@ -148,5 +153,5 @@ export function renderState(root: HTMLElement, s: PanelState, h: StateHandlers =
       body = card(s.msg, button('Retry', h.onRetry, 'primary'));
       break;
   }
-  root.replaceChildren(header(null), el('div', { class: 'body' }, body));
+  root.replaceChildren(header(null, h.onSettings), el('div', { class: 'body' }, body));
 }

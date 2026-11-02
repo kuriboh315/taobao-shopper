@@ -98,7 +98,7 @@ export function createPanel(root: HTMLElement, deps: PanelDeps): PanelController
     renderReport(root, report, {
       at: run.at,
       now: deps.now(),
-      handlers: { onFit: (pref) => void changeFit(pref), onReanalyse: () => void analyse() },
+      handlers: { onFit: (pref) => void changeFit(pref), onReanalyse: () => void analyse(), onSettings: () => deps.openOptions() },
     });
     showingReport = true;
   }

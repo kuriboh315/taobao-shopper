@@ -126,6 +126,22 @@ describe('panel states on load', () => {
     expect(t.deps.connect).not.toHaveBeenCalled();
   });
 
+  it('the Settings button opens the options page in the report and idle states', async () => {
+    const settingsBtn = (root: HTMLElement) => root.querySelector<HTMLButtonElement>('button[aria-label="Edit sizing settings"]')!;
+    const idle = setup();
+    await idle.start();
+    await vi.waitFor(() => expect(button(idle.root, 'Analyse this product')).toBeDefined());
+    settingsBtn(idle.root).click();
+    expect(idle.deps.openOptions).toHaveBeenCalledOnce();
+
+    vi.clearAllMocks();
+    const rep = setup({}, { cached: cachedRun() });
+    await rep.start();
+    await waitFor(rep.root, 'Chart says XL');
+    settingsBtn(rep.root).click();
+    expect(rep.deps.openOptions).toHaveBeenCalledOnce();
+  });
+
   it('re-checks the active tab when tabs change', async () => {
     const t = setup({}, { cached: cachedRun() });
     await t.start();

@@ -20,6 +20,18 @@ const num = (n: number): string => String(Math.round(n * 10) / 10);
 const signed = (n: number): string => (n < 0 ? `${MINUS}${num(-n)}` : `+${num(n)}`);
 const words = (tag: string): string => tag.replace(/_/g, ' ');
 
+export type FitLevel = WidthTag | 'very_baggy';
+
+/**
+ * Fit level of a chart value, anchored on the user's own reference garment: its tag sets where
+ * that garment sits on the standard ease scale, and the size difference moves along it.
+ * Shared by the short note and the detail-line arrows so the two always agree.
+ */
+export function garmentLevel(key: WidthKey, garment: RefMeasure, sizeValue: number): FitLevel {
+  const position = STD_EASE[key][garment.tag as WidthTag] + (sizeValue - garment.value);
+  return position > STD_EASE[key].oversized + BAGGY_MARGIN ? 'very_baggy' : easeLevel(key, position);
+}
+
 export interface NoteCtx { body?: number; garment?: RefMeasure }
 
 /**
@@ -33,11 +45,12 @@ export function noteFor(key: MeasureKey, sizeValue: number, target: number | und
     return Math.abs(d) > LENGTH_NOTE_THRESHOLD ? `${LENGTH_NAMES[key]} ${signed(d)}` : '';
   }
   if (!isWidthKey(key)) return '';
-  let ease: number;
-  if (ctx.body !== undefined) ease = sizeValue - ctx.body;
-  else if (ctx.garment && target !== undefined && ctx.garment.tag in STD_EASE[key]) {
-    ease = STD_EASE[key][ctx.garment.tag as WidthTag] + (sizeValue - ctx.garment.value);
-  } else return '';
+  if (ctx.garment && ctx.garment.tag in STD_EASE[key]) {
+    const level = garmentLevel(key, ctx.garment, sizeValue);
+    return level === 'very_baggy' ? 'Very baggy' : LEVEL_PHRASE[level];
+  }
+  if (ctx.body === undefined) return '';
+  const ease = sizeValue - ctx.body;
   if (ease > STD_EASE[key].oversized + BAGGY_MARGIN) return 'Very baggy';
   return LEVEL_PHRASE[easeLevel(key, ease)];
 }
@@ -62,7 +75,7 @@ export function detailFor(measures: Partial<Record<MeasureKey, number>>, t: Part
           : `${name} ${num(Math.abs(d))} cm ${d > 0 ? 'longer' : 'shorter'} than ${ref}${tail}`);
       } else {
         const tag = g.tag as WidthTag;
-        const level = easeLevel(key as WidthKey, STD_EASE[key as WidthKey][tag] + d);
+        const level = garmentLevel(key as WidthKey, g, v);
         const tail = level === tag ? ` (${words(tag)})` : ` (${words(tag)} → ${words(level)})`;
         out.push(Math.abs(d) <= SAME_THRESHOLD
           ? `${name} same as ${ref}${tail}`

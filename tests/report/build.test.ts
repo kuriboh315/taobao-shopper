@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { buildReport } from '../../src/report/build';
+import { buildReport, formatSold } from '../../src/report/build';
 import { DEFAULT_PROFILE as P } from '../../src/shared/schemas';
 import type { CachedRun } from '../../src/profile/storage';
 import type { FxRate, Profile, RefGarment, ReviewLabel, SizeChart } from '../../src/shared/types';
@@ -129,6 +129,19 @@ describe('buildReport size section', () => {
   });
 });
 
+describe('formatSold', () => {
+  it.each([
+    ['已售 4000+', '4000+'], ['月销 300+', '300+'], ['已抢 88', '88'], ['已售 1万+', '10,000+'],
+    ['已售 1.5万+', '15,000+'], ['1000+人付款', '1000+'], ['unknown', 'unknown'],
+  ])('%s → %s', (raw, out) => expect(formatSold(raw)).toBe(out));
+  it('keeps the stored salesText and shows English in the report', () => {
+    const base = run();
+    const r = buildReport({ ...base, product: { ...base.product, salesText: '已售 4000+' } }, profile, null);
+    expect(r.summary.sold).toBe('4000+ sold');
+    expect(r.shop.rows).toContainEqual(['Sold', '4000+']);
+  });
+});
+
 describe('buildReport reviews, quotes, flags', () => {
   it('computes positive percentage and totals', () => {
     const ls: ReviewLabel[] = [
@@ -195,12 +208,12 @@ describe('buildReport price and shop', () => {
   });
   it('builds shop rows and omits missing values', () => {
     const base = run();
-    const product = { ...base.product, salesText: '1000+人付款',
+    const product = { ...base.product, salesText: '已售 1000+',
       shop: { dsr: { description: 4.8, shipping: 4.7 }, ageYears: 0.5, extra: ['天猫'] } };
     const r = buildReport({ ...base, product }, profile, null);
-    expect(r.summary.sold).toBe('1000+人付款');
+    expect(r.summary.sold).toBe('1000+ sold');
     expect(r.shop.rows).toEqual([
-      ['Sold', '1000+人付款'], ['Description match', '4.8'], ['Shipping', '4.7'], ['Shop age', '6 months'], ['Info', '天猫'],
+      ['Sold', '1000+'], ['Description match', '4.8'], ['Shipping', '4.7'], ['Shop age', '6 months'], ['Info', '天猫'],
     ]);
   });
   it('formats shop age in years without trailing .0', () => {

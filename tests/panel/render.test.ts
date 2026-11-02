@@ -216,8 +216,38 @@ describe('renderReport', () => {
   });
 });
 
+describe('renderReport settings button', () => {
+  it('is in the sticky header and calls onSettings once', () => {
+    const onSettings = vi.fn();
+    renderReport(root, report(), { handlers: { onSettings } });
+    const b = root.querySelector<HTMLButtonElement>('header button[aria-label="Edit sizing settings"]')!;
+    expect(b.textContent).toBe('⚙ Settings');
+    b.click();
+    expect(onSettings).toHaveBeenCalledOnce();
+  });
+  it('shows English sold count in the summary tile', () => {
+    const r = report();
+    r.summary.sold = '4000+ sold';
+    renderReport(root, r);
+    expect(root.querySelector('.summary')!.textContent).toContain('4000+ sold');
+    expect(root.querySelector('.summary')!.textContent).not.toContain('sold sold');
+  });
+});
+
 describe('renderState', () => {
   const show = (s: PanelState, handlers = {}) => { renderState(root, s, handlers); return root.textContent!; };
+
+  const settingsBtn = () => root.querySelector<HTMLButtonElement>('header button[aria-label="Edit sizing settings"]');
+  it.each<PanelState>([
+    { kind: 'not_taobao' }, { kind: 'no_settings' }, { kind: 'idle' }, { kind: 'progress', msg: 'x' },
+    { kind: 'captcha' }, { kind: 'error', msg: 'x' },
+  ])('shows the Settings button in the header: $kind', (s) => {
+    const onSettings = vi.fn();
+    show(s, { onSettings });
+    expect(settingsBtn()!.textContent).toBe('⚙ Settings');
+    settingsBtn()!.click();
+    expect(onSettings).toHaveBeenCalledOnce();
+  });
 
   it('not_taobao', () => {
     expect(show({ kind: 'not_taobao' })).toContain('Open a Taobao or Tmall product page to analyse it.');
@@ -225,13 +255,13 @@ describe('renderState', () => {
   it('no_settings with a button to open options', () => {
     const onSettings = vi.fn();
     expect(show({ kind: 'no_settings' }, { onSettings })).toContain('Add your Anthropic API key in Settings first.');
-    root.querySelector('button')!.click();
+    root.querySelector<HTMLButtonElement>('.state button')!.click();
     expect(onSettings).toHaveBeenCalledOnce();
   });
   it('idle', () => {
     const onAnalyse = vi.fn();
     show({ kind: 'idle' }, { onAnalyse });
-    const b = root.querySelector('button')!;
+    const b = root.querySelector<HTMLButtonElement>('.state button')!;
     expect(b.textContent).toBe('Analyse this product');
     b.click();
     expect(onAnalyse).toHaveBeenCalledOnce();
@@ -244,7 +274,7 @@ describe('renderState', () => {
     const onFinish = vi.fn();
     expect(show({ kind: 'captcha' }, { onResume, onFinish }))
       .toContain('Taobao is asking for a verification. Solve it in the page, then click Continue.');
-    const [a, b] = [...root.querySelectorAll('button')];
+    const [a, b] = [...root.querySelectorAll<HTMLButtonElement>('.state button')];
     expect(a!.textContent).toBe('Continue');
     expect(b!.textContent).toBe('Use what you have');
     a!.click();
@@ -255,7 +285,7 @@ describe('renderState', () => {
   it('error with Retry', () => {
     const onRetry = vi.fn();
     expect(show({ kind: 'error', msg: 'Boom.' }, { onRetry })).toContain('Boom.');
-    const b = root.querySelector('button')!;
+    const b = root.querySelector<HTMLButtonElement>('.state button')!;
     expect(b.textContent).toBe('Retry');
     b.click();
     expect(onRetry).toHaveBeenCalledOnce();
