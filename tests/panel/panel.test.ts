@@ -45,15 +45,27 @@ function makePort() {
 function setup(over: Partial<PanelDeps> = {}, opts: { cached?: CachedRun; settings?: boolean } = {}) {
   const cache = new Map<string, CachedRun>();
   if (opts.cached) cache.set('123', opts.cached);
-  const port = makePort();
+  // One port per tab, created on first connect, so concurrent runs can be driven independently.
+  const ports = new Map<number, ReturnType<typeof makePort>>();
+  const portFor = (tabId: number) => {
+    const existing = ports.get(tabId);
+    if (existing) return existing;
+    const made = makePort();
+    ports.set(tabId, made);
+    return made;
+  };
+  const port = portFor(7);
   const tabListeners: ((id?: number) => void)[] = [];
+  const removeListeners: ((id: number) => void)[] = [];
   const storageListeners: ((keys: string[]) => void)[] = [];
   let currentProfile = profile;
+  let activeTab: { id?: number; url?: string } = { id: 7, url: ITEM_URL };
   const deps = {
-    getActiveTab: vi.fn(async () => ({ id: 7, url: ITEM_URL })),
-    connect: vi.fn(() => port),
+    getActiveTab: vi.fn(async () => activeTab),
+    connect: vi.fn((tabId: number) => portFor(tabId)),
     openOptions: vi.fn(),
     onTabChange: (cb: (id?: number) => void) => { tabListeners.push(cb); },
+    onTabRemoved: (cb: (id: number) => void) => { removeListeners.push(cb); },
     onStorageChange: (cb: (keys: string[]) => void) => { storageListeners.push(cb); },
     loadProfile: vi.fn(async () => currentProfile),
     loadSettings: vi.fn(async () => (opts.settings === false ? null : { apiKey: 'k', model: 'm' })),
@@ -76,10 +88,16 @@ function setup(over: Partial<PanelDeps> = {}, opts: { cached?: CachedRun; settin
   document.body.innerHTML = '<div id="root"></div>';
   const root = document.getElementById('root')!;
   return {
-    root, deps, port, cache,
+    root, deps, port, cache, portFor,
     start: () => createPanel(root, deps).refresh(),
     changeProfile: (p: Profile) => { currentProfile = p; storageListeners.forEach(cb => cb(['profile'])); },
     changeTab: (id?: number) => tabListeners.forEach(cb => cb(id)),
+    /** Makes `tabId` the active tab and fires the tab-change event, as a real tab switch does. */
+    goTo: (tabId: number, url: string) => {
+      activeTab = { id: tabId, url };
+      tabListeners.forEach(cb => cb());
+    },
+    closeTab: (tabId: number) => removeListeners.forEach(cb => cb(tabId)),
   };
 }
 
@@ -324,5 +342,114 @@ describe('re-rendering from the cache', () => {
     await waitFor(t.root, 'Chart says XXL');
     expect(t.deps.readSizeChart).not.toHaveBeenCalled();
     expect(t.deps.analyzeReviews).not.toHaveBeenCalled();
+  });
+});
+
+describe('multiple tabs', () => {
+  const ITEM_URL_2 = 'https://item.taobao.com/item.htm?id=456';
+  const product2: ProductData = { ...product, itemId: '456', title: 'other' };
+
+  /** Starts a run on the active tab and waits for the first progress render. */
+  const analyse = async (t: ReturnType<typeof setup>) => {
+    await vi.waitFor(() => button(t.root, 'Analyse this product').click());
+    await waitFor(t.root, 'Reading reviews (0 so far)…');
+  };
+
+  it('keeps a run alive when you switch to another tab', async () => {
+    const t = setup();
+    await t.start();
+    await analyse(t);
+    t.port.emit({ type: 'progress', reviews: 12 });
+    await waitFor(t.root, 'Reading reviews (12 so far)…');
+
+    t.goTo(8, ITEM_URL_2);
+    await vi.waitFor(() => expect(button(t.root, 'Analyse this product')).toBeDefined());
+    expect(t.port.disconnect).not.toHaveBeenCalled();
+
+    // The first tab is still collecting while we look at the second.
+    t.port.emit({ type: 'progress', reviews: 30 });
+    t.goTo(7, ITEM_URL);
+    await waitFor(t.root, 'Reading reviews (30 so far)…');
+  });
+
+  it('runs two tabs at once and caches both reports', async () => {
+    const t = setup();
+    await t.start();
+    await analyse(t);
+    t.goTo(8, ITEM_URL_2);
+    await analyse(t);
+
+    t.portFor(8).emit({ type: 'done', product: product2, reviews, stoppedBy: 'exhausted' });
+    await waitFor(t.root, 'Chart says XL');
+
+    t.port.emit({ type: 'done', product, reviews, stoppedBy: 'exhausted' });
+    await vi.waitFor(() => expect(t.deps.putCachedReport).toHaveBeenCalledTimes(2));
+    expect(vi.mocked(t.deps.putCachedReport).mock.calls.map(c => c[0]).sort()).toEqual(['123', '456']);
+  });
+
+  it('shows the report for a tab whose run finished while you were away', async () => {
+    const t = setup();
+    await t.start();
+    await analyse(t);
+    t.goTo(8, ITEM_URL_2);
+    await vi.waitFor(() => expect(button(t.root, 'Analyse this product')).toBeDefined());
+
+    t.port.emit({ type: 'done', product, reviews, stoppedBy: 'exhausted' });
+    await vi.waitFor(() => expect(t.deps.putCachedReport).toHaveBeenCalledOnce());
+    expect(text(t.root)).not.toContain('Chart says');
+
+    t.goTo(7, ITEM_URL);
+    await waitFor(t.root, 'Chart says XL');
+  });
+
+  it('keeps each tab error on its own tab', async () => {
+    const t = setup();
+    await t.start();
+    await analyse(t);
+    t.port.emit({ type: 'error', message: 'Could not read this page.' });
+    await waitFor(t.root, 'Could not read this page.');
+
+    t.goTo(8, ITEM_URL_2);
+    await vi.waitFor(() => expect(button(t.root, 'Analyse this product')).toBeDefined());
+    expect(text(t.root)).not.toContain('Could not read this page.');
+
+    t.goTo(7, ITEM_URL);
+    await waitFor(t.root, 'Could not read this page.');
+  });
+
+  it('stops a run when its tab closes', async () => {
+    const t = setup();
+    await t.start();
+    await analyse(t);
+    t.goTo(8, ITEM_URL_2);
+    await vi.waitFor(() => expect(button(t.root, 'Analyse this product')).toBeDefined());
+
+    t.closeTab(7);
+    expect(t.port.disconnect).toHaveBeenCalled();
+
+    // A late message from the closed tab must not produce a report.
+    t.port.emit({ type: 'done', product, reviews, stoppedBy: 'exhausted' });
+    await new Promise(r => setTimeout(r, 20));
+    expect(t.deps.putCachedReport).not.toHaveBeenCalled();
+  });
+
+  it('drops a stale run when its tab navigates to a different item', async () => {
+    const t = setup();
+    await t.start();
+    await analyse(t);
+    t.goTo(7, ITEM_URL_2); // same tab, different product
+    await vi.waitFor(() => expect(button(t.root, 'Analyse this product')).toBeDefined());
+    expect(t.port.disconnect).toHaveBeenCalled();
+  });
+
+  it('keeps the run when the same item reloads with a different query string', async () => {
+    const t = setup();
+    await t.start();
+    await analyse(t);
+    t.port.emit({ type: 'progress', reviews: 12 });
+    await waitFor(t.root, 'Reading reviews (12 so far)…');
+    t.goTo(7, 'https://item.taobao.com/item.htm?id=123&skuId=99');
+    await waitFor(t.root, 'Reading reviews (12 so far)…');
+    expect(t.port.disconnect).not.toHaveBeenCalled();
   });
 });
