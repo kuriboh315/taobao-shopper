@@ -1,0 +1,30 @@
+{
+  "manifest_version": 3,
+  "name": "Taobao Shopper",
+  "version": "0.1.0",
+  "description": "Reads Taobao product pages and recommends a clothing size.",
+  "permissions": ["sidePanel", "storage", "activeTab", "tabs"],
+  "host_permissions": [
+    "https://item.taobao.com/*",
+    "https://detail.tmall.com/*",
+    "https://*.alicdn.com/*",
+    "https://api.anthropic.com/*",
+    "https://api.frankfurter.app/*"
+  ],
+  "background": { "service_worker": "background.js" },
+  "side_panel": { "default_path": "panel.html" },
+  "options_page": "options.html",
+  "content_scripts": [
+    {
+      "matches": ["https://item.taobao.com/item.htm*", "https://detail.tmall.com/item.htm*"],
+      "js": ["hook.js"],
+      "world": "MAIN",
+      "run_at": "document_start"
+    },
+    {
+      "matches": ["https://item.taobao.com/item.htm*", "https://detail.tmall.com/item.htm*"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ]
+}

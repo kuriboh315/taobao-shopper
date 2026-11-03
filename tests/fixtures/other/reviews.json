@@ -1,0 +1,152 @@
+[
+  {
+    "api": "mtop.taobao.rate.detaillist.get",
+    "ret": [
+      "SUCCESS::调用成功"
+    ],
+    "v": "6.0",
+    "data": {
+      "feedAllCount": "100",
+      "feedAllCountFuzzy": "100+",
+      "feedAppendCount": "0",
+      "feedAppendCountFuzzy": "0",
+      "feedBadCount": "0",
+      "feedBadCountFuzzy": "0",
+      "feedGoodCount": "100",
+      "feedGoodCountFuzzy": "100+",
+      "feedMediaCount": "0",
+      "feedMediaCountFuzzy": "0",
+      "feedNormalCount": "0",
+      "feedNormalCountFuzzy": "0",
+      "feedNotGoodCount": "0",
+      "feedNotGoodCountFuzzy": "0",
+      "feedPicCount": "0",
+      "feedPicCountFuzzy": "0",
+      "feedStoreCount": "0",
+      "feedVideoCount": "0",
+      "feedVideoCountFuzzy": "0",
+      "hasNext": "false",
+      "total": "1",
+      "totalFuzzy": "1",
+      "totalPage": "1",
+      "rateList": [
+        {
+          "id": "1313262441865",
+          "feedback": "收到货觉得真的很漂亮，喜欢！",
+          "skuValueStr": "夏莲",
+          "feedbackDate": "2026年8月28日",
+          "rateType": "1",
+          "auctionNumId": "718612011162"
+        }
+      ]
+    }
+  },
+  {
+    "api": "mtop.taobao.rate.detaillist.get",
+    "ret": [
+      "SUCCESS::调用成功"
+    ],
+    "v": "6.0",
+    "data": {
+      "feedAllCount": "100",
+      "feedAllCountFuzzy": "100+",
+      "feedAppendCount": "0",
+      "feedAppendCountFuzzy": "0",
+      "feedBadCount": "0",
+      "feedBadCountFuzzy": "0",
+      "feedGoodCount": "100",
+      "feedGoodCountFuzzy": "100+",
+      "feedMediaCount": "0",
+      "feedMediaCountFuzzy": "0",
+      "feedNormalCount": "0",
+      "feedNormalCountFuzzy": "0",
+      "feedNotGoodCount": "0",
+      "feedNotGoodCountFuzzy": "0",
+      "feedPicCount": "0",
+      "feedPicCountFuzzy": "0",
+      "feedStoreCount": "0",
+      "feedVideoCount": "0",
+      "feedVideoCountFuzzy": "0",
+      "hasNext": "false",
+      "total": "0",
+      "totalFuzzy": "0",
+      "totalPage": "0",
+      "rateList": []
+    }
+  },
+  {
+    "api": "mtop.taobao.rate.detaillist.get",
+    "ret": [
+      "SUCCESS::调用成功"
+    ],
+    "v": "6.0",
+    "data": {
+      "feedAllCount": "100",
+      "feedAllCountFuzzy": "100+",
+      "feedAppendCount": "0",
+      "feedAppendCountFuzzy": "0",
+      "feedBadCount": "0",
+      "feedBadCountFuzzy": "0",
+      "feedGoodCount": "100",
+      "feedGoodCountFuzzy": "100+",
+      "feedMediaCount": "0",
+      "feedMediaCountFuzzy": "0",
+      "feedNormalCount": "0",
+      "feedNormalCountFuzzy": "0",
+      "feedNotGoodCount": "0",
+      "feedNotGoodCountFuzzy": "0",
+      "feedPicCount": "0",
+      "feedPicCountFuzzy": "0",
+      "feedStoreCount": "0",
+      "feedVideoCount": "0",
+      "feedVideoCountFuzzy": "0",
+      "hasNext": "false",
+      "total": "0",
+      "totalFuzzy": "0",
+      "totalPage": "0",
+      "rateList": []
+    }
+  },
+  {
+    "api": "mtop.taobao.rate.detaillist.get",
+    "ret": [
+      "SUCCESS::调用成功"
+    ],
+    "v": "6.0",
+    "data": {
+      "feedAllCount": "100",
+      "feedAllCountFuzzy": "100+",
+      "feedAppendCount": "0",
+      "feedAppendCountFuzzy": "0",
+      "feedBadCount": "0",
+      "feedBadCountFuzzy": "0",
+      "feedGoodCount": "100",
+      "feedGoodCountFuzzy": "100+",
+      "feedMediaCount": "0",
+      "feedMediaCountFuzzy": "0",
+      "feedNormalCount": "0",
+      "feedNormalCountFuzzy": "0",
+      "feedNotGoodCount": "0",
+      "feedNotGoodCountFuzzy": "0",
+      "feedPicCount": "0",
+      "feedPicCountFuzzy": "0",
+      "feedStoreCount": "0",
+      "feedVideoCount": "0",
+      "feedVideoCountFuzzy": "0",
+      "hasNext": "false",
+      "total": "1",
+      "totalFuzzy": "1",
+      "totalPage": "1",
+      "rateList": [
+        {
+          "id": "1313262441865",
+          "feedback": "收到货觉得真的很漂亮，喜欢！",
+          "skuValueStr": "夏莲",
+          "feedbackDate": "2026年8月28日",
+          "rateType": "1",
+          "auctionNumId": "718612011162"
+        }
+      ]
+    }
+  }
+]

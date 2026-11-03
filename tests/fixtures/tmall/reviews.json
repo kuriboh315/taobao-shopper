@@ -1,0 +1,1862 @@
+[
+  {
+    "api": "mtop.taobao.rate.detaillist.get",
+    "ret": [
+      "SUCCESS::调用成功"
+    ],
+    "v": "6.0",
+    "data": {
+      "feedAllCount": "10000",
+      "feedAllCountFuzzy": "1万+",
+      "feedAppendCount": "400",
+      "feedAppendCountFuzzy": "400+",
+      "feedMediaCount": "3000",
+      "feedMediaCountFuzzy": "3000+",
+      "feedPicCount": "3000",
+      "feedPicCountFuzzy": "3000+",
+      "feedStoreCount": "0",
+      "feedVideoCount": "100",
+      "feedVideoCountFuzzy": "100+",
+      "hasNext": "true",
+      "total": "6000",
+      "totalFuzzy": "6000+",
+      "totalPage": "250",
+      "rateList": [
+        {
+          "id": "1317555653479",
+          "feedback": "第二次买这个绿色的，这次买的加高的，坐着舒服一点",
+          "skuValueStr": "New！漫游岛潮玩-加大款★真双层",
+          "feedbackDate": "2026年10月24日",
+          "rateType": "1",
+          "auctionNumId": "693545186411"
+        },
+        {
+          "id": "1317845226862",
+          "feedback": "选的这两个颜色我都很喜欢。。满意",
+          "skuValueStr": "秒杀剩7个⚡【海蓝柠檬】经典款",
+          "feedbackDate": "2026年10月28日",
+          "rateType": "1",
+          "auctionNumId": "693545186411"
+        },
+        {
+          "id": "1317534705481",
+          "feedback": "就喜欢这亮闪闪的颜色，有点磕碰小瑕疵，不影响。喜欢",
+          "skuValueStr": "【繁花限定】经典款★真双层",
+          "feedbackDate": "2026年10月23日",
+          "rateType": "1",
+          "auctionNumId": "693545186411"
+        },
+        {
+          "id": "1317808320596",
+          "feedback": "折叠携带挺方便的。重量轻，没有气味。扶手是榉木材料，手感棒棒。走得顺丰快又稳。五个小星星",
+          "skuValueStr": "木色架★真双层【卡其】经典款⚡80%人的选择",
+          "feedbackDate": "2026年10月26日",
+          "rateType": "1",
+          "auctionNumId": "693545186411"
+        },
+        {
+          "id": "1317701330655",
+          "feedback": "为了旅行特意买了一套露营桌椅，原始人的桌椅质量很好，桌子支起来很平稳，冲咖啡吃泡面稳稳的，椅子质量也很好，坐上去很稳当，收起来也很方便，钢管挺结实的，重量适中。",
+          "skuValueStr": "120款【双层双面】木纹铝合金蛋卷桌-【送收纳袋】",
+          "feedbackDate": "2026年10月26日",
+          "rateType": "1",
+          "auctionNumId": "693545186411"
+        },
+        {
+          "id": "1317727385303",
+          "feedback": "不愧是专业品牌 质量真的不错 很结实 双十一的优惠力度也可以 放在院子里很适合 发货物流都给力 隔天一早就收到了",
+          "skuValueStr": "秒杀剩7个⚡【海蓝柠檬】经典款",
+          "feedbackDate": "2026年10月26日",
+          "rateType": "1",
+          "auctionNumId": "693545186411"
+        },
+        {
+          "id": "1316866347737",
+          "feedback": "携带挺方便的。 扶手设计挺合理。 焊接挺牢固的，户外露营就舒服多了满意的一次购物",
+          "skuValueStr": "90款原木色蛋卷桌【送收纳袋】",
+          "feedbackDate": "2026年10月17日",
+          "rateType": "1",
+          "auctionNumId": "693545186411"
+        },
+        {
+          "id": "1316974760183",
+          "feedback": "这折叠椅质感还蛮舒服哒，支架稳固也不乱晃，面料厚实耐磨，木质感扶手也很舒服。折叠方便，不咋占地方，放阳台、露营都合适，坐着舒服，这价格算是很香的了👍   ",
+          "skuValueStr": "木色架★真双层【卡其】经典款⚡80%人的选择",
+          "feedbackDate": "2026年10月15日",
+          "rateType": "1",
+          "auctionNumId": "693545186411"
+        },
+        {
+          "id": "1316383247876",
+          "feedback": "折叠后不占地方。 很牢固，颜值也在线，值得推荐(＾ω＾)👍",
+          "skuValueStr": "木色架★真双层【卡其】经典款⚡80%人的选择",
+          "feedbackDate": "2026年10月10日",
+          "rateType": "1",
+          "auctionNumId": "693545186411"
+        },
+        {
+          "id": "1317850473249",
+          "feedback": "椅子不错，布也很厚实，坐着稳稳的，有点点小贵，但是一分钱一分货！星摇客服很好，点赞",
+          "skuValueStr": "秒杀剩7个⚡【海蓝柠檬】经典款",
+          "feedbackDate": "2026年10月27日",
+          "rateType": "1",
+          "auctionNumId": "693545186411"
+        },
+        {
+          "id": "1317668185282",
+          "feedback": "靠背挺舒服的，质量很好！很结实！",
+          "skuValueStr": "耀黑架★真双层【典雅黑】经典款",
+          "feedbackDate": "2026年10月25日",
+          "rateType": "1",
+          "auctionNumId": "693545186411"
+        },
+        {
+          "id": "1317682672154",
+          "feedback": "上次买了常规款，挺好的，这次买了四个加高的，爸妈站坐方便，不费膝盖。",
+          "skuValueStr": "耀黑架★真双层【典雅黑】加大款",
+          "feedbackDate": "2026年10月24日",
+          "rateType": "1",
+          "auctionNumId": "693545186411"
+        },
+        {
+          "id": "1316812995398",
+          "feedback": "轻巧牢固，坐着舒服，价格有点小高，希望下次再来购买。 ",
+          "skuValueStr": "铝合金木纹架★真双层【卡其】加大款",
+          "feedbackDate": "2026年10月16日",
+          "rateType": "1",
+          "auctionNumId": "693545186411"
+        },
+        {
+          "id": "1314007380517",
+          "feedback": "这个是买的第一把椅子，不仅适合户外，平时居家，让孩子白天坐在阳台看书用的，微靠很舒服，后来发现还有儿童椅，这把标准留着大人坐，又入手了一把儿童椅，都很喜欢。",
+          "skuValueStr": "木色架★真双层【卡其】经典款⚡80%人的选择",
+          "feedbackDate": "2026年9月6日",
+          "rateType": "1",
+          "auctionNumId": "693545186411"
+        },
+        {
+          "id": "1316835533200",
+          "feedback": "活该原始人全球销量第一！是真的非常舒服，免安装简单便捷美观，真的太方便友好了，质感超好👍",
+          "skuValueStr": "木色架★真双层【卡其】经典款⚡80%人的选择",
+          "feedbackDate": "2026年10月14日",
+          "rateType": "1",
+          "auctionNumId": "693545186411"
+        },
+        {
+          "id": "1316330795219",
+          "feedback": "超好看的颜色，也非常结实，大小也合适，考虑再买一个",
+          "skuValueStr": "秒杀剩7个⚡【海蓝柠檬】经典款",
+          "feedbackDate": "2026年10月9日",
+          "rateType": "1",
+          "auctionNumId": "693545186411"
+        },
+        {
+          "id": "1314533279536",
+          "feedback": "质量超级好，坐着也特别舒服，性价比很高，感谢客服的推荐",
+          "skuValueStr": "铝合金木纹架★真双层【卡其】加大款",
+          "feedbackDate": "2026年9月16日",
+          "rateType": "1",
+          "auctionNumId": "693545186411"
+        },
+        {
+          "id": "1316175385898",
+          "feedback": "东西很好，尤其物流非常非常好，顺丰快递送到家，这在现在是多稀有多幸福的事啊。东西也不错，试坐了一下，感觉椅子的骨架挺扎实的，只要不是超过200斤的胖子应该都没问题。桌子有个小下次，一根支撑杆装反了，结果杆上的扣眼无法扣上，不过自己那个螺丝刀卸下来重装一下就好，一分钟搞定。",
+          "skuValueStr": "轻便折叠桌（黑色）+经典款典雅黑*2",
+          "feedbackDate": "2026年10月5日",
+          "rateType": "1",
+          "auctionNumId": "693545186411"
+        },
+        {
+          "id": "1316054408572",
+          "feedback": "功能挺实用的。 放在阳台上还真不错 椅子挺稳的。 ",
+          "skuValueStr": "地板保护套+加大克米特-卡其",
+          "feedbackDate": "2026年10月2日",
+          "rateType": "1",
+          "auctionNumId": "693545186411"
+        },
+        {
+          "id": "1317750224657",
+          "feedback": "没有异味。 质感挺高级的。 没有色差。漂亮扎实，放在阳台上挺好用的。",
+          "skuValueStr": "地板保护套+加大克米特-卡其",
+          "feedbackDate": "2026年10月25日",
+          "rateType": "1",
+          "auctionNumId": "693545186411"
+        }
+      ]
+    }
+  },
+  {
+    "api": "mtop.taobao.rate.detaillist.get",
+    "ret": [
+      "SUCCESS::调用成功"
+    ],
+    "v": "6.0",
+    "data": {
+      "feedAllCount": "10000",
+      "feedAllCountFuzzy": "1万+",
+      "feedAppendCount": "400",
+      "feedAppendCountFuzzy": "400+",
+      "feedMediaCount": "3000",
+      "feedMediaCountFuzzy": "3000+",
+      "feedPicCount": "3000",
+      "feedPicCountFuzzy": "3000+",
+      "feedStoreCount": "0",
+      "feedVideoCount": "100",
+      "feedVideoCountFuzzy": "100+",
+      "hasNext": "true",
+      "total": "10000",
+      "totalFuzzy": "1万+",
+      "totalPage": "250",
+      "rateList": [
+        {
+          "id": "1317301756935",
+          "feedback": "该用户觉得商品非常好，给出5星好评",
+          "skuValueStr": "木色架★真双层【卡其】经典款⚡80%人的选择",
+          "feedbackDate": "2026年10月19日",
+          "rateType": "1",
+          "auctionNumId": "693545186411"
+        },
+        {
+          "id": "1313245331180",
+          "feedback": "之前买了一套，质量做工颜值都非常好，有活动就再买一把",
+          "skuValueStr": "【紫色邂逅】经典款★真双层",
+          "feedbackDate": "2026年8月30日",
+          "rateType": "1",
+          "auctionNumId": "693545186411"
+        },
+        {
+          "id": "1314617355700",
+          "feedback": "第一次购买了，质量依然在线，坐上去很舒适，爱了～",
+          "skuValueStr": "木色架★真双层【卡其】经典款⚡80%人的选择",
+          "feedbackDate": "2026年9月17日",
+          "rateType": "1",
+          "auctionNumId": "693545186411"
+        },
+        {
+          "id": "1314838136944",
+          "feedback": "这椅子挺好的，坐着不塌陷，硬挺的不伤尾骨，靠背曲度也合适不累腰……我家有三个这样的椅子，不用抢哦…… 收纳不占地。",
+          "skuValueStr": "木色架★真双层【卡其】经典款⚡80%人的选择",
+          "feedbackDate": "2026年9月17日",
+          "rateType": "1",
+          "auctionNumId": "693545186411"
+        },
+        {
+          "id": "1314870536250",
+          "feedback": "椅子挺轻便。 做工挺精细的。 质感挺高级的。靠背舒服，客户非常耐心。",
+          "skuValueStr": "耀黑架★真双层【典雅黑】加大款",
+          "feedbackDate": "2026年9月17日",
+          "rateType": "1",
+          "auctionNumId": "693545186411"
+        },
+        {
+          "id": "1315385646891",
+          "feedback": "发货速度很快，大品牌质量不错。大小高低宽窄都复合需要的尺寸，折叠后也不占地。海蓝色清新脱俗，大人孩子坐着都说舒服，能提供足够的支持，久坐不累。",
+          "skuValueStr": "秒杀剩7个⚡【海蓝柠檬】经典款",
+          "feedbackDate": "2026年9月25日",
+          "rateType": "1",
+          "auctionNumId": "693545186411"
+        },
+        {
+          "id": "1314973539809",
+          "feedback": "空空的大厅，随意放着就很出片，在室内也可喝喝茶，随兴放松，坐着挺舒服",
+          "skuValueStr": "木色架★真双层【卡其】加大款",
+          "feedbackDate": "2026年9月21日",
+          "rateType": "1",
+          "auctionNumId": "693545186411"
+        },
+        {
+          "id": "1317831021173",
+          "feedback": "质量挺好的，坐着很稳。以后可以带着去钓鱼，闲坐。",
+          "skuValueStr": "木色架★真双层【卡其】经典款⚡80%人的选择",
+          "feedbackDate": "2026年10月27日",
+          "rateType": "1",
+          "auctionNumId": "693545186411"
+        },
+        {
+          "id": "1314234303973",
+          "feedback": "椅子质量很好，小巧结实，户外携带收纳方便，不占地方，蓝色干净好看。",
+          "skuValueStr": "秒杀剩7个⚡【海蓝柠檬】经典款",
+          "feedbackDate": "2026年9月12日",
+          "rateType": "1",
+          "auctionNumId": "693545186411"
+        },
+        {
+          "id": "1317469901561",
+          "feedback": "打开快递第一反应凳面比一般的露营椅宽  图片上也能看得出来  所以坐着肯定比一般露营椅舒服  检查了所有细节没有瑕疵 超级推荐",
+          "skuValueStr": "木色架★真双层【卡其】经典款⚡80%人的选择",
+          "feedbackDate": "2026年10月22日",
+          "rateType": "1",
+          "auctionNumId": "693545186411"
+        },
+        {
+          "id": "1313228967587",
+          "feedback": "已经收到了，质量比我以前买的好，价格也优惠一些。下次再买一个加大款的，160以上的人坐着会更舒服。",
+          "skuValueStr": "木色架★真双层【卡其】经典款⚡80%人的选择",
+          "feedbackDate": "2026年8月30日",
+          "rateType": "1",
+          "auctionNumId": "693545186411"
+        },
+        {
+          "id": "1315807477078",
+          "feedback": "包装完好，质量可以，跟卖家的描述一样，满意",
+          "skuValueStr": "耀黑架★真双层【典雅黑】经典款",
+          "feedbackDate": "2026年9月30日",
+          "rateType": "1",
+          "auctionNumId": "693545186411"
+        },
+        {
+          "id": "1314372596291",
+          "feedback": "椅子很舒适，之前的一把粉红色买的也是原始人家的，承重能力很强，我很喜欢，主要是很结实，质量过硬",
+          "skuValueStr": "木色架★真双层【卡其】经典款⚡80%人的选择",
+          "feedbackDate": "2026年9月11日",
+          "rateType": "1",
+          "auctionNumId": "693545186411"
+        },
+        {
+          "id": "1317116880805",
+          "feedback": "做工扎实，，好好好，，可以在下几个，",
+          "skuValueStr": "地板保护套+经典克米特-黑色",
+          "feedbackDate": "2026年10月17日",
+          "rateType": "1",
+          "auctionNumId": "693545186411"
+        },
+        {
+          "id": "1314859158849",
+          "feedback": "非常好，物超所值!家里之前有这种椅子，不过比这个矮10厘米左右，坐久了觉得窝屈，不够舒坦，就特意找了这个高一点大一点的尺寸，收到非常满意!坐面紧实，扶手都包了塑封! ",
+          "skuValueStr": "木色架★真双层【卡其】经典款⚡80%人的选择",
+          "feedbackDate": "2026年9月18日",
+          "rateType": "1",
+          "auctionNumId": "693545186411"
+        },
+        {
+          "id": "1315399855528",
+          "feedback": "颜色清新，携带轻便，小个子坐着很舒服，可能高个子选个大号椅会更舒服。总体性价比高，物廉价美又实用。",
+          "skuValueStr": "秒杀剩7个⚡【海蓝柠檬】经典款",
+          "feedbackDate": "2026年9月27日",
+          "rateType": "1",
+          "auctionNumId": "693545186411"
+        },
+        {
+          "id": "1315520126586",
+          "feedback": "调节挺灵活的，折叠很方便，颜色也很好看。椅子高度刚好合适，妈妈坐了说挺舒服的，打算放假烧烤的时候用，不错。",
+          "skuValueStr": "秒杀剩7个⚡【海蓝柠檬】经典款",
+          "feedbackDate": "2026年9月27日",
+          "rateType": "1",
+          "auctionNumId": "693545186411"
+        },
+        {
+          "id": "1312730711197",
+          "feedback": "朋友推荐的，椅子做工精细，真材实料，坐上去也稳当，不愧是国货之光，品质优良有保证，值得购买",
+          "skuValueStr": "木色架★真双层【卡其】经典款⚡80%人的选择",
+          "feedbackDate": "2026年8月23日",
+          "rateType": "1",
+          "auctionNumId": "693545186411"
+        },
+        {
+          "id": "1314177872723",
+          "feedback": "第二把蓝色的中号克米特椅了，一开箱依然颜值在线。中号椅子虽然远观貌似比较娇小，但使用后觉得应该够用了。无论轻坐着还是后靠都比较舒适。能久坐而流连忘返。椅子碳钢结构扎实，布料厚实也比较透气，又方便收纳。陆续下单中，期待后面的椅子收到之后在公园好好坐一坐。",
+          "skuValueStr": "秒杀剩7个⚡【海蓝柠檬】经典款",
+          "feedbackDate": "2026年9月8日",
+          "rateType": "1",
+          "auctionNumId": "693545186411"
+        },
+        {
+          "id": "1316554168001",
+          "feedback": "买来放在后备箱的，出去兜风的时候可以拿出来坐着喝喝茶，看看风景",
+          "skuValueStr": "木色架★真双层【卡其】经典款⚡80%人的选择",
+          "feedbackDate": "2026年10月9日",
+          "rateType": "1",
+          "auctionNumId": "693545186411"
+        }
+      ]
+    }
+  },
+  {
+    "api": "mtop.taobao.rate.detaillist.get",
+    "ret": [
+      "SUCCESS::调用成功"
+    ],
+    "v": "6.0",
+    "data": {
+      "feedAllCount": "10000",
+      "feedAllCountFuzzy": "1万+",
+      "feedAppendCount": "400",
+      "feedAppendCountFuzzy": "400+",
+      "feedMediaCount": "3000",
+      "feedMediaCountFuzzy": "3000+",
+      "feedPicCount": "3000",
+      "feedPicCountFuzzy": "3000+",
+      "feedStoreCount": "0",
+      "feedVideoCount": "100",
+      "feedVideoCountFuzzy": "100+",
+      "hasNext": "true",
+      "total": "10000",
+      "totalFuzzy": "1万+",
+      "totalPage": "250",
+      "rateList": [
+        {
+          "id": "1314444751082",
+          "feedback": "凳子非常漂亮，质量很好，值得购买，多巴胺色系",
+          "skuValueStr": "❤芭比白联名款★款式升级-加大款",
+          "feedbackDate": "2026年9月15日",
+          "rateType": "1",
+          "auctionNumId": "693545186411"
+        },
+        {
+          "id": "1316203119565",
+          "feedback": "布料有支撑力，坐下很宽松，结实不摇晃 高度挺合适的。",
+          "skuValueStr": "耀黑架★真双层【典雅黑】经典款",
+          "feedbackDate": "2026年10月8日",
+          "rateType": "1",
+          "auctionNumId": "693545186411"
+        },
+        {
+          "id": "1316328006137",
+          "feedback": "做工挺精细的。 支架挺厚实的。 有点异味。价格便宜，质量感觉真不错，坐下来没有下陷，就是靠背有点短，不能支撑住脖子部位。物流很快。",
+          "skuValueStr": "秒杀剩7个⚡【海蓝柠檬】经典款",
+          "feedbackDate": "2026年10月8日",
+          "rateType": "1",
+          "auctionNumId": "693545186411"
+        },
+        {
+          "id": "1314089580546",
+          "feedback": "克米特椅子实物超出预期，黑色耐脏耐看。金属支架稳固，坐上去没有晃动异响；牛津布面料厚实耐磨，承重靠谱。木质扶手手感温润，坐着胳膊放上去很舒服。可以直接折叠，不用组装，收纳体积小，宿舍、阳台、户外露营都合适，久坐也不会硌屁股，很满意。",
+          "skuValueStr": "耀黑架★真双层【典雅黑】经典款",
+          "feedbackDate": "2026年9月7日",
+          "rateType": "1",
+          "auctionNumId": "693545186411"
+        },
+        {
+          "id": "1316243726731",
+          "feedback": "靠背调节很方便。 坐着挺稳的。 拿起来挺轻的。",
+          "skuValueStr": "木色架★真双层【卡其】加大款",
+          "feedbackDate": "2026年10月7日",
+          "rateType": "1",
+          "auctionNumId": "693545186411"
+        },
+        {
+          "id": "1315100655720",
+          "feedback": "面料没异味。 椅子挺稳的。",
+          "skuValueStr": "【紫色邂逅】经典款★真双层",
+          "feedbackDate": "2026年9月23日",
+          "rateType": "1",
+          "auctionNumId": "693545186411"
+        },
+        {
+          "id": "1313402958548",
+          "feedback": "坐久了也不觉得累，挺舒服的。质量不错，性价比很高，云影客服很耐心，解答了很多疑问，老公也说不错。",
+          "skuValueStr": "耀黑架★真双层【典雅黑】经典款",
+          "feedbackDate": "2026年8月30日",
+          "rateType": "1",
+          "auctionNumId": "693545186411"
+        },
+        {
+          "id": "1314382489396",
+          "feedback": "椅子拿到手质感很高 材质高级 会再回购**",
+          "skuValueStr": "耀黑架★真双层【典雅黑】经典款",
+          "feedbackDate": "2026年9月12日",
+          "rateType": "1",
+          "auctionNumId": "693545186411"
+        },
+        {
+          "id": "1316039917406",
+          "feedback": "椅子很有质感，展开关闭很顺滑，坐起来很结实，好评",
+          "skuValueStr": "秒杀剩7个⚡【海蓝柠檬】经典款",
+          "feedbackDate": "2026年10月3日",
+          "rateType": "1",
+          "auctionNumId": "693545186411"
+        },
+        {
+          "id": "1318085332637",
+          "feedback": "椅子很舒服，很稳，大人小孩都喜欢坐，户外户内都能用，放车里也方便，折叠很小，打开也很丝滑，总之非常喜欢，之前买过原始人躺椅，也很好，这次又买了折叠椅",
+          "skuValueStr": "木色架★真双层【卡其】经典款⚡80%人的选择",
+          "feedbackDate": "2026年10月29日",
+          "rateType": "1",
+          "auctionNumId": "693545186411"
+        },
+        {
+          "id": "1317851825756",
+          "feedback": "做工挺细的，这个颜色也很清新，看起来很舒服",
+          "skuValueStr": "秒杀剩7个⚡【海蓝柠檬】经典款",
+          "feedbackDate": "2026年10月27日",
+          "rateType": "1",
+          "auctionNumId": "693545186411"
+        },
+        {
+          "id": "1317711664804",
+          "feedback": "给家人购买的小椅子，很方便可以折叠后拎在手里，颜色也很好看，适合居家和带出去晒太阳、露营",
+          "skuValueStr": "耀黑架★真双层【典雅黑】儿童款",
+          "feedbackDate": "2026年10月24日",
+          "rateType": "1",
+          "auctionNumId": "693545186411"
+        },
+        {
+          "id": "1315672521371",
+          "feedback": "这颜色太好看看了，露营带出去拍照也很出片呐，大小也合适，包装很好，没有一点瑕疵。会继续回购",
+          "skuValueStr": "秒杀剩7个⚡【海蓝柠檬】经典款",
+          "feedbackDate": "2026年9月28日",
+          "rateType": "1",
+          "auctionNumId": "693545186411"
+        },
+        {
+          "id": "1314178072334",
+          "feedback": "第三把蓝色中号克米特椅已收到，三把叠在一起也就十四五斤最多，不算重。反正就是简约轻巧便携能给生活添加惬意，纵横山水之间。周末可以在春暖花开的海边公园舒展舒展，此椅子也是一个不可或缺的好伙伴。希望店家的椅子能一直保持现在的质量而为今后下单的首选。",
+          "skuValueStr": "秒杀剩7个⚡【海蓝柠檬】经典款",
+          "feedbackDate": "2026年9月8日",
+          "rateType": "1",
+          "auctionNumId": "693545186411"
+        },
+        {
+          "id": "1314089233976",
+          "feedback": "第一次买这种露营椅子，之前毫无了解。掌柜的顺丰发货快捷。开箱发现原始人牌子的克米特椅让人家眼前一亮，颜值高大上，椅子轻盈易收纳，布料也很结实的样子，赞! 满怀期待露营体验这把漂亮的椅子舒服不舒服。",
+          "skuValueStr": "秒杀剩7个⚡【海蓝柠檬】经典款",
+          "feedbackDate": "2026年9月8日",
+          "rateType": "1",
+          "auctionNumId": "693545186411"
+        },
+        {
+          "id": "1313614388337",
+          "feedback": "太好看了 这颜色 我的专属椅子 很稳我很喜欢快递也很快  客服三元不错 ",
+          "skuValueStr": "秒杀剩7个⚡【海蓝柠檬】经典款",
+          "feedbackDate": "2026年9月1日",
+          "rateType": "1",
+          "auctionNumId": "693545186411"
+        },
+        {
+          "id": "1314660737695",
+          "feedback": "很不错的椅子，物流也很快，商家服务态度也好 拿起来挺轻便的。 颜色挺正的。 功能挺实用的。",
+          "skuValueStr": "木色架★真双层【卡其】加大款",
+          "feedbackDate": "2026年9月15日",
+          "rateType": "1",
+          "auctionNumId": "693545186411"
+        },
+        {
+          "id": "1313064682155",
+          "feedback": "椅子坐着舒服，质量很好很结实，携带方便，扶手实木，比了好几家才下单的，要买就买老牌子放心",
+          "skuValueStr": "木色架★真双层【卡其】经典款⚡80%人的选择",
+          "feedbackDate": "2026年8月26日",
+          "rateType": "1",
+          "auctionNumId": "693545186411"
+        },
+        {
+          "id": "1316586582965",
+          "feedback": "质量很好，很有质感，很漂亮，坐着很舒服",
+          "skuValueStr": "木色架★真双层【卡其】经典款⚡80%人的选择",
+          "feedbackDate": "2026年10月11日",
+          "rateType": "1",
+          "auctionNumId": "693545186411"
+        },
+        {
+          "id": "1314626872162",
+          "feedback": "椅子非常好，用来钓鱼很不错，非常满意，质量也很好，一百九十斤的人坐着根本没问题，椅子腿感觉很厚实，布也厚实不变形，坐着非常舒服",
+          "skuValueStr": "木色架★真双层【卡其】经典款⚡80%人的选择",
+          "feedbackDate": "2026年9月14日",
+          "rateType": "1",
+          "auctionNumId": "693545186411"
+        }
+      ]
+    }
+  },
+  {
+    "api": "mtop.taobao.rate.detaillist.get",
+    "ret": [
+      "SUCCESS::调用成功"
+    ],
+    "v": "6.0",
+    "data": {
+      "feedAllCount": "10000",
+      "feedAllCountFuzzy": "1万+",
+      "feedAppendCount": "400",
+      "feedAppendCountFuzzy": "400+",
+      "feedMediaCount": "3000",
+      "feedMediaCountFuzzy": "3000+",
+      "feedPicCount": "3000",
+      "feedPicCountFuzzy": "3000+",
+      "feedStoreCount": "0",
+      "feedVideoCount": "100",
+      "feedVideoCountFuzzy": "100+",
+      "hasNext": "true",
+      "total": "10000",
+      "totalFuzzy": "1万+",
+      "totalPage": "250",
+      "rateList": [
+        {
+          "id": "1316236082717",
+          "feedback": "很好坐 而且不用組裝  比想像中更穩 性價比很高   颜色挺正的。 没有异味。 做工挺精细的。",
+          "skuValueStr": "地板保护套+经典克米特-卡其",
+          "feedbackDate": "2026年10月7日",
+          "rateType": "1",
+          "auctionNumId": "693545186411"
+        },
+        {
+          "id": "1315303236211",
+          "feedback": "很稳的椅子，一点都不会摇晃，把手处理得很丝滑，蒂芙蓝我超喜欢，可惜这个颜色没有加大款，我想再入个加大款的 椅子没有异味。",
+          "skuValueStr": "秒杀剩7个⚡【海蓝柠檬】经典款",
+          "feedbackDate": "2026年9月22日",
+          "rateType": "1",
+          "auctionNumId": "693545186411"
+        },
+        {
+          "id": "1312592186190",
+          "feedback": "这款折叠椅真是户外露营的神器！木色支架搭配双层设计，简约又实用。展开后稳稳当当，坐上去舒适不晃，折叠起来小巧轻便，轻松塞进后备箱。无论是公园野餐还是山间露营，它都能完美胜任，绝对是提升户外体验的必备好物！",
+          "skuValueStr": "木色架★真双层【卡其】经典款⚡80%人的选择",
+          "feedbackDate": "2026年8月19日",
+          "rateType": "1",
+          "auctionNumId": "693545186411"
+        },
+        {
+          "id": "1314979907685",
+          "feedback": "折叠挺轻的。 骨架挺结实的。 质感挺高级的。",
+          "skuValueStr": "秒杀剩7个⚡【海蓝柠檬】经典款",
+          "feedbackDate": "2026年9月21日",
+          "rateType": "1",
+          "auctionNumId": "693545186411"
+        },
+        {
+          "id": "1316095785765",
+          "feedback": "喜欢这个颜色，结果发现实物比图片更好看",
+          "skuValueStr": "秒杀剩7个⚡【海蓝柠檬】经典款",
+          "feedbackDate": "2026年10月4日",
+          "rateType": "1",
+          "auctionNumId": "693545186411"
+        },
+        {
+          "id": "1312988092439",
+          "feedback": "原始人折叠椅的质量非常好，颜色也靓丽，店家发货快，买了两把折叠椅了，收起来也很方便，全家都很喜欢。",
+          "skuValueStr": "【繁花限定】加大款★真双层",
+          "feedbackDate": "2026年8月23日",
+          "rateType": "1",
+          "auctionNumId": "693545186411"
+        },
+        {
+          "id": "1313549087732",
+          "feedback": "桌椅收到质量很好，椅子适合人体角度坐着舒适，自己搭配的黑色桌配卡其色椅也很好看，又下单了椅子收纳袋",
+          "skuValueStr": "90木色桌+经典款木色卡其*2",
+          "feedbackDate": "2026年9月3日",
+          "rateType": "1",
+          "auctionNumId": "693545186411"
+        },
+        {
+          "id": "1314168982707",
+          "feedback": "原始人折叠椅质量好，座起很舒服，带出去野餐钓鱼也方便，颜色大小合适，准备再回购折叠一把。",
+          "skuValueStr": "木色架★真双层【卡其】经典款⚡80%人的选择",
+          "feedbackDate": "2026年9月10日",
+          "rateType": "1",
+          "auctionNumId": "693545186411"
+        },
+        {
+          "id": "1313475667082",
+          "feedback": "放在阳台，让孩子白天读书用的，家里有个标准的，又买了一把儿童椅，也太可爱了吧，但很结实，原始人的东西，大小看中了，闭眼入，好评",
+          "skuValueStr": "木色架★真双层【卡其】儿童款",
+          "feedbackDate": "2026年9月2日",
+          "rateType": "1",
+          "auctionNumId": "693545186411"
+        },
+        {
+          "id": "1317902963996",
+          "feedback": "靠背挺贴合的。 收纳挺方便的。 打开没异味。非常不错",
+          "skuValueStr": "秒杀剩7个⚡【海蓝柠檬】经典款",
+          "feedbackDate": "2026年10月30日",
+          "rateType": "1",
+          "auctionNumId": "693545186411"
+        },
+        {
+          "id": "1318121124963",
+          "feedback": "没有异味，用户非常满意特别好看特别喜欢",
+          "skuValueStr": "秒杀剩7个⚡【海蓝柠檬】经典款",
+          "feedbackDate": "2026年10月30日",
+          "rateType": "1",
+          "auctionNumId": "693545186411"
+        },
+        {
+          "id": "1317777001464",
+          "feedback": "还可以，方便收纳，就看能用多久了",
+          "skuValueStr": "秒杀剩7个⚡【海蓝柠檬】经典款",
+          "feedbackDate": "2026年10月26日",
+          "rateType": "1",
+          "auctionNumId": "693545186411"
+        },
+        {
+          "id": "1317713076161",
+          "feedback": "买了折叠椅和折叠桌一套，收纳方便，重量轻，不错",
+          "skuValueStr": "⚡热销⚡轻便折叠桌（木色）+经典款木色卡其*2",
+          "feedbackDate": "2026年10月24日",
+          "rateType": "1",
+          "auctionNumId": "693545186411"
+        },
+        {
+          "id": "1317526893589",
+          "feedback": "结实，耐用，比其他的份量要重一点。",
+          "skuValueStr": "⚡一桌四椅⚡120黑色桌+经典款典雅黑*4",
+          "feedbackDate": "2026年10月23日",
+          "rateType": "1",
+          "auctionNumId": "693545186411"
+        },
+        {
+          "id": "1317481749612",
+          "feedback": "挺好，来家就在客厅装上了，周末去岸上草原",
+          "skuValueStr": "✅露营全套✅【可后开双刹聚拢推车+22㎡六角钛黑胶+一桌四椅】",
+          "feedbackDate": "2026年10月23日",
+          "rateType": "1",
+          "auctionNumId": "693545186411"
+        },
+        {
+          "id": "1315706378780",
+          "feedback": "调节挺顺滑的。 椅子挺稳的。 颜色挺正的。",
+          "skuValueStr": "120木色桌+经典款木色卡其*2",
+          "feedbackDate": "2026年9月29日",
+          "rateType": "1",
+          "auctionNumId": "693545186411"
+        },
+        {
+          "id": "1314749093150",
+          "feedback": "收纳不占地，颜色很可爱，用淘金币价格也很合适。",
+          "skuValueStr": "秒杀剩7个⚡【海蓝柠檬】经典款",
+          "feedbackDate": "2026年9月17日",
+          "rateType": "1",
+          "auctionNumId": "693545186411"
+        },
+        {
+          "id": "1317234050926",
+          "feedback": "坐着挺稳的。方便收纳，质量很好！",
+          "skuValueStr": "铝合金木纹架★真双层【卡其】加大款",
+          "feedbackDate": "2026年10月20日",
+          "rateType": "1",
+          "auctionNumId": "693545186411"
+        },
+        {
+          "id": "1317243324910",
+          "feedback": "颜色挺正的。 材质挺结实的。 高度挺合适的。",
+          "skuValueStr": "木色架★真双层【卡其】经典款⚡80%人的选择",
+          "feedbackDate": "2026年10月18日",
+          "rateType": "1",
+          "auctionNumId": "693545186411"
+        },
+        {
+          "id": "1316945039669",
+          "feedback": "面料挺厚。质量很好，值得购买，还蛮结实的。 ",
+          "skuValueStr": "木色架★真双层【卡其】经典款⚡80%人的选择",
+          "feedbackDate": "2026年10月18日",
+          "rateType": "1",
+          "auctionNumId": "693545186411"
+        }
+      ]
+    }
+  },
+  {
+    "api": "mtop.taobao.rate.detaillist.get",
+    "ret": [
+      "SUCCESS::调用成功"
+    ],
+    "v": "6.0",
+    "data": {
+      "feedAllCount": "10000",
+      "feedAllCountFuzzy": "1万+",
+      "feedAppendCount": "400",
+      "feedAppendCountFuzzy": "400+",
+      "feedMediaCount": "3000",
+      "feedMediaCountFuzzy": "3000+",
+      "feedPicCount": "3000",
+      "feedPicCountFuzzy": "3000+",
+      "feedStoreCount": "0",
+      "feedVideoCount": "100",
+      "feedVideoCountFuzzy": "100+",
+      "hasNext": "true",
+      "total": "10000",
+      "totalFuzzy": "1万+",
+      "totalPage": "250",
+      "rateList": [
+        {
+          "id": "1313473181279",
+          "feedback": "质量很好，实用好看，蓝色养眼，五星好评！露营产品选原始人，没错👍",
+          "skuValueStr": "秒杀剩7个⚡【海蓝柠檬】经典款",
+          "feedbackDate": "2026年8月31日",
+          "rateType": "1",
+          "auctionNumId": "693545186411"
+        },
+        {
+          "id": "1313512329615",
+          "feedback": "第一次买这个牌子，也是第一次买户外折叠椅，买来小阳台坐着看夜景的，收到纸箱破了，东西没坏，质量不错的，有需要会回购。",
+          "skuValueStr": "木色架★真双层【卡其】经典款⚡80%人的选择",
+          "feedbackDate": "2026年8月31日",
+          "rateType": "1",
+          "auctionNumId": "693545186411"
+        },
+        {
+          "id": "1316859274428",
+          "feedback": "椅子挺稳的。 扶手挺实用的。 面料没有异味。",
+          "skuValueStr": "铝合金木纹架★真双层【卡其】加大款",
+          "feedbackDate": "2026年10月15日",
+          "rateType": "1",
+          "auctionNumId": "693545186411"
+        },
+        {
+          "id": "1315480322710",
+          "feedback": "颜色挺准的。挺好的 搬在外面坐一下很舒服 给朋友也买了。",
+          "skuValueStr": "耀黑架★真双层【典雅黑】加大款",
+          "feedbackDate": "2026年9月26日",
+          "rateType": "1",
+          "auctionNumId": "693545186411"
+        },
+        {
+          "id": "1316668328424",
+          "feedback": "可以好很好非常好的确有点头晕晕乎乎的甚是可爱的孩子都没玩几天就上学了，真的好好休息休息休息休息休息就好像是的",
+          "skuValueStr": "秒杀剩7个⚡【海蓝柠檬】经典款",
+          "feedbackDate": "2026年10月11日",
+          "rateType": "1",
+          "auctionNumId": "693545186411"
+        },
+        {
+          "id": "1312747071317",
+          "feedback": "物流速度特别快，椅子结实美观耐用，坐着舒服还大气，是一次很不错的购物",
+          "skuValueStr": "耀黑架★真双层【典雅黑】经典款",
+          "feedbackDate": "2026年8月23日",
+          "rateType": "1",
+          "auctionNumId": "693545186411"
+        },
+        {
+          "id": "1315024907013",
+          "feedback": "椅子、桌子很结实，云影客服也很耐心的推荐，值得购买",
+          "skuValueStr": "90木色桌+经典款木色卡其*2",
+          "feedbackDate": "2026年9月22日",
+          "rateType": "1",
+          "auctionNumId": "693545186411"
+        },
+        {
+          "id": "1315167157818",
+          "feedback": "折叠方便， 拿起来轻巧， 扶手设计合理，物流迅速，看着结实耐用",
+          "skuValueStr": "【宫野青花】经典款★真双层",
+          "feedbackDate": "2026年9月22日",
+          "rateType": "1",
+          "auctionNumId": "693545186411"
+        },
+        {
+          "id": "1315290712662",
+          "feedback": "质量很好，原始人果然不一般，星辉客服服务很好。",
+          "skuValueStr": "耀黑架★真双层【典雅黑】经典款",
+          "feedbackDate": "2026年9月22日",
+          "rateType": "1",
+          "auctionNumId": "693545186411"
+        },
+        {
+          "id": "1316180935035",
+          "feedback": "靠背挺舒服的。也很硬实，坐的比较舒服",
+          "skuValueStr": "木色架★真双层【卡其】经典款⚡80%人的选择",
+          "feedbackDate": "2026年10月7日",
+          "rateType": "1",
+          "auctionNumId": "693545186411"
+        },
+        {
+          "id": "1316356888637",
+          "feedback": "椅子挺稳的。 颜色质感不错。 没有异味。第二次購買。  ",
+          "skuValueStr": "耀黑架★真双层【典雅黑】经典款",
+          "feedbackDate": "2026年10月6日",
+          "rateType": "1",
+          "auctionNumId": "693545186411"
+        },
+        {
+          "id": "1315035174777",
+          "feedback": "拿起来挺轻的。 收纳不占地方。 颜色质感不错。",
+          "skuValueStr": "木色架★真双层【卡其】经典款⚡80%人的选择",
+          "feedbackDate": "2026年9月21日",
+          "rateType": "1",
+          "auctionNumId": "693545186411"
+        },
+        {
+          "id": "1316124598975",
+          "feedback": "椅子挺轻便。 靠背挺舒服的。 功能挺实用的。",
+          "skuValueStr": "木色架★真双层【卡其】经典款⚡80%人的选择",
+          "feedbackDate": "2026年10月5日",
+          "rateType": "1",
+          "auctionNumId": "693545186411"
+        },
+        {
+          "id": "1313170458854",
+          "feedback": "这款原始人折叠椅质感超棒，框架稳固结实，木扶手手感舒服，布料厚实耐用，便携好收纳，第二次回购依旧满意，露营家用都很合适！",
+          "skuValueStr": "耀黑架★真双层【典雅黑】经典款",
+          "feedbackDate": "2026年8月27日",
+          "rateType": "1",
+          "auctionNumId": "693545186411"
+        },
+        {
+          "id": "1314815387408",
+          "feedback": "椅子质量不错，收纳也挺方便的",
+          "skuValueStr": "秒杀剩7个⚡【海蓝柠檬】经典款",
+          "feedbackDate": "2026年9月19日",
+          "rateType": "1",
+          "auctionNumId": "693545186411"
+        },
+        {
+          "id": "1313098846945",
+          "feedback": "这款椅子坐着非常非常的舒服，这次是回购了2把，我已经推荐给同事买了。谢谢商家！也谢谢客服！",
+          "skuValueStr": "木色架★真双层【卡其】经典款⚡80%人的选择",
+          "feedbackDate": "2026年8月26日",
+          "rateType": "1",
+          "auctionNumId": "693545186411"
+        },
+        {
+          "id": "1313558746461",
+          "feedback": "物流很快，椅子很漂亮，椅子很结实，布艺很漂亮，结实。钢结构。",
+          "skuValueStr": "秒杀剩7个⚡【海蓝柠檬】经典款",
+          "feedbackDate": "2026年9月1日",
+          "rateType": "1",
+          "auctionNumId": "693545186411"
+        },
+        {
+          "id": "1312268430904",
+          "feedback": "这把折叠椅真是“椅子界的变形金刚”！木色框架稳重大气，坐垫柔软舒适，展开后稳当得像座小山，完全不晃。折叠起来小巧玲珑，轻松塞进后备箱，露营、野餐必备神器。",
+          "skuValueStr": "木色架★真双层【卡其】经典款⚡80%人的选择",
+          "feedbackDate": "2026年8月15日",
+          "rateType": "1",
+          "auctionNumId": "693545186411"
+        },
+        {
+          "id": "1315872944025",
+          "feedback": "该用户觉得商品非常好，给出5星好评",
+          "skuValueStr": "木色架★真双层【卡其】加大款",
+          "feedbackDate": "2026年9月30日",
+          "rateType": "1",
+          "auctionNumId": "693545186411"
+        },
+        {
+          "id": "1315821821279",
+          "feedback": "靠背挺舒服的。 没有异味。 外观风格挺好看。",
+          "skuValueStr": "木色架★真双层【卡其】加大款",
+          "feedbackDate": "2026年9月30日",
+          "rateType": "1",
+          "auctionNumId": "693545186411"
+        }
+      ]
+    }
+  },
+  {
+    "api": "mtop.taobao.rate.detaillist.get",
+    "ret": [
+      "SUCCESS::调用成功"
+    ],
+    "v": "6.0",
+    "data": {
+      "feedAllCount": "10000",
+      "feedAllCountFuzzy": "1万+",
+      "feedAppendCount": "400",
+      "feedAppendCountFuzzy": "400+",
+      "feedMediaCount": "3000",
+      "feedMediaCountFuzzy": "3000+",
+      "feedPicCount": "3000",
+      "feedPicCountFuzzy": "3000+",
+      "feedStoreCount": "0",
+      "feedVideoCount": "100",
+      "feedVideoCountFuzzy": "100+",
+      "hasNext": "true",
+      "total": "10000",
+      "totalFuzzy": "1万+",
+      "totalPage": "250",
+      "rateList": [
+        {
+          "id": "1315657451459",
+          "feedback": "坐着挺舒服的，颜值高，垫个垫子小猫也超级喜欢",
+          "skuValueStr": "木色架★真双层【卡其】经典款⚡80%人的选择",
+          "feedbackDate": "2026年9月30日",
+          "rateType": "1",
+          "auctionNumId": "693545186411"
+        },
+        {
+          "id": "1317909978504",
+          "feedback": "很结实，很稳固，靠椅坐着很舒服，美观实用家里户外都适合",
+          "skuValueStr": "木色架★真双层【卡其】经典款⚡80%人的选择",
+          "feedbackDate": "2026年10月29日",
+          "rateType": "1",
+          "auctionNumId": "693545186411"
+        },
+        {
+          "id": "1312563281485",
+          "feedback": "坐久了也不觉得累，挺舒服的。质量特别好，原始人的质量杠杠滴👍",
+          "skuValueStr": "耀黑架★真双层【典雅黑】加大款",
+          "feedbackDate": "2026年8月19日",
+          "rateType": "1",
+          "auctionNumId": "693545186411"
+        },
+        {
+          "id": "1317666857790",
+          "feedback": "质量不错 造型美观 做工精致👍",
+          "skuValueStr": "木色架★真双层【卡其】经典款⚡80%人的选择",
+          "feedbackDate": "2026年10月25日",
+          "rateType": "1",
+          "auctionNumId": "693545186411"
+        },
+        {
+          "id": "1317387895879",
+          "feedback": "质量很好，放在院子里坐着晒太阳很舒服。",
+          "skuValueStr": "木色架★真双层【卡其】加大款",
+          "feedbackDate": "2026年10月24日",
+          "rateType": "1",
+          "auctionNumId": "693545186411"
+        },
+        {
+          "id": "1317665764231",
+          "feedback": "外观风格挺好看。 坐着挺稳的。",
+          "skuValueStr": "耀黑架★真双层【典雅黑】加大款",
+          "feedbackDate": "2026年10月24日",
+          "rateType": "1",
+          "auctionNumId": "693545186411"
+        },
+        {
+          "id": "1317648864686",
+          "feedback": "老人说挺好的。搬到楼下晒太阳用的",
+          "skuValueStr": "秒杀剩7个⚡【海蓝柠檬】经典款",
+          "feedbackDate": "2026年10月24日",
+          "rateType": "1",
+          "auctionNumId": "693545186411"
+        },
+        {
+          "id": "1316775645996",
+          "feedback": "拿起来挺轻的。 折叠后很好收纳。 面料挺舒服的。东西做工不错 ",
+          "skuValueStr": "木色架★真双层【卡其】经典款⚡80%人的选择",
+          "feedbackDate": "2026年10月13日",
+          "rateType": "1",
+          "auctionNumId": "693545186411"
+        },
+        {
+          "id": "1316690389681",
+          "feedback": "调节挺顺滑的，很牢固，买了两次",
+          "skuValueStr": "木色架★真双层【卡其】经典款⚡80%人的选择",
+          "feedbackDate": "2026年10月12日",
+          "rateType": "1",
+          "auctionNumId": "693545186411"
+        },
+        {
+          "id": "1312165624255",
+          "feedback": "这个折叠椅我看了很多家，最终选择了原始人，拿回来果然没有让我失望，椅子的高矮都合适，做工也很好.",
+          "skuValueStr": "耀黑架★真双层【悠然绿】加大款",
+          "feedbackDate": "2026年8月12日",
+          "rateType": "1",
+          "auctionNumId": "693545186411"
+        },
+        {
+          "id": "1313565355512",
+          "feedback": "坐上去特别稳，一点都不晃。牛津布质量很好，不像其他牌子那么单薄，大牌子就是不错。又多买一张。 ",
+          "skuValueStr": "秒杀剩7个⚡【海蓝柠檬】经典款",
+          "feedbackDate": "2026年9月3日",
+          "rateType": "1",
+          "auctionNumId": "693545186411"
+        },
+        {
+          "id": "1313289060966",
+          "feedback": "该用户觉得商品非常好，给出5星好评",
+          "skuValueStr": "木色架★真双层【卡其】经典款⚡80%人的选择",
+          "feedbackDate": "2026年8月27日",
+          "rateType": "1",
+          "auctionNumId": "693545186411"
+        },
+        {
+          "id": "1312370570013",
+          "feedback": "对比过儿童小号，最终入手这款大号经典款，体验提升很明显。坐高29cm，成年人坐上去腿部更自然，不会窝得慌。加粗碳钢支架很稳，坐上去几乎没有晃动，双层600D牛津布布料结实，承重力强。榉木扶手质感在线，折叠打开一秒就位，2.3kg重量拎着不费劲，收纳体积也不大。终身保修这点很安心，宿舍放一把休息放松，性价比很不错。",
+          "skuValueStr": "耀黑架★真双层【典雅黑】经典款",
+          "feedbackDate": "2026年8月16日",
+          "rateType": "1",
+          "auctionNumId": "693545186411"
+        },
+        {
+          "id": "1312742945772",
+          "feedback": "小户型装修，考虑满足功能同时还要灵活好收纳，餐椅是必不可少的，一家三口，考虑父母亲或者朋友小聚，整个7.8把实木椅子不现实，贵不说，平时也用不到。 这个折叠户外椅子完美解决以上问题，几十块钱一把，家里用，带出去都合适，没有使用场景限制，四把椅子折叠后收纳尺寸我已经拍下来了，餐边柜是60深，不影响关门。 注意的是，餐边椅子高度一定要买40cm高带地板护脚的，这样才能配合正常餐桌。 原始人的质量我不就用多说了，户外装备头部品牌，正常使用想弄坏也很难吧。",
+          "skuValueStr": "地板保护套+加大克米特-黑色",
+          "feedbackDate": "2026年8月21日",
+          "rateType": "1",
+          "auctionNumId": "693545186411"
+        },
+        {
+          "id": "1315054355331",
+          "feedback": "折叠后挺好收纳。非常好用",
+          "skuValueStr": "木色架★真双层【卡其】经典款⚡80%人的选择",
+          "feedbackDate": "2026年9月22日",
+          "rateType": "1",
+          "auctionNumId": "693545186411"
+        },
+        {
+          "id": "1314290264670",
+          "feedback": "质量很好的哦，价格便宜点的话再回购",
+          "skuValueStr": "铝合金木纹架★真双层【卡其】加大款",
+          "feedbackDate": "2026年9月10日",
+          "rateType": "1",
+          "auctionNumId": "693545186411"
+        },
+        {
+          "id": "1312554587770",
+          "feedback": "开始买了一个小的，高度29厘米，觉得矮一点退货了又买了这个大号的40厘米高，坐着高度合适靠背也舒服，户外携带方便收纳，售后服务好，赞一个！",
+          "skuValueStr": "木色架★真双层【卡其】加大款",
+          "feedbackDate": "2026年8月20日",
+          "rateType": "1",
+          "auctionNumId": "693545186411"
+        },
+        {
+          "id": "1316255189473",
+          "feedback": "质量不错，我180斤，坐着够结实。",
+          "skuValueStr": "木色架★真双层【卡其】经典款⚡80%人的选择",
+          "feedbackDate": "2026年10月6日",
+          "rateType": "1",
+          "auctionNumId": "693545186411"
+        },
+        {
+          "id": "1314850919556",
+          "feedback": "颜色没色差。 折叠后挺好收纳。 携带挺方便的。",
+          "skuValueStr": "木色架★真双层【卡其】加大款",
+          "feedbackDate": "2026年9月20日",
+          "rateType": "1",
+          "auctionNumId": "693545186411"
+        },
+        {
+          "id": "1313546670495",
+          "feedback": "质量很好.坐着很舒服久坐不累.坐着都能睡着.店家服务也很热情.",
+          "skuValueStr": "木色架★真双层【卡其】加大款",
+          "feedbackDate": "2026年9月1日",
+          "rateType": "1",
+          "auctionNumId": "693545186411"
+        }
+      ]
+    }
+  },
+  {
+    "api": "mtop.taobao.rate.detaillist.get",
+    "ret": [
+      "SUCCESS::调用成功"
+    ],
+    "v": "6.0",
+    "data": {
+      "feedAllCount": "10000",
+      "feedAllCountFuzzy": "1万+",
+      "feedAppendCount": "400",
+      "feedAppendCountFuzzy": "400+",
+      "feedMediaCount": "3000",
+      "feedMediaCountFuzzy": "3000+",
+      "feedPicCount": "3000",
+      "feedPicCountFuzzy": "3000+",
+      "feedStoreCount": "0",
+      "feedVideoCount": "100",
+      "feedVideoCountFuzzy": "100+",
+      "hasNext": "true",
+      "total": "10000",
+      "totalFuzzy": "1万+",
+      "totalPage": "250",
+      "rateList": [
+        {
+          "id": "1316124598977",
+          "feedback": "靠背挺舒服的。 功能挺实用的。",
+          "skuValueStr": "⚡一桌四椅⚡120木色桌+经典款木色卡其*4",
+          "feedbackDate": "2026年10月5日",
+          "rateType": "1",
+          "auctionNumId": "693545186411"
+        },
+        {
+          "id": "1316239092043",
+          "feedback": "功能挺实用的。怪结实了，大人坐也挺稳当",
+          "skuValueStr": "木色架★真双层【卡其】经典款⚡80%人的选择",
+          "feedbackDate": "2026年10月5日",
+          "rateType": "1",
+          "auctionNumId": "693545186411"
+        },
+        {
+          "id": "1312888287909",
+          "feedback": "买的折叠椅收到了，和商品描述的一样，质量看着挺扎实的。已经拍了几张实物图，希望能帮到其他想买的朋友~",
+          "skuValueStr": "耀黑架★真双层【典雅黑】轻巧款",
+          "feedbackDate": "2026年8月25日",
+          "rateType": "1",
+          "auctionNumId": "693545186411"
+        },
+        {
+          "id": "1313450669658",
+          "feedback": "收到货了，非常不错，坐着很舒服",
+          "skuValueStr": "木色架★真双层【卡其】加大款",
+          "feedbackDate": "2026年8月31日",
+          "rateType": "1",
+          "auctionNumId": "693545186411"
+        },
+        {
+          "id": "1314724081946",
+          "feedback": "凳子收到了、质量非常好、一下买了好几个、做餐饮用的、等不够在买、、以后还会继续下单",
+          "skuValueStr": "秒杀剩7个⚡【海蓝柠檬】经典款",
+          "feedbackDate": "2026年9月16日",
+          "rateType": "1",
+          "auctionNumId": "693545186411"
+        },
+        {
+          "id": "1313885965328",
+          "feedback": "确实很划算，物有所值。买过一张了，又来买一张，大牌子就是不一样，比其他牌子质量好多了。",
+          "skuValueStr": "秒杀剩7个⚡【海蓝柠檬】经典款",
+          "feedbackDate": "2026年9月5日",
+          "rateType": "1",
+          "auctionNumId": "693545186411"
+        },
+        {
+          "id": "1312705343474",
+          "feedback": "椅子其他质量都还挺好的。体验感就是坐下去。坐下屁股后面一小段的布，感觉老往后面走和下沉。后面的布要是再加宽一些就好了。导致腰部不是被很好的支撑。",
+          "skuValueStr": "耀黑架★真双层【典雅黑】经典款",
+          "feedbackDate": "2026年8月22日",
+          "rateType": "1",
+          "auctionNumId": "693545186411"
+        },
+        {
+          "id": "1318075405211",
+          "feedback": "用户评价不错，鞋码偏大，外观无用，轻便，无色差，性价比不高，不重，没有异味，没有气味，，备用用途，材质是铝合金 没有色差。 面料没有异味。 自重挺轻便的。",
+          "skuValueStr": "木色架★真双层【卡其】经典款⚡80%人的选择",
+          "feedbackDate": "2026年10月30日",
+          "rateType": "1",
+          "auctionNumId": "693545186411"
+        },
+        {
+          "id": "1317682871358",
+          "feedback": "太漂亮啦。质量超好。在家都能享受咖啡厅的感觉 ",
+          "skuValueStr": "90木色桌+经典款木色卡其*2",
+          "feedbackDate": "2026年10月27日",
+          "rateType": "1",
+          "auctionNumId": "693545186411"
+        },
+        {
+          "id": "1315689632836",
+          "feedback": "之前买过几次了，质量很好，推荐，客服白川服务也很好",
+          "skuValueStr": "耀黑架★真双层【典雅黑】经典款",
+          "feedbackDate": "2026年9月27日",
+          "rateType": "1",
+          "auctionNumId": "693545186411"
+        },
+        {
+          "id": "1317679130439",
+          "feedback": "质量很好，送货上门",
+          "skuValueStr": "木色架★真双层【卡其】经典款⚡80%人的选择",
+          "feedbackDate": "2026年10月26日",
+          "rateType": "1",
+          "auctionNumId": "693545186411"
+        },
+        {
+          "id": "1317549580122",
+          "feedback": "椅子很不错，颜色很亮眼，烧烤时坐很合适",
+          "skuValueStr": "秒杀剩7个⚡【海蓝柠檬】经典款",
+          "feedbackDate": "2026年10月22日",
+          "rateType": "1",
+          "auctionNumId": "693545186411"
+        },
+        {
+          "id": "1315505285532",
+          "feedback": "很漂亮的蓝色，我很喜欢小猫也很喜欢",
+          "skuValueStr": "秒杀剩7个⚡【海蓝柠檬】经典款",
+          "feedbackDate": "2026年9月26日",
+          "rateType": "1",
+          "auctionNumId": "693545186411"
+        },
+        {
+          "id": "1317316072178",
+          "feedback": "椅子质量可以，待后续使用后评价使用体验，就是椅子扶手的保护膜比较难撕，需要螺丝刀拆卸。",
+          "skuValueStr": "耀黑架★真双层【典雅黑】加大款",
+          "feedbackDate": "2026年10月19日",
+          "rateType": "1",
+          "auctionNumId": "693545186411"
+        },
+        {
+          "id": "1312412784287",
+          "feedback": "挺好用的，平时放在家当茶几用，周末拿出去露营用，我150斤，坐了几次，没看到明显的变化，期待耐用。",
+          "skuValueStr": "90木色桌+经典款木色卡其*2",
+          "feedbackDate": "2026年8月15日",
+          "rateType": "1",
+          "auctionNumId": "693545186411"
+        },
+        {
+          "id": "1311963769377",
+          "feedback": "做工太好，很扎实。坐着特别稳，160 斤胖子坐着都没问题，物超所值👍👍👍",
+          "skuValueStr": "木色架★真双层【卡其】经典款⚡80%人的选择",
+          "feedbackDate": "2026年8月10日",
+          "rateType": "1",
+          "auctionNumId": "693545186411"
+        },
+        {
+          "id": "1312723604454",
+          "feedback": "结实，颜值高，关键它价格还不贵",
+          "skuValueStr": "木色架★真双层【卡其】经典款⚡80%人的选择",
+          "feedbackDate": "2026年8月20日",
+          "rateType": "1",
+          "auctionNumId": "693545186411"
+        },
+        {
+          "id": "1312980399658",
+          "feedback": "做工太好了，很扎实，坐着特别稳，第二次买了，物超所值",
+          "skuValueStr": "木色架★真双层【卡其】加大款",
+          "feedbackDate": "2026年8月26日",
+          "rateType": "1",
+          "auctionNumId": "693545186411"
+        },
+        {
+          "id": "1313740356026",
+          "feedback": "很喜欢这个颜色，椅子大小可以，很不错啦，客服塔塔服务好",
+          "skuValueStr": "秒杀剩7个⚡【海蓝柠檬】经典款",
+          "feedbackDate": "2026年9月2日",
+          "rateType": "1",
+          "auctionNumId": "693545186411"
+        },
+        {
+          "id": "1313740348861",
+          "feedback": "桌椅很不错啦，出去烧烤坐着，收纳携带都很方便",
+          "skuValueStr": "⚡热销⚡轻便折叠桌（木色）+经典款木色卡其*2",
+          "feedbackDate": "2026年9月2日",
+          "rateType": "1",
+          "auctionNumId": "693545186411"
+        }
+      ]
+    }
+  },
+  {
+    "api": "mtop.taobao.rate.detaillist.get",
+    "ret": [
+      "SUCCESS::调用成功"
+    ],
+    "v": "6.0",
+    "data": {
+      "feedAllCount": "10000",
+      "feedAllCountFuzzy": "1万+",
+      "feedAppendCount": "400",
+      "feedAppendCountFuzzy": "400+",
+      "feedMediaCount": "3000",
+      "feedMediaCountFuzzy": "3000+",
+      "feedPicCount": "3000",
+      "feedPicCountFuzzy": "3000+",
+      "feedStoreCount": "0",
+      "feedVideoCount": "100",
+      "feedVideoCountFuzzy": "100+",
+      "hasNext": "true",
+      "total": "10000",
+      "totalFuzzy": "1万+",
+      "totalPage": "250",
+      "rateList": [
+        {
+          "id": "1313628125575",
+          "feedback": "椅子坐上去挺舒服的，很结实耐用，质量杠杠滴👍 ",
+          "skuValueStr": "木色架★真双层【卡其】经典款⚡80%人的选择",
+          "feedbackDate": "2026年9月2日",
+          "rateType": "1",
+          "auctionNumId": "693545186411"
+        },
+        {
+          "id": "1315366664416",
+          "feedback": "颜色好靓，用料很足，我感觉比我买的其他品牌好，关键包装很讲究没磕碰",
+          "skuValueStr": "【紫色邂逅】经典款★真双层",
+          "feedbackDate": "2026年9月23日",
+          "rateType": "1",
+          "auctionNumId": "693545186411"
+        },
+        {
+          "id": "1313550530697",
+          "feedback": "高椅子我收到货啦，质量一如既往地好，值得回购",
+          "skuValueStr": "耀黑架★真双层【典雅黑】加大款",
+          "feedbackDate": "2026年9月1日",
+          "rateType": "1",
+          "auctionNumId": "693545186411"
+        },
+        {
+          "id": "1316459890991",
+          "feedback": "好评可以的不错滴，很结实，可以的，好评可以的",
+          "skuValueStr": "秒杀剩7个⚡【海蓝柠檬】经典款",
+          "feedbackDate": "2026年10月9日",
+          "rateType": "1",
+          "auctionNumId": "693545186411"
+        },
+        {
+          "id": "1314152110798",
+          "feedback": "五星好评，产品质量超好，坐着舒服，大品牌就是不一样，客服云影小姐姐服务也是没话说，必须表彰",
+          "skuValueStr": "秒杀剩7个⚡【海蓝柠檬】经典款",
+          "feedbackDate": "2026年9月9日",
+          "rateType": "1",
+          "auctionNumId": "693545186411"
+        },
+        {
+          "id": "1314133386375",
+          "feedback": "性价比很高，做工精制，值得拥有，下次继续回购。",
+          "skuValueStr": "耀黑架★真双层【典雅黑】经典款",
+          "feedbackDate": "2026年9月9日",
+          "rateType": "1",
+          "auctionNumId": "693545186411"
+        },
+        {
+          "id": "1313484829631",
+          "feedback": "小巧轻便收纳起来也不占地方，在家里先简单试用下挺舒服",
+          "skuValueStr": "地板保护套+加大克米特-卡其",
+          "feedbackDate": "2026年8月31日",
+          "rateType": "1",
+          "auctionNumId": "693545186411"
+        },
+        {
+          "id": "1313482162998",
+          "feedback": "质量很不错，一口气买了2把，俩娃都很喜欢，原始人这个牌子值得信赖",
+          "skuValueStr": "耀黑架★真双层【典雅黑】轻巧款",
+          "feedbackDate": "2026年8月31日",
+          "rateType": "1",
+          "auctionNumId": "693545186411"
+        },
+        {
+          "id": "1316253387037",
+          "feedback": "坐上去很稳。 折叠后不占地方。",
+          "skuValueStr": "耀黑架★真双层【典雅黑】经典款",
+          "feedbackDate": "2026年10月8日",
+          "rateType": "1",
+          "auctionNumId": "693545186411"
+        },
+        {
+          "id": "1316409589631",
+          "feedback": "椅子挺轻便。 高度不太合适。",
+          "skuValueStr": "木色架★真双层【卡其】经典款⚡80%人的选择",
+          "feedbackDate": "2026年10月8日",
+          "rateType": "1",
+          "auctionNumId": "693545186411"
+        },
+        {
+          "id": "1315059364183",
+          "feedback": "已经买了四把了，质量好，坐着舒适，满意",
+          "skuValueStr": "木色架★真双层【卡其】加大款",
+          "feedbackDate": "2026年9月19日",
+          "rateType": "1",
+          "auctionNumId": "693545186411"
+        },
+        {
+          "id": "1312480641953",
+          "feedback": "椅子结实漂亮，价格挺实惠的，物有所值，买了好几家这家质量最好。有问题客服也能及时解决",
+          "skuValueStr": "木色架★真双层【卡其】加大款",
+          "feedbackDate": "2026年8月17日",
+          "rateType": "1",
+          "auctionNumId": "693545186411"
+        },
+        {
+          "id": "1313861975448",
+          "feedback": "椅子好看，挺结实质量好",
+          "skuValueStr": "木色架★真双层【卡其】经典款⚡80%人的选择",
+          "feedbackDate": "2026年9月7日",
+          "rateType": "1",
+          "auctionNumId": "693545186411"
+        },
+        {
+          "id": "1311401881050",
+          "feedback": "外包装全透湿透了，里面椅子完好，椅子好看质量还可以，坐得也很舒服，所见即所得。",
+          "skuValueStr": "秒杀剩7个⚡【海蓝柠檬】经典款",
+          "feedbackDate": "2026年8月3日",
+          "rateType": "1",
+          "auctionNumId": "693545186411"
+        },
+        {
+          "id": "1313330290344",
+          "feedback": "这个质量很不错，看着也上档次，包装很严密，发货快，商家服务很nice！奥利给！",
+          "skuValueStr": "木色架★真双层【卡其】经典款⚡80%人的选择",
+          "feedbackDate": "2026年8月29日",
+          "rateType": "1",
+          "auctionNumId": "693545186411"
+        },
+        {
+          "id": "1314818789546",
+          "feedback": "质量不错，发货也很快。回购多次了 ",
+          "skuValueStr": "耀黑架★真双层【典雅黑】加大款",
+          "feedbackDate": "2026年9月17日",
+          "rateType": "1",
+          "auctionNumId": "693545186411"
+        },
+        {
+          "id": "1314837244416",
+          "feedback": "挺耐用的。 拿起来很轻便。 没有异味。",
+          "skuValueStr": "耀黑架★真双层【典雅黑】经典款",
+          "feedbackDate": "2026年9月17日",
+          "rateType": "1",
+          "auctionNumId": "693545186411"
+        },
+        {
+          "id": "1313040588822",
+          "feedback": "该用户未填写评价内容",
+          "skuValueStr": "秒杀剩7个⚡【原始部落】经典款★真双层",
+          "feedbackDate": "2026年8月22日",
+          "rateType": "1",
+          "auctionNumId": "693545186411"
+        },
+        {
+          "id": "1314696670920",
+          "feedback": "专门用来搭小露台一角的，大小合适。",
+          "skuValueStr": "木色架★真双层【卡其】经典款⚡80%人的选择",
+          "feedbackDate": "2026年9月16日",
+          "rateType": "1",
+          "auctionNumId": "693545186411"
+        },
+        {
+          "id": "1311726296015",
+          "feedback": "椅子非常坚固，坐上去很舒服大小也适合，继续买一个椅子",
+          "skuValueStr": "秒杀剩7个⚡【海蓝柠檬】经典款",
+          "feedbackDate": "2026年8月6日",
+          "rateType": "1",
+          "auctionNumId": "693545186411"
+        }
+      ]
+    }
+  },
+  {
+    "api": "mtop.taobao.rate.detaillist.get",
+    "ret": [
+      "SUCCESS::调用成功"
+    ],
+    "v": "6.0",
+    "data": {
+      "feedAllCount": "10000",
+      "feedAllCountFuzzy": "1万+",
+      "feedAppendCount": "400",
+      "feedAppendCountFuzzy": "400+",
+      "feedMediaCount": "3000",
+      "feedMediaCountFuzzy": "3000+",
+      "feedPicCount": "3000",
+      "feedPicCountFuzzy": "3000+",
+      "feedStoreCount": "0",
+      "feedVideoCount": "100",
+      "feedVideoCountFuzzy": "100+",
+      "hasNext": "true",
+      "total": "10000",
+      "totalFuzzy": "1万+",
+      "totalPage": "250",
+      "rateList": [
+        {
+          "id": "1312771565380",
+          "feedback": "凳子非常不错坐着稳当边角处理细致，160斤坐着支撑力足不塌，某些牌子试坐左右晃面料差强人意。",
+          "skuValueStr": "耀黑架★真双层【典雅黑】经典款",
+          "feedbackDate": "2026年8月21日",
+          "rateType": "1",
+          "auctionNumId": "693545186411"
+        },
+        {
+          "id": "1315704681790",
+          "feedback": "试坐了一下，可以，挺稳的，需要的话再来回购",
+          "skuValueStr": "木色架★真双层【卡其】经典款⚡80%人的选择",
+          "feedbackDate": "2026年9月29日",
+          "rateType": "1",
+          "auctionNumId": "693545186411"
+        },
+        {
+          "id": "1315794528856",
+          "feedback": "这款椅子质量很好，坐着舒服，信任原始人",
+          "skuValueStr": "木色架★真双层【卡其】经典款⚡80%人的选择",
+          "feedbackDate": "2026年9月29日",
+          "rateType": "1",
+          "auctionNumId": "693545186411"
+        },
+        {
+          "id": "1312661229968",
+          "feedback": "质量很好，布子也很厚，颜色也很漂亮，可以入手",
+          "skuValueStr": "秒杀剩7个⚡【海蓝柠檬】经典款",
+          "feedbackDate": "2026年8月20日",
+          "rateType": "1",
+          "auctionNumId": "693545186411"
+        },
+        {
+          "id": "1313593363325",
+          "feedback": "错，之前家里就买的这个，现在是回购，然后质量挺好的，很喜欢",
+          "skuValueStr": "木色架★真双层【卡其】经典款⚡80%人的选择",
+          "feedbackDate": "2026年9月3日",
+          "rateType": "1",
+          "auctionNumId": "693545186411"
+        },
+        {
+          "id": "1314560776028",
+          "feedback": "质量很好，很结实，坐上舒适。",
+          "skuValueStr": "120黑色桌+加大款典雅黑*4",
+          "feedbackDate": "2026年9月13日",
+          "rateType": "1",
+          "auctionNumId": "693545186411"
+        },
+        {
+          "id": "1314478610795",
+          "feedback": "扎实，比较稳 靠背挺贴合的。 坐上去挺舒服的。",
+          "skuValueStr": "木色架★真双层【卡其】经典款⚡80%人的选择",
+          "feedbackDate": "2026年9月13日",
+          "rateType": "1",
+          "auctionNumId": "693545186411"
+        },
+        {
+          "id": "1312540162729",
+          "feedback": "很好的一款椅子，原始人的质量没得挑，闭眼入",
+          "skuValueStr": "耀黑架★真双层【典雅黑】加大款",
+          "feedbackDate": "2026年8月19日",
+          "rateType": "1",
+          "auctionNumId": "693545186411"
+        },
+        {
+          "id": "1314406989052",
+          "feedback": "质量挺好的，坐上去挺舒服的。 颜色质感不错。",
+          "skuValueStr": "木色架★真双层【卡其】经典款⚡80%人的选择",
+          "feedbackDate": "2026年9月12日",
+          "rateType": "1",
+          "auctionNumId": "693545186411"
+        },
+        {
+          "id": "1317950934324",
+          "feedback": "送货够快的，下单几个小时就到了，坐着还可以",
+          "skuValueStr": "木色架★真双层【卡其】经典款⚡80%人的选择",
+          "feedbackDate": "2026年10月29日",
+          "rateType": "1",
+          "auctionNumId": "693545186411"
+        },
+        {
+          "id": "1317990060254",
+          "feedback": "第二次购买，性价比高非常好用",
+          "skuValueStr": "耀黑架★真双层【典雅黑】经典款",
+          "feedbackDate": "2026年10月28日",
+          "rateType": "1",
+          "auctionNumId": "693545186411"
+        },
+        {
+          "id": "1317504034005",
+          "feedback": "总体质量对得起价位，发货快，满意！以后出去玩用得着",
+          "skuValueStr": "90木色桌+经典款木色卡其*2",
+          "feedbackDate": "2026年10月23日",
+          "rateType": "1",
+          "auctionNumId": "693545186411"
+        },
+        {
+          "id": "1313609908590",
+          "feedback": "坐着舒服，方便收，好评。",
+          "skuValueStr": "铝合金木纹架★真双层【卡其】经典款",
+          "feedbackDate": "2026年9月1日",
+          "rateType": "1",
+          "auctionNumId": "693545186411"
+        },
+        {
+          "id": "1312846091273",
+          "feedback": "价格合理，质量很好，坐着非常舒服",
+          "skuValueStr": "木色架★真双层【卡其】加大款",
+          "feedbackDate": "2026年8月24日",
+          "rateType": "1",
+          "auctionNumId": "693545186411"
+        },
+        {
+          "id": "1314220681196",
+          "feedback": "很好 质量不错 毕竟品牌 颜色好看！推荐",
+          "skuValueStr": "木色架★真双层【卡其】经典款⚡80%人的选择",
+          "feedbackDate": "2026年9月10日",
+          "rateType": "1",
+          "auctionNumId": "693545186411"
+        },
+        {
+          "id": "1311697842714",
+          "feedback": "很好，坐着很舒服。高端大气上档次",
+          "skuValueStr": "木色架★真双层【卡其】经典款⚡80%人的选择",
+          "feedbackDate": "2026年8月7日",
+          "rateType": "1",
+          "auctionNumId": "693545186411"
+        },
+        {
+          "id": "1310471648975",
+          "feedback": "真心不错的一款便携折叠椅，价格实惠，但用料和品质却不打折扣。方管看着就很扎实，布面也非常厚实，坐在上面完全不用担心垮塌。最最贴心的还是扶手位置的实木还加了塑封保护，开箱展开即可使用，非常方便，要是坐布可以拆卸清洗就更完美了。物超所值，值得下手。",
+          "skuValueStr": "秒杀剩7个⚡耀黑架★真双层【悠然绿】经典款",
+          "feedbackDate": "2026年7月20日",
+          "rateType": "1",
+          "auctionNumId": "693545186411"
+        },
+        {
+          "id": "1313573632731",
+          "feedback": "花色绝美， 有点轻倒。星辉带来的用户体验感极强。 尤其是星辉客服的对接，处理方式服务态度十分专业，效率高。赞！ ",
+          "skuValueStr": "【繁花限定】经典款★真双层",
+          "feedbackDate": "2026年8月31日",
+          "rateType": "1",
+          "auctionNumId": "693545186411"
+        },
+        {
+          "id": "1313369823870",
+          "feedback": "很不错的那款折叠椅，太方便了，很喜欢，孩子也爱坐。",
+          "skuValueStr": "耀黑架★真双层【典雅黑】轻巧款",
+          "feedbackDate": "2026年8月31日",
+          "rateType": "1",
+          "auctionNumId": "693545186411"
+        },
+        {
+          "id": "1312347071563",
+          "feedback": "非常好质量，用起来也非常好用，120的用可以坐8～10个人，喝个下午茶非常合适，喜欢户外的朋友闭眼入手。",
+          "skuValueStr": "耀黑架★真双层【典雅黑】经典款",
+          "feedbackDate": "2026年8月17日",
+          "rateType": "1",
+          "auctionNumId": "693545186411"
+        }
+      ]
+    }
+  },
+  {
+    "api": "mtop.taobao.rate.detaillist.get",
+    "ret": [
+      "SUCCESS::调用成功"
+    ],
+    "v": "6.0",
+    "data": {
+      "feedAllCount": "10000",
+      "feedAllCountFuzzy": "1万+",
+      "feedAppendCount": "400",
+      "feedAppendCountFuzzy": "400+",
+      "feedMediaCount": "3000",
+      "feedMediaCountFuzzy": "3000+",
+      "feedPicCount": "3000",
+      "feedPicCountFuzzy": "3000+",
+      "feedStoreCount": "0",
+      "feedVideoCount": "100",
+      "feedVideoCountFuzzy": "100+",
+      "hasNext": "true",
+      "total": "10000",
+      "totalFuzzy": "1万+",
+      "totalPage": "250",
+      "rateList": [
+        {
+          "id": "1315217785823",
+          "feedback": "拿起来挺轻的。 没有异味。 挺耐用的。",
+          "skuValueStr": "铝合金木纹架★真双层【卡其】加大款",
+          "feedbackDate": "2026年9月22日",
+          "rateType": "1",
+          "auctionNumId": "693545186411"
+        },
+        {
+          "id": "1316744882216",
+          "feedback": "很有质感，不错",
+          "skuValueStr": "耀黑架★真双层【典雅黑】经典款",
+          "feedbackDate": "2026年10月13日",
+          "rateType": "1",
+          "auctionNumId": "693545186411"
+        },
+        {
+          "id": "1312266539424",
+          "feedback": "挺好的，朋友介绍买的，发货也快，质量也不错",
+          "skuValueStr": "木色架★真双层【卡其】加大款",
+          "feedbackDate": "2026年8月16日",
+          "rateType": "1",
+          "auctionNumId": "693545186411"
+        },
+        {
+          "id": "1314117393285",
+          "feedback": "凳子收到了很好、质量也很不错、而且河很美观、200 斤的人坐着都没问题",
+          "skuValueStr": "木色架★真双层【卡其】经典款⚡80%人的选择",
+          "feedbackDate": "2026年9月8日",
+          "rateType": "1",
+          "auctionNumId": "693545186411"
+        },
+        {
+          "id": "1313927547362",
+          "feedback": "躺下来角度刚好，午睡很惬意。",
+          "skuValueStr": "木色架★真双层【卡其】加大款",
+          "feedbackDate": "2026年9月8日",
+          "rateType": "1",
+          "auctionNumId": "693545186411"
+        },
+        {
+          "id": "1316643012905",
+          "feedback": "很好看的颜色，晾了几天味道淡多了。质量蛮好的。秋天来了露营活动也可以用上了。",
+          "skuValueStr": "秒杀剩7个⚡【海蓝柠檬】经典款",
+          "feedbackDate": "2026年10月10日",
+          "rateType": "1",
+          "auctionNumId": "693545186411"
+        },
+        {
+          "id": "1311919834645",
+          "feedback": "这把椅子结构很稳，坐上去完全不晃，给妈妈买的高度也可以，她说四十公分的刚刚好很不错",
+          "skuValueStr": "耀黑架★真双层【典雅黑】加大款",
+          "feedbackDate": "2026年8月10日",
+          "rateType": "1",
+          "auctionNumId": "693545186411"
+        },
+        {
+          "id": "1311328724914",
+          "feedback": "这款商品质量非常好，卖家服务态度也很热情周到。发货速度快，性价比超高，真是物超所值！",
+          "skuValueStr": "秒杀剩7个⚡耀黑架★真双层【悠然绿】经典款",
+          "feedbackDate": "2026年8月1日",
+          "rateType": "1",
+          "auctionNumId": "693545186411"
+        },
+        {
+          "id": "1314008098919",
+          "feedback": "凳子质量挺好，结实稳固，颜色超好看，实物很耐看，便携好用，值得入手👍",
+          "skuValueStr": "秒杀剩7个⚡【海蓝柠檬】经典款",
+          "feedbackDate": "2026年9月7日",
+          "rateType": "1",
+          "auctionNumId": "693545186411"
+        },
+        {
+          "id": "1316460074152",
+          "feedback": "好评，质量不错可以的不错滴整体好评可以的",
+          "skuValueStr": "秒杀剩7个⚡【海蓝柠檬】经典款",
+          "feedbackDate": "2026年10月9日",
+          "rateType": "1",
+          "auctionNumId": "693545186411"
+        },
+        {
+          "id": "1312311866153",
+          "feedback": "坐着挺舒服的，也很结实，做了几天没有质量问题，挺好的",
+          "skuValueStr": "地板保护套+加大克米特-卡其",
+          "feedbackDate": "2026年8月15日",
+          "rateType": "1",
+          "auctionNumId": "693545186411"
+        },
+        {
+          "id": "1312382876518",
+          "feedback": "特意来评价一下，买回来感觉很好，质量很好、价格也算可以，整体感觉颜值高、质量好、便携度高。",
+          "skuValueStr": "⚡一桌四椅⚡120木色桌+经典款木色卡其*4",
+          "feedbackDate": "2026年8月15日",
+          "rateType": "1",
+          "auctionNumId": "693545186411"
+        },
+        {
+          "id": "1316228919193",
+          "feedback": "折叠挺轻的。",
+          "skuValueStr": "木色架★真双层【卡其】经典款⚡80%人的选择",
+          "feedbackDate": "2026年10月8日",
+          "rateType": "1",
+          "auctionNumId": "693545186411"
+        },
+        {
+          "id": "1312771849024",
+          "feedback": "凳子稳固结实，坐着舒服，做工用料都很不错。 坐久了也不觉得累，挺舒服的。",
+          "skuValueStr": "耀黑架★真双层【典雅黑】轻巧款",
+          "feedbackDate": "2026年8月21日",
+          "rateType": "1",
+          "auctionNumId": "693545186411"
+        },
+        {
+          "id": "1312625595392",
+          "feedback": "椅子质量很好，坐起来很舒服，承重也很不错，铝合金的椅身",
+          "skuValueStr": "秒杀剩7个⚡清凉款【铝合金架★三防面料】",
+          "feedbackDate": "2026年8月21日",
+          "rateType": "1",
+          "auctionNumId": "693545186411"
+        },
+        {
+          "id": "1312667793809",
+          "feedback": "确实很结实，一点也不晃，普通的太低了，我买了加高加厚款，很舒服，像一个小沙发，打算再入手两个给农村的老人乘凉用。",
+          "skuValueStr": "木色架★真双层【卡其】加大款",
+          "feedbackDate": "2026年8月20日",
+          "rateType": "1",
+          "auctionNumId": "693545186411"
+        },
+        {
+          "id": "1313878885381",
+          "feedback": "躺上去很舒服，支撑性不错，颜色耐脏，布料质感好",
+          "skuValueStr": "木色架★真双层【卡其】加大款",
+          "feedbackDate": "2026年9月5日",
+          "rateType": "1",
+          "auctionNumId": "693545186411"
+        },
+        {
+          "id": "1313828482817",
+          "feedback": "收纳不占地方。 买的加大版，够宽够大够舒服，像个小沙发",
+          "skuValueStr": "木色架★真双层【卡其】加大款",
+          "feedbackDate": "2026年9月5日",
+          "rateType": "1",
+          "auctionNumId": "693545186411"
+        },
+        {
+          "id": "1315831747737",
+          "feedback": "挺好的，很实用",
+          "skuValueStr": "木色架★真双层【卡其】加大款",
+          "feedbackDate": "2026年10月3日",
+          "rateType": "1",
+          "auctionNumId": "693545186411"
+        },
+        {
+          "id": "1314592954115",
+          "feedback": "东西收到了。试了一下不错。物流很快",
+          "skuValueStr": "木色架★真双层【卡其】加大款",
+          "feedbackDate": "2026年9月15日",
+          "rateType": "1",
+          "auctionNumId": "693545186411"
+        }
+      ]
+    }
+  }
+]

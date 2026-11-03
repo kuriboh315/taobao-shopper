@@ -1,0 +1,537 @@
+{
+  "item": {
+    "title": "KITH Osaka Tiger Tee大阪开业限定老虎水洗做旧短袖男日系T恤女",
+    "itemId": "939581302106",
+    "vagueSellCount": "300+",
+    "images": [
+      "https://img.alicdn.com/imgextra/i2/3223625782/O1CN01A53YWm1saD7KD5kmA_!!3223625782.jpg",
+      "https://img.alicdn.com/imgextra/i2/3223625782/O1CN01KaXeEr1saD7JlVIcC_!!3223625782.jpg",
+      "https://img.alicdn.com/imgextra/i2/3223625782/O1CN01dQ2V831saD7IpEdbL_!!3223625782.jpg",
+      "https://img.alicdn.com/imgextra/i1/3223625782/O1CN01OFELuW1saD7Hc2o3U_!!3223625782.jpg",
+      "https://img.alicdn.com/imgextra/i2/3223625782/O1CN01CIf2Ey1saD7J77uPh_!!3223625782.jpg"
+    ],
+    "spuId": "0"
+  },
+  "seller": {
+    "shopName": "Defans Noah Kith",
+    "sellerNick": "你的微笑1703",
+    "shopId": "197760662",
+    "sellerId": "3223625782",
+    "userId": "3223625782",
+    "evaluates": [
+      {
+        "score": "4.9 ",
+        "level": "1",
+        "levelText": "高",
+        "title": "宝贝描述",
+        "type": "desc"
+      },
+      {
+        "score": "4.9 ",
+        "level": "1",
+        "levelText": "高",
+        "title": "卖家服务",
+        "type": "serv"
+      },
+      {
+        "score": "4.9 ",
+        "level": "1",
+        "levelText": "高",
+        "title": "物流服务",
+        "type": "post"
+      }
+    ],
+    "creditLevel": "14",
+    "certText": "金牌卖家",
+    "sellerType": "C",
+    "pcShopUrl": "//shop197760662.taobao.com"
+  },
+  "skuBase": {
+    "props": [
+      {
+        "hasGroupTags": "false",
+        "packProp": "false",
+        "shouldGroup": "false",
+        "comboProperty": "false",
+        "values": [
+          {
+            "comboPropertyValue": "false",
+            "vid": "4957092",
+            "corner": {
+              "cornerBackgroundColor": "#ff5000",
+              "skuCornerIcon": "",
+              "cornerPVPath": "1627207:4957092",
+              "cornerBorderColor": "#FFFFFF",
+              "cornerText": "千人加购",
+              "cornerTextColor": "#FFFFFF"
+            },
+            "image": "https://gw.alicdn.com/bao/uploaded/i4/3223625782/O1CN01XHkx7w1saD7Hh4BDp_!!3223625782.jpg",
+            "name": "黑灰色"
+          }
+        ],
+        "hasImage": "true",
+        "pid": "1627207",
+        "bigImageMode": "true",
+        "nameDesc": "（1）",
+        "name": "颜色",
+        "valueMap": {
+          "4957092": {
+            "comboPropertyValue": "false",
+            "vid": "4957092",
+            "corner": {
+              "cornerBackgroundColor": "#ff5000",
+              "skuCornerIcon": "",
+              "cornerPVPath": "1627207:4957092",
+              "cornerBorderColor": "#FFFFFF",
+              "cornerText": "千人加购",
+              "cornerTextColor": "#FFFFFF"
+            },
+            "image": "https://gw.alicdn.com/bao/uploaded/i4/3223625782/O1CN01XHkx7w1saD7Hh4BDp_!!3223625782.jpg",
+            "name": "黑灰色"
+          }
+        }
+      },
+      {
+        "hasGroupTags": "false",
+        "packProp": "false",
+        "shouldGroup": "false",
+        "comboProperty": "false",
+        "values": [
+          {
+            "comboPropertyValue": "false",
+            "vid": "28314",
+            "corner": {},
+            "name": "S 现货"
+          },
+          {
+            "comboPropertyValue": "false",
+            "vid": "28315",
+            "corner": {},
+            "name": "M 现货"
+          },
+          {
+            "comboPropertyValue": "false",
+            "vid": "28316",
+            "corner": {},
+            "name": "L 现货"
+          },
+          {
+            "comboPropertyValue": "false",
+            "vid": "28317",
+            "corner": {},
+            "name": "XL 现货"
+          },
+          {
+            "comboPropertyValue": "false",
+            "vid": "407940438",
+            "corner": {},
+            "name": "S预定 9号左右发"
+          },
+          {
+            "comboPropertyValue": "false",
+            "vid": "382096114",
+            "corner": {},
+            "name": "M预定 9号左右发"
+          },
+          {
+            "comboPropertyValue": "false",
+            "vid": "382096115",
+            "corner": {},
+            "name": "L预定 9号左右发"
+          },
+          {
+            "comboPropertyValue": "false",
+            "vid": "382096116",
+            "corner": {},
+            "name": "XL预定 9号左右发"
+          }
+        ],
+        "hasImage": "false",
+        "pid": "20509",
+        "name": "尺码",
+        "valueMap": {
+          "28314": {
+            "comboPropertyValue": "false",
+            "vid": "28314",
+            "corner": {},
+            "name": "S 现货"
+          },
+          "28315": {
+            "comboPropertyValue": "false",
+            "vid": "28315",
+            "corner": {},
+            "name": "M 现货"
+          },
+          "28316": {
+            "comboPropertyValue": "false",
+            "vid": "28316",
+            "corner": {},
+            "name": "L 现货"
+          },
+          "28317": {
+            "comboPropertyValue": "false",
+            "vid": "28317",
+            "corner": {},
+            "name": "XL 现货"
+          },
+          "382096114": {
+            "comboPropertyValue": "false",
+            "vid": "382096114",
+            "corner": {},
+            "name": "M预定 9号左右发"
+          },
+          "382096115": {
+            "comboPropertyValue": "false",
+            "vid": "382096115",
+            "corner": {},
+            "name": "L预定 9号左右发"
+          },
+          "382096116": {
+            "comboPropertyValue": "false",
+            "vid": "382096116",
+            "corner": {},
+            "name": "XL预定 9号左右发"
+          },
+          "407940438": {
+            "comboPropertyValue": "false",
+            "vid": "407940438",
+            "corner": {},
+            "name": "S预定 9号左右发"
+          }
+        }
+      }
+    ],
+    "skus": [
+      {
+        "propPath": "1627207:4957092;20509:28314",
+        "skuId": "6003479490778"
+      },
+      {
+        "propPath": "1627207:4957092;20509:28315",
+        "skuId": "6003479490779"
+      },
+      {
+        "propPath": "1627207:4957092;20509:28316",
+        "skuId": "6003479490780"
+      },
+      {
+        "propPath": "1627207:4957092;20509:28317",
+        "skuId": "6003479490781"
+      },
+      {
+        "propPath": "1627207:4957092;20509:407940438",
+        "skuId": "5868621180601"
+      },
+      {
+        "propPath": "1627207:4957092;20509:382096114",
+        "skuId": "5868621180598"
+      },
+      {
+        "propPath": "1627207:4957092;20509:382096115",
+        "skuId": "5868621180599"
+      },
+      {
+        "propPath": "1627207:4957092;20509:382096116",
+        "skuId": "5868621180600"
+      }
+    ]
+  },
+  "skuCore": {
+    "sku2info": {
+      "0": {
+        "price": {
+          "priceTitle": "优惠前",
+          "priceText": "138",
+          "priceMoney": "13800"
+        },
+        "quantity": 187,
+        "quantityText": "有货",
+        "subPrice": {
+          "priceTitle": "店铺优惠后",
+          "priceText": "117",
+          "priceMoney": "11700"
+        }
+      },
+      "5868621180598": {
+        "price": {
+          "priceTitle": "优惠前",
+          "priceText": "138",
+          "priceMoney": "13800"
+        },
+        "quantity": 10,
+        "quantityText": "即将售罄",
+        "subPrice": {
+          "priceTitle": "店铺优惠后",
+          "priceText": "117",
+          "priceMoney": "11700"
+        }
+      },
+      "5868621180599": {
+        "price": {
+          "priceTitle": "优惠前",
+          "priceText": "138",
+          "priceMoney": "13800"
+        },
+        "quantity": 37,
+        "quantityText": "有货",
+        "subPrice": {
+          "priceTitle": "店铺优惠后",
+          "priceText": "117",
+          "priceMoney": "11700"
+        }
+      },
+      "6003479490780": {
+        "price": {
+          "priceTitle": "优惠前",
+          "priceText": "138",
+          "priceMoney": "13800"
+        },
+        "quantity": 38,
+        "quantityText": "有货",
+        "subPrice": {
+          "priceTitle": "店铺优惠后",
+          "priceText": "117",
+          "priceMoney": "11700"
+        }
+      },
+      "5868621180600": {
+        "price": {
+          "priceText": "138",
+          "priceMoney": "13800"
+        },
+        "quantity": 0,
+        "quantityText": "无货"
+      },
+      "6003479490781": {
+        "price": {
+          "priceTitle": "优惠前",
+          "priceText": "138",
+          "priceMoney": "13800"
+        },
+        "quantity": 22,
+        "quantityText": "有货",
+        "subPrice": {
+          "priceTitle": "店铺优惠后",
+          "priceText": "117",
+          "priceMoney": "11700"
+        }
+      },
+      "5868621180601": {
+        "price": {
+          "priceText": "138",
+          "priceMoney": "13800"
+        },
+        "quantity": 0,
+        "quantityText": "无货"
+      },
+      "6003479490778": {
+        "price": {
+          "priceTitle": "优惠前",
+          "priceText": "138",
+          "priceMoney": "13800"
+        },
+        "quantity": 24,
+        "quantityText": "有货",
+        "subPrice": {
+          "priceTitle": "店铺优惠后",
+          "priceText": "117",
+          "priceMoney": "11700"
+        }
+      },
+      "6003479490779": {
+        "price": {
+          "priceTitle": "优惠前",
+          "priceText": "138",
+          "priceMoney": "13800"
+        },
+        "quantity": 56,
+        "quantityText": "有货",
+        "subPrice": {
+          "priceTitle": "店铺优惠后",
+          "priceText": "117",
+          "priceMoney": "11700"
+        }
+      }
+    }
+  },
+  "plusViewVO": {
+    "industryParamVO": {
+      "hit": "true",
+      "enhanceParamList": [
+        {
+          "valueName": "动物",
+          "propertyName": "图案",
+          "structPv": "false"
+        },
+        {
+          "valueName": "青春流行",
+          "propertyName": "基础风格",
+          "structPv": "false"
+        },
+        {
+          "valueName": "固色",
+          "propertyName": "功能",
+          "structPv": "false"
+        },
+        {
+          "valueName": "棉",
+          "propertyName": "面料",
+          "structPv": "false"
+        },
+        {
+          "valueName": "圆领",
+          "propertyName": "领型设计",
+          "structPv": "false"
+        },
+        {
+          "valueName": "宽松型",
+          "propertyName": "版型分类",
+          "structPv": "false"
+        }
+      ],
+      "basicParamList": [
+        {
+          "valueName": "无品牌/无注册商标",
+          "propertyName": "品牌"
+        },
+        {
+          "valueName": "水洗,做旧",
+          "propertyName": "工艺"
+        },
+        {
+          "valueName": "常规",
+          "propertyName": "袖型"
+        },
+        {
+          "valueName": "青年",
+          "propertyName": "适用人群"
+        },
+        {
+          "valueName": "无帽",
+          "propertyName": "结构细节"
+        },
+        {
+          "valueName": "动物图案",
+          "propertyName": "印花主题"
+        },
+        {
+          "valueName": "日常",
+          "propertyName": "适用场景"
+        },
+        {
+          "valueName": "夏季",
+          "propertyName": "适用季节"
+        },
+        {
+          "valueName": "2025年夏季",
+          "propertyName": "上市年份季节"
+        },
+        {
+          "valueName": "男士",
+          "propertyName": "适用性别"
+        },
+        {
+          "valueName": "短袖",
+          "propertyName": "袖长"
+        },
+        {
+          "valueName": "休闲风",
+          "propertyName": "风格"
+        },
+        {
+          "valueName": "套头",
+          "propertyName": "款式"
+        },
+        {
+          "valueName": "常规款",
+          "propertyName": "衣长类型"
+        },
+        {
+          "valueName": "S,M,L,XL,S预定,M预定,L预定,XL预定",
+          "propertyName": "尺码"
+        },
+        {
+          "valueName": "黑灰色",
+          "propertyName": "颜色"
+        }
+      ]
+    }
+  },
+  "componentsVO": {
+    "priceVO": {
+      "extraPrice": {
+        "priceUnit": "￥",
+        "priceColor": "#FFFFFF",
+        "priceTitle": "店铺优惠后",
+        "priceColorNew": "#FFFFFF",
+        "priceBgColor": "#FF5000",
+        "priceTitleColor": "#FFFFFF",
+        "priceText": "117",
+        "priceMoney": "11700",
+        "hiddenPrice": "false"
+      },
+      "mainBelt": {
+        "priceBeltImg": "https://gw.alicdn.com/imgextra/i1/O1CN01LbZ8qgQUzNK32p0m_!!6000000007072-0-tps-1500-256.jpg",
+        "rightBelt": {
+          "extraTextColor": "#FFFFFF",
+          "countdown": "false",
+          "extraText": "结束",
+          "text": "11月8日 24点",
+          "textColor": "#FFFFFF"
+        },
+        "logo": "https://img.alicdn.com/i4/O1CN01Ydag4EZHbDB0ioSy_!!4611686018427384654-2-atmosphere_center_image_storag-merlin-356-72.png",
+        "beltStyleType": 2
+      },
+      "price": {
+        "priceUnit": "￥",
+        "priceColor": "#FF4F00",
+        "priceTitle": "优惠前",
+        "priceColorNew": "#FFFFFF",
+        "priceTitleColor": "#FF4F00",
+        "priceText": "138",
+        "priceMoney": "13800",
+        "hiddenPrice": "false"
+      },
+      "isNewStyle": "true"
+    },
+    "titleVO": {
+      "salesDesc": "已售 300+"
+    },
+    "sizeTableVO": {
+      "sizeTableTaoDetailView": {
+        "datas": {
+          "sizeData": {
+            "optionLine": {
+              "hasScroll": "false",
+              "contentOffset": 0,
+              "code": "optionLine",
+              "data": [
+                {
+                  "subTitle": "",
+                  "data": {
+                    "list": [
+                      {
+                        "selectedText": "宽松",
+                        "title": "版型",
+                        "list": [
+                          "紧身",
+                          "修身",
+                          "常规",
+                          "宽松",
+                          "超宽"
+                        ]
+                      }
+                    ]
+                  }
+                }
+              ],
+              "row": 0,
+              "title": "商品尺码信息",
+              "type": "100"
+            }
+          }
+        }
+      }
+    }
+  }
+}

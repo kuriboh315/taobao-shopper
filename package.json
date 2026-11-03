@@ -1,0 +1,25 @@
+{
+  "name": "taobao-shopper",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "tsc --noEmit && vite build && vite build -c vite.content.config.ts --mode hook && vite build -c vite.content.config.ts --mode content && tsx scripts/check-bundles.ts",
+    "test": "vitest run",
+    "dev": "vite build --watch",
+    "fixtures": "tsx scripts/extract-fixtures.ts --fixtures tests/fixtures/raw tests/fixtures"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^1.3.0",
+    "zod": "^4.6.7"
+  },
+  "devDependencies": {
+    "@types/chrome": "^0.3.7",
+    "@types/node": "^26.6.6",
+    "jsdom": "^29.1.1",
+    "tsx": "^4.23.15",
+    "typescript": "^7.0.2",
+    "vite": "^8.3.5",
+    "vitest": "^5.0.5"
+  }
+}
